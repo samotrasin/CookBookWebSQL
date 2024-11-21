@@ -1,0 +1,115 @@
+﻿<div class="top-row ps-3 navbar navbar-dark">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="">CookBookWebSQL</a>
+    </div>
+</div>
+
+<input type="checkbox" title="Navigation menu" class="navbar-toggler" />
+
+<div class="nav-scrollable" onclick="document.querySelector('.navbar-toggler').click()">
+    <nav class="flex-column">
+        <div class="nav-item px-3">
+            <NavLink class="nav-link" href="" Match="NavLinkMatch.All">
+                <span class="bi bi-house-door-fill-nav-menu" aria-hidden="true"></span> Home
+            </NavLink>
+        </div>
+
+        <div class="nav-item px-3">
+            <NavLink class="nav-link" href="cuisine">
+                <span class="bi-egg-fried" aria-hidden="true" style="margin-right: 5px;"></span> Cuisine
+            </NavLink>
+        </div>
+        <div class="nav-item px-3">
+            <NavLink class="nav-link" href="categories">
+                <span class="bi-tags" aria-hidden="true" style="margin-right: 5px;"></span> Category
+            </NavLink>
+        </div>
+
+        <div class="nav-item px-3">
+            <NavLink class="nav-link" href="recipes">
+                <span class="bi-journal-text" aria-hidden="true" style="margin-right: 5px;"></span> Recipe
+            </NavLink>
+        </div>
+
+        <div class="nav-item px-3">
+            <NavLink class="nav-link" href="ingredients">
+                <span class="bi-journal-text" aria-hidden="true" style="margin-right: 5px;"></span> Ingredients
+            </NavLink>
+        </div>
+
+        <div class="nav-item px-3">
+            <NavLink class="nav-link" href="users">
+                <span class="bi-journal-text" aria-hidden="true" style="margin-right: 5px;"></span> Users Management
+            </NavLink>
+        </div>
+
+        <div class="nav-item px-3">
+            <NavLink class="nav-link" href="restaurants">
+                <span class="bi-journal-text" aria-hidden="true" style="margin-right: 5px;"></span> Restaurents
+            </NavLink>
+        </div>
+
+        <div class="nav-item px-3">
+            <NavLink class="nav-link" href="restaurants-recipe">
+                <span class="bi-journal-text" aria-hidden="true" style="margin-right: 5px;"></span> Restaurents Recipe
+            </NavLink>
+        </div>
+
+        <div class="nav-item px-3">
+            <NavLink class="nav-link" href="comments">
+                <span class="bi-journal-text" aria-hidden="true" style="margin-right: 5px;"></span> Comments
+            </NavLink>
+        </div>
+        
+        <div class="nav-item px-3">
+            <NavLink class="nav-link" href="feedbacks">
+                <span class="bi-journal-text" aria-hidden="true" style="margin-right: 5px;"></span> feedbacks
+            </NavLink>
+        </div>
+
+        <div class="nav-item px-3">
+            @* total recipes, new recipes, total restaurant, total new restaurants, unread feebacks, unreply feedbacks,
+            unreplied feedbacks, new comments. *@
+            <NavLink class="nav-link" href="admin-dashboard">
+                <span class="bi-journal-text" aria-hidden="true" style="margin-right: 5px;"></span> Admin Dashboard 
+            </NavLink>
+        </div>
+
+        <div class="nav-item px-3">
+            @* wishlist recipes, new recipes, total feedbacks, own comments and replies *@
+            <NavLink class="nav-link" href="user-dashboard">
+                <span class="bi-journal-text" aria-hidden="true" style="margin-right: 5px;"></span> User Dashboard
+            </NavLink>
+        </div>
+
+        <div class="nav-item px-3">
+            @* today recipes, new recipes, top recipes, healthy recipe,  *@
+            <NavLink class="nav-link" href="homepage">
+                <span class="bi-journal-text" aria-hidden="true" style="margin-right: 5px;"></span> Homepage
+            </NavLink>
+        </div>
+
+        <div class="nav-item px-3">
+            <NavLink class="nav-link" href="recipe-detail">
+                <span class="bi-journal-text" aria-hidden="true" style="margin-right: 5px;"></span> Recipe Detail
+            </NavLink>
+        </div>
+
+        <div class="nav-item px-3">
+            @* Search/sort by name, description, instructions, ingredients *@
+            @* search in location *@
+            <NavLink class="nav-link" href="search-recipe">
+                <span class="bi-journal-text" aria-hidden="true" style="margin-right: 5px;"></span> Search Recipe
+            </NavLink>
+        </div>
+
+        <div class="nav-item px-3">
+            @* Restaurant information including logo, name, store open-close hour *@
+            @* Restaurant menu (can comment on specific menu of the restaurant) *@
+            <NavLink class="nav-link" href="restaurant-detail">
+                <span class="bi-journal-text" aria-hidden="true" style="margin-right: 5px;"></span> Restaurant Detail
+            </NavLink>
+        </div>
+    </nav>
+</div>
+

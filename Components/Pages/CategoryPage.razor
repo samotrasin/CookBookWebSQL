@@ -1,0 +1,75 @@
+@page "/categories"
+@rendermode InteractiveServer
+@using Microsoft.EntityFrameworkCore
+@inject CookBookDBContext context
+<h3>Category</h3>
+<table class="table table-striped">
+    <thead>
+        <tr><th colspan="3" class="text-end">
+            <button type="button" class="btn btn-success"
+            @onclick="showAddModal">Create Category</button>
+        </th></tr>
+        <tr><th>ID</th><th>Name</th><th>Actions</th></tr>
+    </thead>
+    <tbody>
+        @foreach (var cat in categories){
+            <tr><td>@cat.Id</td>
+            <td>@cat.Name</td>
+            <td>
+                <button type="button" class="btn btn-warning">Edit</button>
+                <button type="button" class="btn btn-danger">Delete</button>
+            </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+@* Add modal *@
+<div class="modal fade show" style="display:@modalAddDisplay" tabindex="-1">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">New Category</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+        <EditForm Model=@category OnValidSubmit=DoAddCategory>
+      <div class="modal-body">
+        <div class="form-field">
+            <label class="form-label">Category name:  </label>
+            <InputText @bind-Value=category.Name/>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" @onclick=hideAddModal>Close</button>
+        <button type="submit" class="btn btn-primary">Save changes</button>
+      </div>
+        </EditForm>
+    </div>
+  </div>
+</div>
+
+@code {
+    List<Category> categories =[];
+    Category category = new Category();
+    string modalAddDisplay = "none";
+    protected override async Task OnInitializedAsync()
+    {
+        categories.AddRange(await context.Categories.ToListAsync());
+    }
+    void showAddModal(){
+        modalAddDisplay = "block";
+        }
+
+    void hideAddModal(){
+        modalAddDisplay = "none";
+    }
+
+    async Task DoAddCategory(EditContext editContext){
+        await context.Categories.AddAsync(category);
+        context.SaveChanges();
+        categories.Add(category);
+        category = new Category();
+        modalAddDisplay = "none";
+    }
+
+}

@@ -1,0 +1,247 @@
+@page "/recipes"
+@rendermode InteractiveServer
+@inject CookBookWebSQL.Service.RecipeService recipeService
+@inject IWebHostEnvironment Environment
+@inject ILogger<RecipePage> Logger
+@inject IJSRuntime JS
+<h3>Recipe Page</h3>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th colspan="6" class="text-end">
+                <button type="button" class="btn btn-primary" @onclick="ShowAddModal">
+                    <i class="bi bi-plus-circle"></i> Add Recipe</button>
+            </th>
+        </tr>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Created Date</th>
+            <th>Updated Date</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach(var rec in recipes){
+            var index = recipes.IndexOf(rec);
+            <tr>
+                <td>@rec.Id</td>
+                <td>@rec.Name</td>
+                <td>@rec.CreatedDate</td>
+                <td>@rec.UpdatedDate</td>
+                <td>
+                    @(rec.Images.Aggregate<RecipeImage,string>("a:",(old,im)=>old+","+im.Path))
+                        @foreach (var im in rec.Images)
+                        {
+                            <img src="=/uploads/@im.Path"Actions style="width: 80px;" class="rounded-circle text-bg-light border border-5 p-2"/>
+                        }
+                </td>
+                <td>
+                    <button type="button" class="btn btn-primary" @onclick="() => ShowInstructionsModal(rec)">View Instructions</button>
+                    <button type="button" class="btn btn-warning" @onclick="()=> OpenEditModal(rec)">Edit</button>
+                    <button type="button" class="btn btn-danger" @onclick="() => ConfirmDeleteRecipe(rec)">Delete</button>
+                    <button type="button" class="btn btn-secondary">View Pictures</button>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+@* Add modal *@
+<div class="modal fade show" style="display: @getDisplay();" tabindex="-1">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Add New Recipe</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form method="post">
+            <div class="form-group">
+                <label class="form-label">Recipe Name</label>
+                <input @bind="recipeName" class="form-control" @ref="controlName">
+            </div>
+            <div class="form-group">
+                <label class="form-label">Instructions</label>
+                <textarea @bind="recipeInstructions" class="form-control" rows="10"></textarea>
+            </div>
+            <div class="form-group">
+                <label class="form-label">Images</label>
+                <InputFile OnChange=LoadFiles class="form-control" multiple />
+                <br>
+                @foreach (var img in recipeImages)
+                {
+                    <b>@img.Path</b>
+                    <br>
+                }
+                <dir class="row g-3">
+                    @foreach (var img in recipeImages)
+                    {
+                        <div class="card text-center">
+                            <img src="uploads/@img.Path" class="card-img" alt="@img.Path">
+                            <div class="card-img-overlay">
+                                <h5 class="card-body">@img.Path</h5>
+                            </div>
+                        </div>
+                    }
+                </dir>
+            </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" @onclick="()=>isAddModalShowing=false">Close</button>
+        <button type="button" class="btn btn-primary" @onclick="AddNewRecipe">Save New Recipe</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+@* Edit modal *@
+<div class="modal fade show" style="display: @getDisplayEdit();" tabindex="-1">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Edit Current Recipe</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form method="post">
+            <div class="form-group">
+            <label class="form-label">Recipe Name</label>
+            <input @bind="recipeName" class="form-control" @ref="controlNameEdit">
+            </div>
+            <div class="form-group">
+                <label class="form-label">Instructions</label>
+                <textarea @bind="recipeInstructions" class="form-control" rows="10"></textarea>
+            </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" @onclick="()=>isEditModalShowing=false">Close</button>
+        <button type="button" class="btn btn-primary" @onclick="EditRecipe">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+@* Instruction Modal *@
+<div class="modal fade show" style="display: @(isInstructionsModalShowing ? "block" : "none")" tabindex="-1">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Recipe Instructions</h5>
+                <button type="button" class="btn-close" @onclick="HideInstructionsModal"></button>
+            </div>
+            <div class="modal-body">
+                <textarea @bind="recipeInstructions" class="form-control" rows="10"></textarea>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" @onclick="HideInstructionsModal">Close</button>
+        </div>
+        </div>
+    </div>
+</div>
+@code{
+    List<Recipe> recipes = [];
+    List<RecipeImage> recipeImages = [];
+    private Recipe currentRecipe = new();
+    private string recipeName="";
+    private string recipeInstructions="";
+    private ElementReference controlName;
+    bool isAddModalShowing = false;
+    private ElementReference controlNameEdit;
+    private bool isEditModalShowing = false;
+    private bool isInstructionsModalShowing = false;
+    private string modalTitle = "";
+    string getDisplay(){
+        return isAddModalShowing ? "block" : "none";
+    }
+    string getDisplayEdit(){
+        return isEditModalShowing ? "block" : "none";
+    }
+
+    protected override async Task OnInitializedAsync()
+    {
+        recipes = await recipeService.GetRecipesAsync();
+    }
+
+    public void ShowAddModal(){
+        currentRecipe = new Recipe();
+        recipeName = "";
+        recipeInstructions = "";
+        modalTitle = "Add New Recipe";
+        isAddModalShowing = true;
+    }
+
+    public async Task AddNewRecipe(){
+        currentRecipe.Name = recipeName;
+        currentRecipe.Instructions = recipeInstructions;
+        currentRecipe.CreatedDate = DateTime.Now;
+        currentRecipe.UpdatedDate = DateTime.Now;
+        await recipeService.AddRecipe(currentRecipe);
+        recipes = await recipeService.GetRecipesAsync();
+        isAddModalShowing = false;
+        StateHasChanged();
+    }
+
+    public async Task EditRecipe(){
+        if(currentRecipe != null){
+            currentRecipe!.Name = recipeName;
+            currentRecipe!.Instructions = recipeInstructions;
+            currentRecipe!.UpdatedDate = DateTime.Now;
+            await recipeService.UpdateRecipe(currentRecipe);
+            recipes = await recipeService.GetRecipesAsync();
+            recipeImages = new List<RecipeImage>();
+            isEditModalShowing = false;
+            StateHasChanged();
+        }
+    }
+
+    public void OpenEditModal(Recipe recipe){
+        currentRecipe = recipe;
+        recipeName = recipe.Name;
+        recipeInstructions = recipe.Instructions;
+        modalTitle = "Edit Recipe";
+        isEditModalShowing = true;
+    }
+
+    public void ShowInstructionsModal(Recipe recipe){
+        recipeInstructions = recipe.Instructions;
+        isInstructionsModalShowing = true;
+    }
+
+    public void HideInstructionsModal(){
+        isInstructionsModalShowing = false;
+    }
+
+    public async Task ConfirmDeleteRecipe(Recipe recipe)
+    {
+        var res = await JS.InvokeAsync<bool>("confirm", "Are you sure you want to delete this recipe?");
+        if(res)
+        {
+            await recipeService.DeleteRecipe(recipe);
+            recipes = await recipeService.GetRecipesAsync();
+            StateHasChanged();
+        }
+    }
+
+    private async Task LoadFiles(InputFileChangeEventArgs e)
+    {
+        try
+        {
+            recipeImages.Clear();
+            foreach (var file in e.GetMultipleFiles())
+            {
+                var trustedFileName = file.Name;
+                var path = Path.Combine(Environment.ContentRootPath, "wwwroot", "uploads", trustedFileName);
+                await using FileStream fileStream = new(path, FileMode.Create);
+                await file.OpenReadStream(1024*350).CopyToAsync(fileStream); // 350kb
+                recipeImages.Add(new() { Path = trustedFileName });
+            }
+        }
+        catch (Exception)
+        {
+            return;
+        }
+    }
+}

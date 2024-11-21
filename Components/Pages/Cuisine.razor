@@ -1,0 +1,145 @@
+@page "/cuisine"
+@rendermode InteractiveServer
+@inject CookBookWebSQL.Service.CuisineService cuisineService
+@inject IJSRuntime JS
+<h3>Cuisine</h3>
+<table class="table table-striped">
+    <thead>
+        <tr>
+          <th></th>
+          <th></th>
+          <th class="text-end">
+            <button type="button" class="btn btn-primary"
+                @onclick="()=>isAddModalShowing=true">
+                <i class="bi bi-plus-circle"></i>
+                Add Cuisine
+            </button>
+        </th></tr>
+        <tr><th>ID</th><th>Name</th><th>Actions</th></tr>
+    </thead>
+    <tbody>
+    @for(var i=0;i<cuisines.Count;i++){
+      var index = i;
+        <tr>
+            <td>@cuisines[i].Id</td>
+            <td>@cuisines[i].Name</td>
+            <td><button type="button" class="btn btn-warning" 
+                @onclick="()=>OpenEditModal(index)">
+                <i class="bi bi-pencil-square"></i>
+                Edit
+            </button>
+            <button type="button" class="btn btn-danger" @onclick="async()=>await DeleteCuisine(cuisines[index])">
+                <i class="bi bi-trash-fill"></i>
+                Delete
+            </button>
+            </td>
+        </tr>
+    }
+    </tbody>
+</table>
+@* Add modal *@
+<div class="modal fade show" style="display: @getDisplay();" tabindex="-1">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Modal title</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form method="post">
+            <div class="form-group">
+            <label class="form-label">Cuisine name</label>
+            <input @bind="cuisineName" class="form-control" @ref="controlName">
+            </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" @onclick="()=>isAddModalShowing=false">Close</button>
+        <button type="button" class="btn btn-primary" @onclick="AddCuisine">Save new cuisine</button>
+      </div>
+    </div>
+  </div>
+</div>
+@* Edit modal *@
+<div class="modal fade show" style="display: @getDisplayEdit();" tabindex="-1">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Modal title</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form method="post">
+            <div class="form-group">
+            <label class="form-label">Cuisine name</label>
+            <input @bind="cuisineName" class="form-control" @ref="controlNameEdit">
+            </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" @onclick="()=>isEditModalShowing=false">Close</button>
+        <button type="button" class="btn btn-primary" @onclick="EditCuisine">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+@code {
+    private List<CookBookWebSQL.Models.Cuisine> cuisines=[];
+
+    private bool isAddModalShowing = false;
+    private string cuisineName="";
+    private ElementReference controlName;
+    private bool isEditModalShowing = false;
+    private ElementReference controlNameEdit;
+    private Models.Cuisine? currentCuisine;
+
+    string getDisplay(){
+        return isAddModalShowing ? "block" : "none";
+    }
+    string getDisplayEdit(){
+        return isEditModalShowing ? "block" : "none";
+    }
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if(isAddModalShowing){
+            await controlName.FocusAsync();
+        }
+    }
+    protected override async Task OnInitializedAsync()
+    {
+        cuisines.AddRange(await cuisineService.GetCuisinesAsync());
+    }
+
+    public async Task AddCuisine(){
+        await cuisineService.AddCuisine(new Models.Cuisine{Name=cuisineName});
+        cuisineName = string.Empty;
+        isAddModalShowing = false;
+        cuisines.Clear();
+        cuisines.AddRange(await cuisineService.GetCuisinesAsync());
+    }
+
+    public async Task EditCuisine(){
+        if(currentCuisine != null){
+            currentCuisine!.Name = cuisineName;
+            await cuisineService.UpdateCuisine(currentCuisine!);
+            isEditModalShowing = false;
+        }
+    }
+
+    public void OpenEditModal(int i){
+        isEditModalShowing = true;
+        cuisineName = cuisines[i].Name;
+        currentCuisine = cuisines[i];
+    }
+
+    public async Task DeleteCuisine(Models.Cuisine cuisine){
+        var res = await JS.InvokeAsync<bool>("confirm", "Are you sure you want to delete this cuisine?");
+          if(res){
+            await cuisineService.DeleteCuisine(cuisine);
+            cuisines.Clear();
+            cuisines.AddRange(await cuisineService.GetCuisinesAsync());
+            }
+    }
+}
