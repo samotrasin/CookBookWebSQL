@@ -8245,8 +8245,24 @@
       "PackagePath": "staticwebassets\\lib\\bootstrap-icons\\icons\\zoom-out.svg"
     },
     {
+      "Id": "C:\\Users\\ssamo\\Documents\\IT STEP CLOUD\\IT STEP\\Term 4\\ASPNET\\CookBookWebSQL\\wwwroot\\uploads\\360_F_109759077_SVp62TBuHkSn3UsGW4dBOm9R0ALVetYw.jpg",
+      "PackagePath": "staticwebassets\\uploads\\360_F_109759077_SVp62TBuHkSn3UsGW4dBOm9R0ALVetYw.jpg"
+    },
+    {
       "Id": "C:\\Users\\ssamo\\Documents\\IT STEP CLOUD\\IT STEP\\Term 4\\ASPNET\\CookBookWebSQL\\wwwroot\\uploads\\Logo Long Ge.png",
       "PackagePath": "staticwebassets\\uploads\\Logo Long Ge.png"
+    },
+    {
+      "Id": "C:\\Users\\ssamo\\Documents\\IT STEP CLOUD\\IT STEP\\Term 4\\ASPNET\\CookBookWebSQL\\wwwroot\\uploads\\Pan-Fried-Noodles-9.jpg",
+      "PackagePath": "staticwebassets\\uploads\\Pan-Fried-Noodles-9.jpg"
+    },
+    {
+      "Id": "C:\\Users\\ssamo\\Documents\\IT STEP CLOUD\\IT STEP\\Term 4\\ASPNET\\CookBookWebSQL\\wwwroot\\uploads\\afg-spaghetti-alla-assassina-1-19ef-threeByTwoMediumAt2X.webp",
+      "PackagePath": "staticwebassets\\uploads\\afg-spaghetti-alla-assassina-1-19ef-threeByTwoMediumAt2X.webp"
+    },
+    {
+      "Id": "C:\\Users\\ssamo\\Documents\\IT STEP CLOUD\\IT STEP\\Term 4\\ASPNET\\CookBookWebSQL\\wwwroot\\uploads\\korean-beef-noodles-105-1.jpg",
+      "PackagePath": "staticwebassets\\uploads\\korean-beef-noodles-105-1.jpg"
     },
     {
       "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.CookBookWebSQL.Microsoft.AspNetCore.StaticWebAssets.props",
