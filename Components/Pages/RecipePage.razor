@@ -1,6 +1,7 @@
 @page "/recipes"
 @rendermode InteractiveServer
 @inject CookBookWebSQL.Service.RecipeService recipeService
+@inject CookBookWebSQL.Service.CategoryService categoriesService
 @inject IWebHostEnvironment Environment
 @inject ILogger<RecipePage> Logger
 @inject IJSRuntime JS
@@ -17,8 +18,8 @@
         <tr>
             <th>ID</th>
             <th>Name</th>
+            <th>Category</th>
             <th>Created Date</th>
-            <th>Updated Date</th>
             <th>Actions</th>
         </tr>
     </thead>
@@ -28,8 +29,8 @@
             <tr>
                 <td>@rec.Id</td>
                 <td>@rec.Name</td>
+                <td>@(rec.Categories.FirstOrDefault()?.Name ?? "No Category")</td>
                 <td>@rec.CreatedDate</td>
-                <td>@rec.UpdatedDate</td>
                 @* <td>
                     @(rec.Images.Aggregate<RecipeImage,string>("a:",(old,im)=>old+","+im.Path))
                         @foreach (var im in rec.Images)
@@ -54,7 +55,7 @@
     <div class="modal-content">
       <div class="modal-header">
         <h5 class="modal-title">Add New Recipe</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" @onclick="()=>isAddModalShowing=false"></button>
       </div>
       <div class="modal-body">
         <form method="post">
@@ -65,6 +66,16 @@
             <div class="form-group">
                 <label class="form-label">Instructions</label>
                 <textarea @bind="recipeInstructions" class="form-control" rows="10"></textarea>
+            </div>
+            <div class="form-group">
+                <label class="form-label">Category</label>
+                <select @bind="selectedCategoryId" class="form-control">
+                    <option value="">Select Category</option>
+                    @foreach (var category in categories)
+                    {
+                        <option value="@category.Id">@category.Name</option>
+                    }
+                </select>
             </div>
             <div class="form-group">
                 <label class="form-label">Images</label>
@@ -103,7 +114,7 @@
     <div class="modal-content">
       <div class="modal-header">
         <h5 class="modal-title">Edit Current Recipe</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" @onclick="()=>isEditModalShowing=false"></button>
       </div>
       <div class="modal-body">
         <form method="post">
@@ -114,6 +125,16 @@
             <div class="form-group">
                 <label class="form-label">Instructions</label>
                 <textarea @bind="recipeInstructions" class="form-control" rows="10"></textarea>
+            </div>
+            <div class="form-group">
+                <label class="form-label">Category</label>
+                <select @bind="selectedCategoryId" class="form-control">
+                    <option value="">Select Category</option>
+                    @foreach (var category in categories)
+                    {
+                        <option value="@category.Id">@category.Name</option>
+                    }
+                </select>
             </div>
             <div class="form-group">
                 <label class="form-label">Images</label>
@@ -145,6 +166,7 @@
     </div>
   </div>
 </div>
+
 @* Instruction Modal *@
 <div class="modal fade show" style="display: @(isInstructionsModalShowing ? "block" : "none")" tabindex="-1">
     <div class="modal-dialog">
@@ -191,6 +213,7 @@
     List<Recipe> recipes = [];
     List<RecipeImage> recipeImages = new List<RecipeImage>();
     private List<RecipeImage> currentRecipeImages = new List<RecipeImage>();
+    private List<Category> categories = new List<Category>();
     private Recipe currentRecipe = new();
     private string recipeName="";
     private string recipeInstructions="";
@@ -201,6 +224,7 @@
     private bool isInstructionsModalShowing = false;
     private bool isPictureModalShowing = false;
     private string modalTitle = "";
+    private int selectedCategoryId;
     string getDisplay(){
         return isAddModalShowing ? "block" : "none";
     }
@@ -211,6 +235,7 @@
     protected override async Task OnInitializedAsync()
     {
         recipes = await recipeService.GetRecipesAsync();
+        categories = await categoriesService.GetCategoriesAsync();
     }
 
     public void ShowAddModal(){
@@ -227,6 +252,13 @@
         currentRecipe.CreatedDate = DateTime.Now;
         currentRecipe.UpdatedDate = DateTime.Now;
         currentRecipe.Images = recipeImages;
+
+        var selectedCategory = categories.FirstOrDefault(cat => cat.Id == selectedCategoryId);
+        if(selectedCategory != null)
+        {
+            currentRecipe.Categories.Add(selectedCategory);
+        }
+
         await recipeService.AddRecipe(currentRecipe);
         recipes = await recipeService.GetRecipesAsync();
         recipeImages = new List<RecipeImage>();
