@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "/fSY82O7OKkzo8PB+ywLoG43aZh/N0Fvj+968kjFjyE=",
+  "Hash": "3ccoOEUXVIFJlZ/oanYBvYmup/No20CUpXVHsLxhn3A=",
   "Source": "CookBookWebSQL",
   "BasePath": "_content/CookBookWebSQL",
   "Mode": "Default",
@@ -39269,6 +39269,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\uploads\\Logo Long Ge.png"
+    },
+    {
+      "Identity": "C:\\Users\\ssamo\\Documents\\IT STEP CLOUD\\IT STEP\\Term 4\\ASPNET\\CookBookWebSQL\\wwwroot\\uploads\\Orange.png",
+      "SourceId": "CookBookWebSQL",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\ssamo\\Documents\\IT STEP CLOUD\\IT STEP\\Term 4\\ASPNET\\CookBookWebSQL\\wwwroot\\",
+      "BasePath": "_content/CookBookWebSQL",
+      "RelativePath": "uploads/Orange.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\uploads\\Orange.png"
     },
     {
       "Identity": "C:\\Users\\ssamo\\Documents\\IT STEP CLOUD\\IT STEP\\Term 4\\ASPNET\\CookBookWebSQL\\wwwroot\\uploads\\Pan-Fried-Noodles-9.jpg",
