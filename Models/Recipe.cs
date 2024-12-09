@@ -10,4 +10,5 @@ namespace CookBookWebSQL.Models
     public List<RecipeImage> Images { get; set; }= new List<RecipeImage>();
     public List<Category> Categories { get; set; }= new List<Category>();
     }
+    // add
 }
