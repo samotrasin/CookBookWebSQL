@@ -1,0 +1,311 @@
+﻿@page "/ingredients"
+@rendermode InteractiveServer
+@inject CookBookWebSQL.Service.IngredientService ingredientService
+@inject IWebHostEnvironment Environment
+@inject ILogger<IngredientPage> Logger
+@inject IJSRuntime JS
+@using Microsoft.EntityFrameworkCore
+<h3>Ingredient Page</h3>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th colspan="6" class="text-end">
+                <button type="button" class="btn btn-primary" @onclick="ShowAddModal">
+                    <i class="bi bi-plus-circle"></i> Add Ingredient</button>
+            </th>
+        </tr>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Created Date</th>
+            <th>Updated Date</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var ing in ingredients)
+        {
+            var index = ingredients.IndexOf(ing);
+            <tr>
+                <td>@ing.Id</td>
+                <td>@ing.Name</td>
+                <td>@ing.CreatedDate</td>
+                <td>@ing.UpdatedDate</td>
+                <td>
+                    <button type="button" class="btn btn-primary" @onclick="() => ShowInstructionsModal(ing)">View
+                        Descriptions</button>
+                    <button type="button" class="btn btn-warning" @onclick="()=> OpenEditModal(ing)">Edit</button>
+                    <button type="button" class="btn btn-danger"
+                    @onclick="() => ConfirmDeleteIngredient(ing)">Delete</button>
+                    <button type="button" class="btn btn-secondary" @onclick="() => ViewPictureModal(ing)">View
+                        Pictures</button>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+@* Add modal *@
+<div class="modal fade show" style="display: @getDisplay();" tabindex="-1">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Add New Ingredient</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form method="post">
+                    <div class="form-group">
+                        <label class="form-label">Recipe </label>
+                        <input @bind="ingredientName" class="form-control" @ref="controlName">
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Ingredient</label>
+                        <textarea @bind="ingredientDesc" class="form-control" rows="10"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Images</label>
+                        <InputFile OnChange=LoadFiles class="form-control" multiple />
+                        <br>
+                        @foreach (var img in ingredientImages)
+                        {
+                            <b>@img.Path</b>
+                            <br>
+                        }
+                        <dir class="row g-3">
+                            @foreach (var img in ingredientImages)
+                            {
+                                <div class="card text-center">
+                                    <img src="uploads/@img.Path" class="card-img" alt="@img.Path">
+                                    <div class="card-img-overlay">
+                                        <h5 class="card-body">@img.Path</h5>
+                                    </div>
+                                </div>
+                            }
+                        </dir>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" @onclick="()=>isAddModalShowing=false">Close</button>
+                <button type="button" class="btn btn-primary" @onclick="AddNewIngredient">Save New Ingredient</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+@* Edit modal *@
+<div class="modal fade show" style="display: @getDisplayEdit();" tabindex="-1">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Edit Current Ingredient</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form method="post">
+                    <div class="form-group">
+                        <label class="form-label">Ingredient Name</label>
+                        <input @bind="ingredientName" class="form-control" @ref="controlNameEdit">
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Descriptions</label>
+                        <textarea @bind="ingredientDesc" class="form-control" rows="10"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Images</label>
+                        <InputFile OnChange=LoadFiles class="form-control" multiple />
+                        <br>
+                        @foreach (var img in ingredientImages)
+                        {
+                            <b>@img.Path</b>
+                            <br>
+                        }
+                        <dir class="row g-3">
+                            @foreach (var img in ingredientImages)
+                            {
+                                <div class="card text-center">
+                                    <img src="uploads/@img.Path" class="card-img" alt="@img.Path">
+                                    <div class="card-img-overlay">
+                                        <h5 class="card-body">@img.Path</h5>
+                                    </div>
+                                </div>
+                            }
+                        </dir>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" @onclick="()=>isEditModalShowing=false">Close</button>
+                <button type="button" class="btn btn-primary" @onclick="EditIngredient">Save changes</button>
+            </div>
+        </div>
+    </div>
+</div>
+@* Instruction Modal *@
+<div class="modal fade show" style="display: @(isInstructionsModalShowing ? "block" : "none")" tabindex="-1">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Ingredient Descriptions</h5>
+                <button type="button" class="btn-close" @onclick="HideInstructionsModal"></button>
+            </div>
+            <div class="modal-body">
+                <textarea @bind="ingredientDesc" class="form-control" rows="10"></textarea>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" @onclick="HideInstructionsModal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+@* Picture Modal *@
+<div class="modal fade show" style="display: @(isPictureModalShowing ? "block" : "none")" tabindex="-1">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Ingredient Images</h5>
+                <button type="button" class="btn btn-close" @onclick="() => isPictureModalShowing = false"></button>
+            </div>
+            <div class="modal-body">
+                <div class="card text-center">
+                    @foreach (var im in currentIngredientImages)
+                    {
+                        <img src="/uploads/@im.Path" style="width: 80px;"
+                        class="rounded-circle text-bg-light border border-5 p-2" />
+                    }
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary"
+                @onclick="() => isPictureModalShowing = false">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+@code {
+
+    List<Ingredient> ingredients = [];
+    List<IngredientImage> ingredientImages = new List<IngredientImage>();
+    private List<IngredientImage> currentIngredientImages = new  List<IngredientImage>();
+    private Ingredient currentIngredient = new();
+
+    private string ingredientName = "";
+    private string ingredientDesc= "";
+    private ElementReference controlName;
+    bool isAddModalShowing = false;
+    private ElementReference controlNameEdit;
+    private bool isEditModalShowing = false;
+    private bool isPictureModalShowing = false;
+    private bool isInstructionsModalShowing = false;
+
+    public void HideInstructionsModal()
+    {
+        isInstructionsModalShowing = false;
+    }
+    public void ShowInstructionsModal(Ingredient ingredient)
+    {
+        ingredientDesc = ingredient.Description;
+        isInstructionsModalShowing = true;
+    }
+    string getDisplay()
+    {
+        return isAddModalShowing ? "block" : "none";
+    }
+    string getDisplayEdit()
+    {
+        return isEditModalShowing ? "block" : "none";
+    }
+
+
+    protected override async Task OnInitializedAsync()
+    {
+        ingredients = await ingredientService.GetIngredientsAsync();
+    }
+
+    public void ShowAddModal()
+    {
+        currentIngredient = new Ingredient();
+        ingredientName = "";
+        isAddModalShowing = true;
+    }
+
+    public async Task AddNewIngredient()
+    {
+
+        currentIngredient.Name = ingredientName;
+        currentIngredient.Description = ingredientDesc;
+        currentIngredient.CreatedDate = DateTime.Now;
+        currentIngredient.UpdatedDate = DateTime.Now;
+        currentIngredient.Images = ingredientImages;
+        await ingredientService.AddIngredient(currentIngredient);
+        ingredients = await ingredientService.GetIngredientsAsync();
+        ingredientImages = new List<IngredientImage>();
+        isAddModalShowing = false;
+        StateHasChanged();
+    }
+
+    public async Task EditIngredient()
+    {
+        if (currentIngredient != null)
+        {
+            currentIngredient!.Name = ingredientName;
+            currentIngredient!.Description = ingredientDesc;
+            currentIngredient!.UpdatedDate = DateTime.Now;
+            currentIngredient!.Images = ingredientImages;
+            await ingredientService.UpdateIngredient(currentIngredient);
+            ingredients = await ingredientService.GetIngredientsAsync();
+            ingredientImages = new List<IngredientImage>();
+            isEditModalShowing = false;
+            StateHasChanged();
+        }
+    }
+
+    public void OpenEditModal(Ingredient ingredient)
+    {
+        currentIngredient = ingredient;
+        ingredientName = ingredient.Name;
+        isEditModalShowing = true;
+    }
+
+    public void ViewPictureModal(Ingredient ingredient)
+    {
+        currentIngredientImages = ingredient.Images;
+        isPictureModalShowing = true;
+    }
+    public async Task ConfirmDeleteIngredient(Ingredient ingredient)
+    {
+        var res = await JS.InvokeAsync<bool>("confirm", "Are you sure you want to delete this ingredient?");
+        if (res)
+        {
+            await ingredientService.DeleteIngredient(ingredient);
+            ingredients = await ingredientService.GetIngredientsAsync();
+            StateHasChanged();
+        }
+    }
+
+    private async Task LoadFiles(InputFileChangeEventArgs e)
+    {
+        try
+        {
+            ingredientImages.Clear();
+            foreach (var file in e.GetMultipleFiles())
+            {
+                var trustedFileName = file.Name;
+                var path = Path.Combine(Environment.ContentRootPath, "wwwroot", "uploads", trustedFileName);
+                await using FileStream fileStream = new(path, FileMode.Create);
+                await file.OpenReadStream(1024 * 350).CopyToAsync(fileStream); // 350kb
+                ingredientImages.Add(new() { Path = trustedFileName });
+            }
+        }
+        catch (Exception)
+        {
+            throw;
+        }
+    }
+}
+
