@@ -6,73 +6,56 @@
 @inject IJSRuntime JS
 <h3 class="mb-5">Recipe Page</h3>
 
-    <div class="d-flex justify-content-between mb-2">
-        <!-- Search Section -->
-        <div class="d-flex">
-            <input type="text" class="form-control me-2" placeholder="Search..." @bind="searchTerm"/>
-            <button type="button" class="d-flex gap-1 align-items-center btn btn-secondary btn-sm" onlick="SearchRecipes">
-                <i class="bi bi-search"></i> Search
-            </button>
-        </div>
-        
-        <!-- Sort Section -->
-        <div>
-            <button type="button" class="btn btn-secondary " >
-                <i class="bi bi-sort-up"></i> Sort by ID
-            </button>
-            <button type="button" class="btn btn-secondary " >
-                <i class="bi bi-sort-up"></i> Sort by Name
-            </button>
-            <button type="button" class="btn btn-secondary " >
-                <i class="bi bi-sort-up"></i> Sort by Date
-            </button>
-        </div>
-        
-        <!-- Add Recipe Button -->
-        <div>
-            <button type="button" class="btn btn-primary" @onclick="ShowAddModal">
-                <i class="bi bi-plus-circle"></i> Add Recipe
-            </button>
-        </div>
+<div class="d-flex justify-content-between mb-2">
+    <!-- Search Section -->
+    <div class="d-flex align-items-center">
+        <input type="text" class="form-control me-2" placeholder="Search..." @bind="searchTerm" @bind:event="oninput" />
+        <i class="bi bi-search" style="margin-left: -40px;"></i>
+        @* <button type="button" class="d-flex gap-1 align-items-center btn btn-secondary btn-sm" @onclick="SearchRecipes">
+            
+        </button> *@
     </div>
     
+    <!-- Sort Section -->
+    <div>
+        <button type="button" class="btn btn-secondary">
+            <i class="bi bi-sort-up"></i> Sort by ID
+        </button>
+        <button type="button" class="btn btn-secondary">
+            <i class="bi bi-sort-up"></i> Sort by Name
+        </button>
+        <button type="button" class="btn btn-secondary">
+            <i class="bi bi-sort-up"></i> Sort by Date
+        </button>
+    </div>
+    
+    <!-- Add Recipe Button -->
+    <div>
+        <button type="button" class="btn btn-primary" @onclick="ShowAddModal">
+            <i class="bi bi-plus-circle"></i> Add Recipe
+        </button>
+    </div>
+</div>
+
 <!-- Recipes Table -->
 <table class="table table-striped">
-
     <thead>
         <tr>
-            <th>
-                ID
-            </th>
-            <th>
-                Name
-            </th>
-            <th >
-                Category
-            </th>
-            <th >
-                Created Date
-            </th>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Category</th>
+            <th>Created Date</th>
             <th class="text-center">Action</th>
         </tr>
     </thead>
-
     <tbody>
-        @foreach(var rec in recipes)
-				{
-            var index = recipes.IndexOf(rec);
+        @foreach(var rec in filteredRecipes)
+        {
             <tr>
                 <td>@rec.Id</td>
                 <td>@rec.Name</td>
                 <td>@rec.CreatedDate</td>
                 <td>@rec.UpdatedDate</td>
-                @* <td>
-                    @(rec.Images.Aggregate<RecipeImage,string>("a:",(old,im)=>old+","+im.Path))
-                        @foreach (var im in rec.Images)
-                        {
-                            <img src="/uploads/@im.Path" style="width: 80px;" class="rounded-circle text-bg-light border border-5 p-2"/>
-                        }
-                </td> *@
                 <td class="text-center">
                     <button type="button" class="btn btn-primary" @onclick="() => ShowInstructionsModal(rec)">View Instructions</button>
                     <button type="button" class="btn btn-warning" @onclick="()=> OpenEditModal(rec)">Edit</button>
@@ -181,6 +164,7 @@
     </div>
   </div>
 </div>
+
 @* Instruction Modal *@
 <div class="modal fade show" style="display: @(isInstructionsModalShowing ? "block" : "none")" tabindex="-1">
     <div class="modal-dialog">
@@ -222,7 +206,6 @@
     </div>
 </div>
 
-
 @code{
     List<Recipe> recipes = [];
     List<Recipe> filteredRecipes = [];
@@ -239,7 +222,20 @@
     private bool isPictureModalShowing = false;
     private string modalTitle = "";
     private int selectedCategoryId;
-    private string searchTerm = "";
+    private string _searchTerm = "";
+    private string searchTerm
+    {
+        get => _searchTerm;
+        set
+        {
+            if (_searchTerm != value)
+            {
+                _searchTerm = value;
+                SearchRecipes();
+            }
+        }
+    }
+
     string getDisplay(){
         return isAddModalShowing ? "block" : "none";
     }
@@ -250,6 +246,7 @@
     protected override async Task OnInitializedAsync()
     {
         recipes = await recipeService.GetRecipesAsync();
+        filteredRecipes = recipes;
     }
 
     private void SearchRecipes()
@@ -272,17 +269,36 @@
         isAddModalShowing = true;
     }
 
-    public async Task AddNewRecipe(){
-        currentRecipe.Name = recipeName;
-        currentRecipe.Instructions = recipeInstructions;
-        currentRecipe.CreatedDate = DateTime.Now;
-        currentRecipe.UpdatedDate = DateTime.Now;
-        currentRecipe.Images = recipeImages;
-        await recipeService.AddRecipe(currentRecipe);
-        recipes = await recipeService.GetRecipesAsync();
-        recipeImages = new List<RecipeImage>();
-        isAddModalShowing = false;
-        StateHasChanged();
+    public async Task AddNewRecipe()
+    {
+        try
+        {
+            // Populate the currentRecipe object with the necessary data
+            currentRecipe.Name = recipeName;
+            currentRecipe.Instructions = recipeInstructions;
+            currentRecipe.CreatedDate = DateTime.Now;
+            currentRecipe.UpdatedDate = DateTime.Now;
+            currentRecipe.Images = recipeImages;
+
+            // Call the AddRecipe method to save the recipe to the database
+            await recipeService.AddRecipe(currentRecipe);
+
+            // Refresh the recipes list
+            recipes = await recipeService.GetRecipesAsync();
+            filteredRecipes = recipes;
+
+            // Clear the recipeImages list and hide the add modal
+            recipeImages = new List<RecipeImage>();
+            isAddModalShowing = false;
+
+            // Notify the UI to update
+            StateHasChanged();
+        }
+        catch (Exception ex)
+        {
+            // Log the exception
+            Logger.LogError(ex, "Error adding new recipe");
+        }
     }
 
     public async Task EditRecipe(){
@@ -293,6 +309,7 @@
             currentRecipe!.Images = recipeImages;
             await recipeService.UpdateRecipe(currentRecipe);
             recipes = await recipeService.GetRecipesAsync();
+            filteredRecipes = recipes;
             recipeImages = new List<RecipeImage>();
             isEditModalShowing = false;
             StateHasChanged();
@@ -328,6 +345,7 @@
         {
             await recipeService.DeleteRecipe(recipe);
             recipes = await recipeService.GetRecipesAsync();
+            filteredRecipes = recipes;
             StateHasChanged();
         }
     }
