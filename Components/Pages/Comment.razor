@@ -1,63 +1,65 @@
 @page "/comments"
+@inject CookBookWebSQL.Service.RecipeService RecipeService
 
-<h3>Leave a Feedback</h3>
+<h3>Comment</h3>
 
-<h1>Hi</h1>
-
-
-    
-<form class="row g-3">
-  <div class="col-md-6">
-        <label for="inputName" class="form-label">Name</label>
-        <input type="text" class="form-control" id="inputName" placeholder="Enter your name" required>
+<form class="row g-3" @onsubmit="HandleSubmit">
+    <!-- Dropdown for selecting a recipe -->
+    <div class="col-md-12">
+        <label for="recipeDropdown" class="form-label">Select Recipe</label>
+        <select id="recipeDropdown" class="form-select" @bind="SelectedRecipeId">
+            <option value="">-- Choose a Recipe --</option>
+            @foreach (var recipe in Recipes)
+            {
+                <option value="@recipe.Id">@recipe.Name</option>
+            }
+        </select>
     </div>
+
+    <!-- Name field -->
     <div class="col-md-6">
-        <label for="inputEmail" class="form-label">Email</label>
-        <input type="email" class="form-control" id="inputEmail" placeholder="Enter your email (optional)">
+        <label for="nameInput" class="form-label">Name</label>
+        <input type="text" class="form-control" id="nameInput" @bind="Name" />
     </div>
-    <div class="col-12">
-        <label for="inputRecipe" class="form-label">Select Recipe</label>
-        <select id="inputRecipe" class="form-select">
-            <option selected disabled>Choose a recipe...</option>
-            <!-- Example of static recipes for UI preview -->
-            <option>Carbonara</option>
-            <option>Chicken Curry</option>
-            <option>Vegetarian Pizza</option>
-        </select>
+
+    <!-- Rating field -->
+    <div class="col-md-6">
+        <label for="ratingInput" class="form-label">Rating</label>
+        <input type="number" class="form-control" id="ratingInput" @bind="Rating" min="1" max="5" />
     </div>
+
+    <!-- Optional comment field -->
     <div class="col-12">
-        <label for="inputRating" class="form-label">Rate the Recipe</label>
-        <select id="inputRating" class="form-select">
-            <option selected disabled>Choose a rating...</option>
-            <option value="1">1 - Very Poor</option>
-            <option value="2">2 - Poor</option>
-            <option value="3">3 - Average</option>
-            <option value="4">4 - Good</option>
-            <option value="5">5 - Excellent</option>
-        </select>
+        <label for="commentInput" class="form-label">Comment (optional)</label>
+        <textarea id="commentInput" class="form-control" @bind="CommentText"></textarea>
     </div>
+
     <div class="col-12">
-        <label for="inputComment" class="form-label">Comment (Optional)</label>
-        <textarea class="form-control" id="inputComment" rows="4" placeholder="Write your feedback here..."></textarea>
-    </div>
-    <div class="col-12">
-        <button type="submit" class="btn btn-primary">Submit Feedback</button>
+        <button type="submit" class="btn btn-primary">Submit</button>
     </div>
 </form>
 
-<h3>Feedbacks</h3>
-<div class="comment-section">
-    <ul class="list-group">
-        <!-- Example of static feedbacks for UI preview -->
-        <li class="list-group-item">
-            <strong>Recipe: Spaghetti Bolognese</strong> (<small>2024-12-09</small>)
-            <p><strong>Rating:</strong> ⭐⭐⭐⭐</p>
-            <p>This was a great recipe! Easy to follow and delicious.</p>
-        </li>
-        <li class="list-group-item">
-            <strong>Recipe: Chicken Curry</strong> (<small>2024-12-08</small>)
-            <p><strong>Rating:</strong> ⭐⭐⭐⭐</p>
-            <p>Nice recipe but I made it spicier to suit my taste.</p>
-        </li>
-    </ul>
-</div>
+@code {
+    private List<Recipe> Recipes = new List<Recipe>();
+    private int? SelectedRecipeId;
+    private string Name;
+    private int Rating;
+    private string CommentText;
+
+    protected override async Task OnInitializedAsync()
+    {
+        // Fetch recipes from the database
+        Recipes = await RecipeService.GetRecipesForDropdownAsync();
+    }
+
+    private async Task HandleSubmit()
+    {
+        if (SelectedRecipeId == null || Rating < 1 || Rating > 5 || string.IsNullOrWhiteSpace(Name))
+        {
+            // Handle validation errors
+            return;
+        }
+
+        // Add code here to save the comment to the database
+    }
+}
