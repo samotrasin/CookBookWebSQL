@@ -5,26 +5,64 @@
 @inject IWebHostEnvironment Environment
 @inject ILogger<RecipePage> Logger
 @inject IJSRuntime JS
-<h3>Recipe Page</h3>
+<h3 class="mb-5">Recipe Page</h3>
+
+    <div class="d-flex justify-content-between mb-2">
+            <div class="d-flex">
+                <!-- Search input field -->
+                <input type="text" class="form-control me-2" placeholder="Search..." />
+                <!-- Search button -->
+                <button type="button" class="d-flex gap-1 align-items-center btn btn-secondary btn-sm">
+                    <i class="bi bi-search"></i> Search
+                </button>
+            </div>
+        
+        <div>
+            <button type="button" class="btn btn-secondary " >
+                <i class="bi bi-sort-up"></i> Sort by ID
+            </button>
+            <button type="button" class="btn btn-secondary " >
+                <i class="bi bi-sort-up"></i> Sort by Name
+            </button>
+            <button type="button" class="btn btn-secondary " >
+                <i class="bi bi-sort-up"></i> Sort by Date
+            </button>
+        </div>
+        
+        <div>
+            <button type="button" class="btn btn-primary" @onclick="ShowAddModal">
+                <i class="bi bi-plus-circle"></i> Add Recipe
+            </button>
+        </div>
+    </div>
+        
+    
 
 <table class="table table-striped">
-    <thead>
-        <tr>
-            <th colspan="6" class="text-end">
-                <button type="button" class="btn btn-primary" @onclick="ShowAddModal">
-                    <i class="bi bi-plus-circle"></i> Add Recipe</button>
-            </th>
-        </tr>
-        <tr>
-            <th>ID</th>
-            <th>Name</th>
-            <th>Category</th>
-            <th>Created Date</th>
-            <th>Actions</th>
-        </tr>
-    </thead>
+    @* @onclick="PerformSearch"
+        @oninput="HandleSearch" 
+    *@
+<thead>
+    <tr>
+        <th>
+            ID
+        </th>
+        <th>
+            Name
+        </th>
+        <th >
+            Category
+        </th>
+        <th >
+            Created Date
+        </th>
+        <th class="text-center">Action</th>
+    </tr>
+</thead>
+
     <tbody>
-        @foreach(var rec in recipes){
+        @foreach(var rec in recipes)
+				{
             var index = recipes.IndexOf(rec);
             <tr>
                 <td>@rec.Id</td>
@@ -38,7 +76,7 @@
                             <img src="/uploads/@im.Path" style="width: 80px;" class="rounded-circle text-bg-light border border-5 p-2"/>
                         }
                 </td> *@
-                <td>
+                <td class="text-center">
                     <button type="button" class="btn btn-primary" @onclick="() => ShowInstructionsModal(rec)">View Instructions</button>
                     <button type="button" class="btn btn-warning" @onclick="()=> OpenEditModal(rec)">Edit</button>
                     <button type="button" class="btn btn-danger" @onclick="() => ConfirmDeleteRecipe(rec)">Delete</button>
