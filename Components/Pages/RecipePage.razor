@@ -17,14 +17,14 @@
     </div>
     
     <!-- Sort Section -->
-    <div>
-        <button type="button" class="btn btn-secondary">
+    <div class="d-flex gap-3">
+        <button type="button" class="btn btn-secondary" @onclick="SortById">
             <i class="bi bi-sort-up"></i> Sort by ID
         </button>
-        <button type="button" class="btn btn-secondary">
+        <button type="button" class="btn btn-secondary" @onclick = "SortByName">
             <i class="bi bi-sort-up"></i> Sort by Name
         </button>
-        <button type="button" class="btn btn-secondary">
+        <button type="button" class="btn btn-secondary" @onclick = "SortByDate">
             <i class="bi bi-sort-up"></i> Sort by Date
         </button>
     </div>
@@ -235,6 +235,9 @@
             }
         }
     }
+    private bool isAscending = true;
+    private bool isNameAscending = true;
+    private bool isDateAscending = true;
 
     string getDisplay(){
         return isAddModalShowing ? "block" : "none";
@@ -259,6 +262,36 @@
         {
             filteredRecipes = recipes.Where(r => r.Name.Contains(searchTerm, StringComparison.OrdinalIgnoreCase)).ToList();
         }
+    }
+
+    private void SortById() {
+        if (isAscending) {
+            filteredRecipes = filteredRecipes.OrderBy(r => r.Id).ToList();
+        }
+        else {
+            filteredRecipes = filteredRecipes.OrderByDescending(r => r.Id).ToList();
+        }
+        isAscending = !isAscending;
+    }
+
+    private void SortByName (){
+        if(isNameAscending) {
+            filteredRecipes = filteredRecipes.OrderBy( r => r.Name).ToList();
+        }
+        else {
+            filteredRecipes = filteredRecipes.OrderByDescending(r => r.Name).ToList();
+        }
+        isNameAscending = !isNameAscending;
+    }
+
+    private void SortByDate () {
+        if (isDateAscending) {
+            filteredRecipes = filteredRecipes.OrderBy(r => r.CreatedDate).ToList();
+        }
+        else {
+            filteredRecipes = filteredRecipes.OrderByDescending(r=>r.CreatedDate).ToList();
+        }
+        isDateAscending = !isDateAscending;
     }
 
     public void ShowAddModal(){
