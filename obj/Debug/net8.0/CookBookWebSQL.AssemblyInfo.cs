@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("CookBookWebSQL")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+f85c003e6721f67b72ecf0ecdc92ee67baed7745")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+87ffeb033af40c37bd9531aaa3d413bc437d3261")]
 [assembly: System.Reflection.AssemblyProductAttribute("CookBookWebSQL")]
 [assembly: System.Reflection.AssemblyTitleAttribute("CookBookWebSQL")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

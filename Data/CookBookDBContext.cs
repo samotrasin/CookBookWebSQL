@@ -14,5 +14,10 @@ public class CookBookDBContext : DbContext{
     public DbSet<Category> Categories{get; set;}
     public DbSet<Recipe> Recipes{get; set;}
     public DbSet<RecipeImage> RecipeImages{get; set;}
+
     public DbSet<User> Users{get;set;}
+    
+    public DbSet<Ingredient> Ingredients{get; set;} 
+    public DbSet <IngredientImage> IngredientImages{ get; set; }   
+
 }

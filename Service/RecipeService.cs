@@ -14,7 +14,10 @@ namespace CookBookWebSQL.Service
             _context=context;
         }
         public async Task<List<Recipe>> GetRecipesAsync(){
-            return await _context.Recipes.Include(rp => rp.Images).ToListAsync();
+            return await _context.Recipes
+                                    .Include(rp => rp.Images)
+                                    .Include(rp => rp.Categories)
+                                    .ToListAsync();
         }
         public async Task AddRecipe(Recipe recipe){
             _context.Recipes.Add(recipe);

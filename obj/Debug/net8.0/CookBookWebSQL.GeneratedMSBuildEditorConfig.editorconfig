@@ -42,6 +42,10 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xIb21lLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/rithc/OneDrive/Desktop/Cookbook/CookBookWebSQL/Components/Pages/IngredientPage.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xJbmdyZWRpZW50UGFnZS5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/rithc/OneDrive/Desktop/Cookbook/CookBookWebSQL/Components/Pages/RecipePage.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xSZWNpcGVQYWdlLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
