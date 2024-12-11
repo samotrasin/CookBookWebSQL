@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\ssamo\\Documents\\IT STEP CLOUD\\IT STEP\\Term 4\\ASPNET\\CookBookWebSQL\\CookBookWebSQL.csproj": {}
+    "C:\\Users\\rithc\\OneDrive\\Desktop\\Cookbook\\CookBookWebSQL\\CookBookWebSQL.csproj": {}
   },
   "projects": {
-    "C:\\Users\\ssamo\\Documents\\IT STEP CLOUD\\IT STEP\\Term 4\\ASPNET\\CookBookWebSQL\\CookBookWebSQL.csproj": {
+    "C:\\Users\\rithc\\OneDrive\\Desktop\\Cookbook\\CookBookWebSQL\\CookBookWebSQL.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\ssamo\\Documents\\IT STEP CLOUD\\IT STEP\\Term 4\\ASPNET\\CookBookWebSQL\\CookBookWebSQL.csproj",
+        "projectUniqueName": "C:\\Users\\rithc\\OneDrive\\Desktop\\Cookbook\\CookBookWebSQL\\CookBookWebSQL.csproj",
         "projectName": "CookBookWebSQL",
-        "projectPath": "C:\\Users\\ssamo\\Documents\\IT STEP CLOUD\\IT STEP\\Term 4\\ASPNET\\CookBookWebSQL\\CookBookWebSQL.csproj",
-        "packagesPath": "C:\\Users\\ssamo\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\ssamo\\Documents\\IT STEP CLOUD\\IT STEP\\Term 4\\ASPNET\\CookBookWebSQL\\obj\\",
+        "projectPath": "C:\\Users\\rithc\\OneDrive\\Desktop\\Cookbook\\CookBookWebSQL\\CookBookWebSQL.csproj",
+        "packagesPath": "C:\\Users\\rithc\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\rithc\\OneDrive\\Desktop\\Cookbook\\CookBookWebSQL\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\ssamo\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\rithc\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -22,7 +22,6 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -86,7 +85,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.403/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.404/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

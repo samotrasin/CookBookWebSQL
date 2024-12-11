@@ -1,0 +1,528 @@
+@page "/userManagement"
+@rendermode InteractiveServer
+@using CookBookWebSQL.Models
+@using CookBookWebSQL.Services
+@inject UserService userService
+@inject IJSRuntime JS
+@using Microsoft.AspNetCore.Mvc;
+@inject ILogger<UserManagementPage> Logger;
+@inject IWebHostEnvironment Environment;
+
+
+<h3>User Management</h3>
+
+<!-- User Table -->
+@if(loggedInUser !=null)
+{
+    <div class="mb-3">
+        <input @bind="searchQuery" class="form-control" style=width:30%; placeholder="Search users..."/>
+        <br>
+        <button class="btn btn-primary" @onclick="PerformSearch">Search</button>
+        <button class="btn btn-primary" @onclick= " OpenAddModal ">Add User</button>
+        <button class="btn btn-danger"  @onclick="Logout">Logout</button>
+    </div>
+    
+    <table class="table table-striped">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Phone</th>
+            <th>Role</th>
+            <th>Created</th>
+            
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @if (users.Count>0)
+        {
+            @foreach (var user in filteredUsers)
+            {
+                    <tr>
+                        <td>@user.Id</td>
+                        <td>@user.UserName</td>
+                        <td>@user.Email</td>
+                        <td>@user.PhoneNumber</td>
+                        <td>@user.Roles</td>
+                        <td>@user.createdDate</td>
+                        <td>
+                            <button class="btn btn-secondary" @onclick=" () => ViewPictureModal(user) ">Picture</button>
+                            <button class="btn btn-warning" @onclick=" () => OpenEditModal(user)">Edit</button>
+                            <button class="btn btn-danger" @onclick=" () => ConfirmDeleteUser(user)">Delete</button>
+                        </td>
+                    </tr>
+            }
+        }
+        else
+        {
+            <tr>
+                <td colspan="9" class="text-center">No users found</td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+
+}
+
+
+
+@* Add Modal *@
+<div class="modal fade show" style="display: @(isAddModalShowing ? "block" : "none")" tabindex="-1">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Add User</h5>
+                <button type="button" class="btn-close" @onclick=" () => isAddModalShowing = false"></button>
+            </div>
+            <div class="modal-body">
+                <div class="form-group">
+                    <label class="form-label">User Name</label>
+                    <input @bind="newUser.UserName" class="form-control" @ref="controlName">
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Email</label>
+                    <input @bind="newUser.Email" class="form-control" type="email">
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Password</label>
+                    <input @bind="newUser.Password" class="form-control" type="password">
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Phone Number</label>
+    
+                    <input @bind="newUser.PhoneNumber" class="form-control">
+                </div>
+               <div class="form-group">
+                    <label for="userRole">Role:</label>
+                    <select id="userRole" @bind="newUser.Roles" class="form-control" aria-placeholder="Select Role">
+                        <option value="Admin">Admin</option>
+                        <option value="viewer">User</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                <label class="form-label">Images</label>
+                <InputFile OnChange=LoadFiles class="form-control" multiple />
+                <br>
+                @foreach (var img in userImages)
+                {
+                    <b>@img.userImagePath</b>
+                    <br>
+                }
+                <div class="row g-3">
+                    @foreach (var img in userImages)
+                    {
+                        <div class="card text-center">
+                            <img src="uploads/@img.userImagePath" class="card-img" alt="@img.userImagePath">
+                            <div class="card-img-overlay">
+                                <h5 class="card-body">@img.userImagePath</h5>
+                            </div>
+                        </div>
+                    }
+                </div>
+            </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" @onclick="CloseAddModal">Close</button>
+                <button type="button" class="btn btn-primary" @onclick="SaveNewUser">Save</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- Edit User Modal -->
+    <div class="modal fade show" style="display: @getDisplayEdit();" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Edit User</h5>
+                    <button type="button" class="btn-close" @onclick="CloseEditModal"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label class="form-label">User Name</label>
+                        <input @bind="username" class="form-control" @ref="controlName">
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Email</label>
+                        <input @bind="email" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Password</label>
+                        <input @bind="password" class="form-control" type="password">
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Phone Number</label>
+                        <input @bind="phonenumber" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label for="userRole">Role:</label>
+                        <select id="userRole" @bind="roles" class="form-control" aria-placeholder="Select Role">
+                            <option value="Editor">Admin</option>
+                            <option value="Viewer">User</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" @onclick="()=>isEditModalShowing=false">Close</button>
+                    <button type="button" class="btn btn-primary" @onclick="SaveEditedUser">Save</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+@if (isPictureModalShowing)
+{
+    <div class="modal fade show" style="display: block;" tabindex="-1">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">User Pictures</h5>
+                    <button type="button" class="btn-close" @onclick=" ClosePictureModal "></button>
+                </div>
+                <div class="modal-body text-center">
+                    @if (userImages != null && userImages.Any())
+                    {
+                        @foreach (var img in userImages)
+                        {
+                            <div class="mb-3">
+                                <img src="/uploads/@img.userImagePath" alt="User Picture" class="img-fluid rounded" style="max-height: 400px;" />
+                                <p class="text-muted">@img.userImagePath</p>
+                            </div>
+                        }
+                    }
+                    else
+                    {
+                        <p>No pictures available.</p>
+                    }
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" @onclick=" ClosePictureModal ">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+
+
+@if (isLoginModalShowing)
+{
+    <div class="modal fade show" style="display: block;" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Login</h5>
+                    <button type="button" class="btn-close" @onclick=" CloseLoginModal "></button>
+                </div>
+                <div class="modal-body">
+                    <div class="mb-3 row">
+                        <label for="staticEmail" class="col-sm-2 col-form-label">Email</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" id="inputEmail" @bind="loginEmail" placeholder="Enter your email">
+                        </div>
+                    </div>
+                    <div class="mb-3 row">
+                        <label for="inputPassword" class="col-sm-2 col-form-label">Password</label>
+                        <div class="col-sm-10">
+                            <input type="password" class="form-control" id="inputPassword" @bind="loginPassword" placeholder="Enter your password">
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" @onclick=" CloseLoginModal ">Close</button>
+                    <button type="button" class="btn btn-primary" @onclick=" LoginUser ">Login</button>
+                    <button type="button" class="btn btn-link" @onclick=" ShowRegisterModal ">Don't have an account? Register</button>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+
+@if (isRegisterModalShowing)
+{
+    <div class="modal fade show" style="display: block;" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Register</h5>
+                    <button type="button" class="btn-close" @onclick=" CloseRegisterModal "></button>
+                </div>
+                <div class="modal-body">
+                    <div class="mb-3 row">
+                        <label for="inputUsername" class="col-sm-2 col-form-label">User Name</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" id="inputUsername" @bind="registerUser.UserName" placeholder="Enter your username">
+                        </div>
+                    </div>
+                    <div class="mb-3 row">
+                        <label for="inputEmail" class="col-sm-2 col-form-label">Email</label>
+                        <div class="col-sm-10">
+                            <input type="email" class="form-control" id="inputEmail" @bind="registerUser.Email" placeholder="Enter your email">
+                        </div>
+                    </div>
+                    <div class="mb-3 row">
+                        <label for="inputPassword" class="col-sm-2 col-form-label">Password</label>
+                        <div class="col-sm-10">
+                            <input type="password" class="form-control" id="inputPassword" @bind="registerUser.Password" placeholder="Enter your password">
+                        </div>
+                    </div>
+                    <div class="mb-3 row">
+                        <label for="inputPhone" class="col-sm-2 col-form-label">Phone Number</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" id="inputPhone" @bind="registerUser.PhoneNumber" placeholder="Enter your phone number">
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" @onclick="CloseRegisterModal">Close</button>
+                    <button type="button" class="btn btn-primary" @onclick="RegisterUser">Register</button>
+                    <button type="button" class="btn btn-link" @onclick="ShowLoginModal">Already have an account? Login</button>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+
+@code {
+    private List<User> users = new();
+    private ElementReference controlName;
+    private ElementReference controlNameEdit;
+    private bool isAddModalShowing = false;
+    private bool isEditModalShowing = false;
+    private User newUser = new();
+    private string username = "";
+    private string email ="";
+    private string phonenumber = "";
+    private string roles = "";
+    private string password = "";
+    private bool isLoginModalShowing = true;
+    private bool isRegisterModalShowing = false;
+    private string loginEmail = "";
+    private string loginPassword = "";
+    private User registerUser = new();
+    private List<IBrowserFile> loadedFiles = new();
+    private User? loggedInUser = null;
+    private List<UserImage> userImages = new();
+    private List<UserImage>newUserImages = new List<UserImage>();
+    private List<User>filteredUsers = new();
+    private string searchQuery = "";
+    private InputFile? inputFile;
+    private ElementReference imgPreview;
+    private bool isPictureModalShowing = false;
+
+    private void ShowLoginModal()
+    {
+        isLoginModalShowing = true;
+        isRegisterModalShowing = false;
+    }
+
+    private void ShowRegisterModal()
+    {
+        isLoginModalShowing = false;
+        isRegisterModalShowing = true;
+    }
+
+    private void OpenLoginModal() => isLoginModalShowing = true;
+    private void CloseLoginModal() => isLoginModalShowing = false;
+
+    private async Task LoginUser()
+    {
+        try
+        {
+            var user = await userService.LoginAsync(loginEmail, loginPassword);
+            if (user != null)
+            {
+                loggedInUser = user;
+                CloseLoginModal();
+
+                users = await userService.GetUsersAsync();
+                filteredUsers = users;
+            }
+            else
+            {
+                Console.WriteLine("Invalid credentials.");
+            }
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine($"Login failed: {ex.Message}");
+        }
+    }
+
+    private void OpenRegisterModal() => isRegisterModalShowing = true;
+    private void CloseRegisterModal() => isRegisterModalShowing = false;
+
+    private async Task RegisterUser()
+    {
+        try
+        {
+            await userService.RegisterAsync(registerUser);
+            CloseRegisterModal();
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine($"Registration failed: {ex.Message}");
+        }
+    }
+
+
+    protected override async Task OnInitializedAsync()
+{
+    try
+    {
+        filteredUsers = users;
+        users = await userService.GetUsersAsync();
+        StateHasChanged(); 
+    }
+    catch (Exception ex)
+    {
+        Logger.LogError($"Error fetching users: {ex.Message}");
+    }
+}
+
+
+    private void OpenAddModal()
+    {
+        newUser = new User();
+        newUser.createdDate = DateTime.Now;
+        isAddModalShowing = true;
+        StateHasChanged();
+    }
+
+    private async Task SaveNewUser()
+    {
+        try
+        {
+            await userService.AddUserAsync(newUser);
+            users.Add(newUser);
+            userImages.Clear();
+            CloseAddModal();
+            await JS.InvokeVoidAsync("showToast", "User added successfully!", "success");
+        }
+        catch (Exception ex)
+        {
+            Logger.LogError(ex, "Failed to save new user.");
+            await JS.InvokeVoidAsync("showToast", "Error saving user!", "error");
+        }
+    }
+
+
+    private void CloseAddModal()
+    {
+        isAddModalShowing = false;
+        StateHasChanged();
+    }
+
+    string getDisplayEdit(){
+        return isEditModalShowing ? "block" : "none";
+    }
+    private void OpenEditModal(User user)
+    {
+        newUser = user;
+        username = user.UserName;
+        email = user.Email;
+        phonenumber = user.PhoneNumber;
+        roles = user.Roles;
+
+        isEditModalShowing = true;
+        StateHasChanged();
+    }
+
+    private void CloseEditModal(){
+        isEditModalShowing = false;
+        StateHasChanged();
+    }
+
+   
+
+    private async Task SaveEditedUser()
+    {
+       if(newUser != null){
+        newUser!.UserName = username;
+        newUser!.Email = email;
+        newUser!.Password = password;
+        newUser!.PhoneNumber = phonenumber;
+        newUser!.Roles = roles;
+        newUser!.updatedDate = DateTime.Now;
+        newUser!.Images = userImages;
+        await userService.UpdateUserAsync(newUser);
+        userImages = new List<UserImage>();
+        isEditModalShowing = false;
+        StateHasChanged();
+       }
+    }
+
+
+    private async Task ConfirmDeleteUser(User user)
+    {
+        var confirmed = await JS.InvokeAsync<bool>("confirm", $"Delete user {user.UserName}?");
+        if (confirmed)
+        {
+            await userService.DeleteUser(user);
+            users.Remove(user);
+        }
+    }
+
+
+    private async Task LoadFiles(InputFileChangeEventArgs e)
+    {
+        try
+        {
+            userImages.Clear();
+            foreach (var file in e.GetMultipleFiles())
+            {
+                var trustedFileName = file.Name;
+                var path = Path.Combine(Environment.ContentRootPath, "wwwroot", "uploads", trustedFileName);
+                await using FileStream fileStream = new(path, FileMode.Create);
+                await file.OpenReadStream(1024*350).CopyToAsync(fileStream); // 350kb
+                userImages.Add(new() { userImagePath = trustedFileName });
+            }
+        }
+        catch (Exception)
+        {
+            return;
+        }
+    }
+
+   
+
+    private void ClosePictureModal()
+    {
+        isPictureModalShowing = false;
+        userImages.Clear(); // Clear the images when the modal is closed
+        StateHasChanged();
+    }
+
+    private void ViewPictureModal(User user)
+    {
+        newUserImages = user.Images;
+        isPictureModalShowing = true;
+    }
+
+    private void PerformSearch(){
+        if(string.IsNullOrWhiteSpace(searchQuery))
+        {
+            filteredUsers = users;
+        }
+        else
+        {
+            filteredUsers = users.Where(u => 
+                u.UserName.Contains(searchQuery, StringComparison.OrdinalIgnoreCase) || 
+                u.Email.Contains(searchQuery, StringComparison.OrdinalIgnoreCase))
+                .ToList();        
+        }
+        StateHasChanged();
+    }
+
+
+    private void Logout()
+    {
+        loggedInUser = null;
+        ShowLoginModal();
+    }
+}
+

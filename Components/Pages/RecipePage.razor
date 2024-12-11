@@ -19,6 +19,7 @@
             <th>Name</th>
             <th>Created Date</th>
             <th>Updated Date</th>
+            <th>Photo</th>
             <th>Actions</th>
         </tr>
     </thead>
@@ -30,13 +31,13 @@
                 <td>@rec.Name</td>
                 <td>@rec.CreatedDate</td>
                 <td>@rec.UpdatedDate</td>
-                @* <td>
+                <td>
                     @(rec.Images.Aggregate<RecipeImage,string>("a:",(old,im)=>old+","+im.Path))
                         @foreach (var im in rec.Images)
                         {
                             <img src="/uploads/@im.Path" style="width: 80px;" class="rounded-circle text-bg-light border border-5 p-2"/>
                         }
-                </td> *@
+                </td>
                 <td>
                     <button type="button" class="btn btn-primary" @onclick="() => ShowInstructionsModal(rec)">View Instructions</button>
                     <button type="button" class="btn btn-warning" @onclick="()=> OpenEditModal(rec)">Edit</button>

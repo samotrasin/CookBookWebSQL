@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace CookBookWebSQL.Migrations
 {
     [DbContext(typeof(CookBookDBContext))]
-    [Migration("20241106180501_InitialCreate")]
+    [Migration("20241208083057_InitialCreate")]
     partial class InitialCreate
     {
         /// <inheritdoc />
@@ -128,6 +128,67 @@ namespace CookBookWebSQL.Migrations
                     b.ToTable("RecipeImages");
                 });
 
+            modelBuilder.Entity("CookBookWebSQL.Models.User", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("Email")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("IsEmailConfirmed")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("IsPhoneNumberConfirmed")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("Password")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("PhoneNumber")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Roles")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("UserName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Users");
+                });
+
+            modelBuilder.Entity("CookBookWebSQL.Models.UserImage", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<int?>("UserId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("userImagePath")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("UserImage");
+                });
+
             modelBuilder.Entity("CategoryRecipe", b =>
                 {
                     b.HasOne("CookBookWebSQL.Models.Category", null)
@@ -157,12 +218,24 @@ namespace CookBookWebSQL.Migrations
                         .HasForeignKey("RecipeId");
                 });
 
+            modelBuilder.Entity("CookBookWebSQL.Models.UserImage", b =>
+                {
+                    b.HasOne("CookBookWebSQL.Models.User", null)
+                        .WithMany("Images")
+                        .HasForeignKey("UserId");
+                });
+
             modelBuilder.Entity("CookBookWebSQL.Models.Cuisine", b =>
                 {
                     b.Navigation("Recipes");
                 });
 
             modelBuilder.Entity("CookBookWebSQL.Models.Recipe", b =>
+                {
+                    b.Navigation("Images");
+                });
+
+            modelBuilder.Entity("CookBookWebSQL.Models.User", b =>
                 {
                     b.Navigation("Images");
                 });

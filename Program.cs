@@ -2,6 +2,7 @@ using CookBookWebSQL;
 using CookBookWebSQL.Components;
 using CookBookWebSQL.Models;
 using CookBookWebSQL.Service;
+using CookBookWebSQL.Services;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -20,6 +21,7 @@ builder.Services.AddScoped<CuisineService>();
 builder.Services.AddScoped<RecipeService>();
 //Register the CategoryService
 builder.Services.AddScoped<CategoryService>();
+builder.Services.AddScoped<UserService>();
 
 var app = builder.Build();
 
