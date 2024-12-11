@@ -29,7 +29,7 @@
     
     <!-- Add Recipe Button -->
     <div>
-        <button type="button" class="btn btn-primary" @onclick="ShowAddModal">
+        <button type="button" class="btn btn-success" @onclick="ShowAddModal">
             <i class="bi bi-plus-circle"></i> Add Recipe
         </button>
     </div>
@@ -57,8 +57,8 @@
                 <td class="text-center">
                     <button type="button" class="btn btn-primary" @onclick="() => ShowInstructionsModal(rec)">View Instructions</button>
                     <button type="button" class="btn btn-warning" @onclick="()=> OpenEditModal(rec)">Edit</button>
-                    <button type="button" class="btn btn-danger" @onclick="() => ConfirmDeleteRecipe(rec)">Delete</button>
                     <button type="button" class="btn btn-secondary" @onclick="() => ViewPictureModal(rec)">View Picture</button>
+                    <button type="button" class="btn btn-danger" @onclick="() => ConfirmDeleteRecipe(rec)">Delete</button>
                 </td>
             </tr>
         }
@@ -184,10 +184,15 @@
                 <button type="button" class="btn-close" @onclick="() => isPictureModalShowing = false"></button>
             </div>
             <div class="modal-body">
-                <div class="card text-center">
+                <div class="card text-center border-0">
                     @foreach (var im in currentRecipeImages)
                     {
-                        <img src="/uploads/@im.Path" style="width: 100%;" class="rounded-circle text-bg-light border border-5 p-2" alt="Image not found"/>
+                        <img src="/uploads/@im.Path" alt="Image not found"
+                            style="
+                            width: 100%;
+                            border-radius: 20px;
+                            "
+                        />
                     }
                 </div>
             </div>
