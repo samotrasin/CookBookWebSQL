@@ -4,7 +4,7 @@
 @inject IWebHostEnvironment Environment
 @inject ILogger<RecipePage> Logger
 @inject IJSRuntime JS
-<h3 class="mb-5">Recipe Page</h3>
+<h3 class="mb-5">Recipe Pagess</h3>
 
 <div class="d-flex justify-content-between mb-2">
     <!-- Search Section -->
@@ -60,7 +60,7 @@
                     <button type="button" class="btn btn-primary" @onclick="() => ShowInstructionsModal(rec)">View Instructions</button>
                     <button type="button" class="btn btn-warning" @onclick="()=> OpenEditModal(rec)">Edit</button>
                     <button type="button" class="btn btn-danger" @onclick="() => ConfirmDeleteRecipe(rec)">Delete</button>
-                    <button type="button" class="btn btn-secondary" @onclick="() => ViewPictureModal(rec)">View Pictures</button>
+                    <button type="button" class="btn btn-secondary" @onclick="() => ViewPictureModal(rec)">View Picture</button>
                 </td>
             </tr>
         }
@@ -94,17 +94,14 @@
                     <b>@img.Path</b>
                     <br>
                 }
-                <dir class="row g-3">
+                <div class="row g-3">
                     @foreach (var img in recipeImages)
                     {
                         <div class="card text-center">
-                            <img src="uploads/@img.Path" class="card-img" alt="@img.Path">
-                            <div class="card-img-overlay">
-                                <h5 class="card-body">@img.Path</h5>
-                            </div>
+                            <img src="/uploads/@img.Path" class="card-img" alt="@img.Path">
                         </div>
                     }
-                </dir>
+                </div>
             </div>
         </form>
       </div>
@@ -122,7 +119,7 @@
     <div class="modal-content">
       <div class="modal-header">
         <h5 class="modal-title">Edit Current Recipe</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        <button type="button" class="btn-close" @onclick="() => isEditModalShowing = false" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
         <form method="post">
@@ -143,17 +140,14 @@
                     <b>@img.Path</b>
                     <br>
                 }
-                <dir class="row g-3">
+                <div class="row g-3">
                     @foreach (var img in recipeImages)
                     {
                         <div class="card text-center">
-                            <img src="uploads/@img.Path" class="card-img" alt="@img.Path">
-                            <div class="card-img-overlay">
-                                <h5 class="card-body">@img.Path</h5>
-                            </div>
+                            <img src="/uploads/@img.Path" class="card-img" alt="@img.Path">
                         </div>
                     }
-                </dir>
+                </div>
             </div>
         </form>
       </div>
@@ -195,7 +189,7 @@
                 <div class="card text-center">
                     @foreach (var im in currentRecipeImages)
                     {
-                        <img src="/uploads/@im.Path" style="width: 80px;" class="rounded-circle text-bg-light border border-5 p-2"/>
+                        <img src="/uploads/@im.Path" style="width: 100%;" class="rounded-circle text-bg-light border border-5 p-2" alt="Image not found"/>
                     }
                 </div>
             </div>
@@ -250,6 +244,7 @@
     {
         recipes = await recipeService.GetRecipesAsync();
         filteredRecipes = recipes;
+        UpdateImageList(); 
     }
 
     private void SearchRecipes()
@@ -349,10 +344,13 @@
         }
     }
 
-    public void OpenEditModal(Recipe recipe){
+    public void OpenEditModal(Recipe recipe)
+    {
         currentRecipe = recipe;
         recipeName = recipe.Name;
         recipeInstructions = recipe.Instructions;
+        recipeImages = new List<RecipeImage>(recipe.Images);
+        UpdateImageList();
         modalTitle = "Edit Recipe";
         isEditModalShowing = true;
     }
@@ -368,9 +366,11 @@
 
     public void ViewPictureModal(Recipe recipe)
     {
-        currentRecipeImages = recipe.Images;
+        currentRecipeImages = recipe.Images.Where(img => File.Exists(Path.Combine(Environment.ContentRootPath, "wwwroot", "uploads", img.Path))).ToList();
         isPictureModalShowing = true;
-    }    
+        StateHasChanged();
+    }
+            
     public async Task ConfirmDeleteRecipe(Recipe recipe)
     {
         var res = await JS.InvokeAsync<bool>("confirm", "Are you sure you want to delete this recipe?");
@@ -383,6 +383,13 @@
         }
     }
 
+    private void UpdateImageList()
+    {
+        recipeImages = recipeImages.Where(img => File.Exists(Path.Combine(Environment.WebRootPath, "uploads", img.Path))).ToList();
+        StateHasChanged();
+    }
+    
+
     private async Task LoadFiles(InputFileChangeEventArgs e)
     {
         try
@@ -390,16 +397,27 @@
             recipeImages.Clear();
             foreach (var file in e.GetMultipleFiles())
             {
-                var trustedFileName = file.Name;
-                var path = Path.Combine(Environment.ContentRootPath, "wwwroot", "uploads", trustedFileName);
-                await using FileStream fileStream = new(path, FileMode.Create);
-                await file.OpenReadStream(1024*350).CopyToAsync(fileStream); // 350kb
-                recipeImages.Add(new() { Path = trustedFileName });
+                var extension = Path.GetExtension(file.Name).ToLowerInvariant();
+                Logger.LogInformation($"Processing file: {file.Name} with extension: {extension}");
+                if (extension == ".jpg" || extension == ".jpeg" || extension == ".png"  || extension == ".webp")
+                {
+                    var trustedFileName = Path.GetFileName(file.Name);
+                    var path = Path.Combine(Environment.WebRootPath, "uploads", trustedFileName);
+                    await using FileStream fileStream = new(path, FileMode.Create);
+                    await file.OpenReadStream(long.MaxValue).CopyToAsync(fileStream);
+                    recipeImages.Add(new RecipeImage { Path = trustedFileName });
+                    Logger.LogInformation($"File uploaded successfully: {trustedFileName}");
+                }
+                else
+                {
+                    Logger.LogWarning($"Unsupported file extension: {extension}");
+                }
             }
+            StateHasChanged();
         }
-        catch (Exception)
+        catch (Exception ex)
         {
-            return;
+            Logger.LogError(ex, "Error uploading files");
         }
     }
 }
