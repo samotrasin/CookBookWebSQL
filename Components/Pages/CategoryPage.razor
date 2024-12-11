@@ -1,6 +1,7 @@
 @page "/categories"
 @rendermode InteractiveServer
-@inject CookBookWebSQL.Service.CategoryService categoryService
+@using Microsoft.EntityFrameworkCore
+@inject CookBookDBContext context
 <h3>Category</h3>
 <table class="table table-striped">
     <thead>
@@ -15,8 +16,8 @@
             <tr><td>@cat.Id</td>
             <td>@cat.Name</td>
             <td>
-                <button type="button" class="btn btn-warning" @onclick="()=>showEditModal(cat)">Edit</button>
-                <button type="button" class="btn btn-danger" @onclick="()=>showDeleteModal(cat)">Delete</button>
+                <button type="button" class="btn btn-warning">Edit</button>
+                <button type="button" class="btn btn-danger">Delete</button>
             </td>
             </tr>
         }
@@ -29,13 +30,13 @@
     <div class="modal-content">
       <div class="modal-header">
         <h5 class="modal-title">New Category</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" @onclick=hideAddModal></button>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
-        <EditForm Model=@currentCategory OnValidSubmit=AddNewCategory>
+        <EditForm Model=@category OnValidSubmit=DoAddCategory>
       <div class="modal-body">
         <div class="form-field">
             <label class="form-label">Category name:  </label>
-            <input @bind="categoryName" class="form-control">
+            <InputText @bind-Value=category.Name/>
         </div>
       </div>
       <div class="modal-footer">
@@ -47,60 +48,13 @@
   </div>
 </div>
 
-@* Edit modal *@
-<div class="modal fade show" style="display:@modalEditDisplay" tabindex="-1">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title">Edit Category</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" @onclick=hideEditModal></button>
-      </div>
-        <EditForm Model=@currentCategory OnValidSubmit=EditCategory>
-      <div class="modal-body">
-        <div class="form-field">
-            <label class="form-label">Category name:  </label>
-            <input @bind="categoryName" class="form-control">
-        </div>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" @onclick=hideEditModal>Close</button>
-        <button type="submit" class="btn btn-primary">Save changes</button>
-      </div>
-        </EditForm>
-    </div>
-  </div>
-</div>
-
-@* Edit Modal *@
-<div class="modal fade show" style="display:@modalDeleteDisplay" tabindex="-1">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title">Delete Category</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" @onclick=hideDeleteModal></button>
-      </div>
-      <div class="modal-body">
-        <p>Are you sure you want to delete this category?</p>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" @onclick=hideDeleteModal>Close</button>
-        <button type="button" class="btn btn-danger" @onclick=DeleteCategory>Delete</button>
-      </div>
-    </div>
-  </div>
-</div>
-
-
 @code {
     List<Category> categories =[];
-    private Category currentCategory = new Category();
+    Category category = new Category();
     string modalAddDisplay = "none";
-    string modalEditDisplay = "none";
-    string modalDeleteDisplay = "none";
-    string categoryName = "";
     protected override async Task OnInitializedAsync()
     {
-        categories = await categoryService.GetCategoriesAsync();
+        categories.AddRange(await context.Categories.ToListAsync());
     }
     void showAddModal(){
         modalAddDisplay = "block";
@@ -110,56 +64,12 @@
         modalAddDisplay = "none";
     }
 
-    void showEditModal(Category category)
-    {   
-      currentCategory = category;
-      categoryName = category.Name;
-      modalEditDisplay = "block";
-    }
-
-    void hideEditModal(){
-        modalEditDisplay = "none";
-    }
-
-    void showDeleteModal(Category category)
-    {
-        currentCategory = category;
-        modalDeleteDisplay = "block";
-    }
-    
-    void hideDeleteModal(){
-        modalDeleteDisplay = "none";
-    }
-
-    public async Task AddNewCategory()
-    {
-        currentCategory.Name = categoryName;
-        await categoryService.AddCategoryAsync(currentCategory);
+    async Task DoAddCategory(EditContext editContext){
+        await context.Categories.AddAsync(category);
+        context.SaveChanges();
+        categories.Add(category);
+        category = new Category();
         modalAddDisplay = "none";
-        categories = await categoryService.GetCategoriesAsync();
-        StateHasChanged();
     }
 
-    public async Task EditCategory()
-    {
-        if(currentCategory != null)
-        {
-            currentCategory.Name = categoryName;
-            await categoryService.UpdateCategoryAsync(currentCategory);
-            hideEditModal();
-            categories = await categoryService.GetCategoriesAsync();
-            StateHasChanged();
-        }
-    }
-
-    public async Task DeleteCategory()
-    {
-      if(currentCategory != null)
-      {
-        await categoryService.DeleteCategoryAsync(currentCategory);
-        hideDeleteModal();
-        categories = await categoryService.GetCategoriesAsync();
-        StateHasChanged();
-      }
-    }
 }

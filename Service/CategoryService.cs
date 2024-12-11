@@ -18,17 +18,17 @@ namespace CookBookWebSQL.Service
             return await _context.Categories.ToListAsync();
         }
 
-        public async Task AddCategoryAsync(Category category){
+        public async Task AddCategory(Category category){
             _context.Categories.Add(category);
             await _context.SaveChangesAsync();
         }
 
-        public async Task UpdateCategoryAsync(Category category){
+        public async Task UpdateCategory(Category category){
             _context.Categories.Update(category);
             await _context.SaveChangesAsync();
         }
 
-        public async Task DeleteCategoryAsync(Category category)
+        public async Task DeleteCategory(Category category)
         {
             _context.Categories.Remove(category);
             await _context.SaveChangesAsync();

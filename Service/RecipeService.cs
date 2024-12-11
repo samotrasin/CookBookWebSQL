@@ -13,6 +13,20 @@ namespace CookBookWebSQL.Service
         public RecipeService(CookBookDBContext context){
             _context=context;
         }
+
+        // Optimized method for fetching recipes for dropdown
+        public async Task<List<Recipe>> GetRecipesForDropdownAsync()
+        {
+            return await _context.Recipes
+                                 .Select(r => new Recipe
+                                 {
+                                     Id = r.Id,
+                                     Name = r.Name
+                                 })
+                                 .ToListAsync();
+        }
+
+
         public async Task<List<Recipe>> GetRecipesAsync(){
             return await _context.Recipes
                                     .Include(rp => rp.Images)

@@ -1,0 +1,65 @@
+@page "/comments"
+@inject CookBookWebSQL.Service.RecipeService RecipeService
+
+<h3>Comment</h3>
+
+<form class="row g-3" @onsubmit="HandleSubmit">
+    <!-- Dropdown for selecting a recipe -->
+    <div class="col-md-12">
+        <label for="recipeDropdown" class="form-label">Select Recipe</label>
+        <select id="recipeDropdown" class="form-select" @bind="SelectedRecipeId">
+            <option value="">-- Choose a Recipe --</option>
+            @foreach (var recipe in Recipes)
+            {
+                <option value="@recipe.Id">@recipe.Name</option>
+            }
+        </select>
+    </div>
+
+    <!-- Name field -->
+    <div class="col-md-6">
+        <label for="nameInput" class="form-label">Name</label>
+        <input type="text" class="form-control" id="nameInput" @bind="Name" />
+    </div>
+
+    <!-- Rating field -->
+    <div class="col-md-6">
+        <label for="ratingInput" class="form-label">Rating</label>
+        <input type="number" class="form-control" id="ratingInput" @bind="Rating" min="1" max="5" />
+    </div>
+
+    <!-- Optional comment field -->
+    <div class="col-12">
+        <label for="commentInput" class="form-label">Comment (optional)</label>
+        <textarea id="commentInput" class="form-control" @bind="CommentText"></textarea>
+    </div>
+
+    <div class="col-12">
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </div>
+</form>
+
+@code {
+    private List<Recipe> Recipes = new List<Recipe>();
+    private int? SelectedRecipeId;
+    private string Name;
+    private int Rating;
+    private string CommentText;
+
+    protected override async Task OnInitializedAsync()
+    {
+        // Fetch recipes from the database
+        Recipes = await RecipeService.GetRecipesForDropdownAsync();
+    }
+
+    private async Task HandleSubmit()
+    {
+        if (SelectedRecipeId == null || Rating < 1 || Rating > 5 || string.IsNullOrWhiteSpace(Name))
+        {
+            // Handle validation errors
+            return;
+        }
+
+        // Add code here to save the comment to the database
+    }
+}
