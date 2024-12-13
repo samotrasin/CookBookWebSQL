@@ -6,31 +6,34 @@
 @inject ILogger<RecipePage> Logger
 @inject IJSRuntime JS
 
-<h3 class="mb-5">Recipes Page</h3>
+<h3 class="mb-5">Recipe Page</h3>
 
 <div class="d-flex justify-content-between mb-2">
     <!-- Search Section -->
-    <div class="d-flex align-items-center">
-        <input type="text" class="form-control" placeholder="Search..." @bind="searchTerm" @bind:event="oninput" />
-        <i class="bi bi-search" style="margin-left: -40px;"></i>
+    <div class="d-flex align-items-center w-25">
+        <input type="text" class="form-control form-control-sm" placeholder="Search..." @bind="searchTerm" @bind:event="oninput" />
+        <i class="bi bi-search" style="margin-left: -30px;"></i>
     </div>
     
     <!-- Sort Section -->
     <div class="d-flex gap-3">
-        <button type="button" class="btn btn-secondary" @onclick="SortById">
+        <button type="button" class="btn btn-secondary btn-sm" @onclick="SortById">
             <i class="bi bi-sort-up"></i> Sort by ID
         </button>
-        <button type="button" class="btn btn-secondary" @onclick="SortByName">
+        <button type="button" class="btn btn-secondary btn-sm" @onclick="SortByName">
             <i class="bi bi-sort-up"></i> Sort by Name
         </button>
-        <button type="button" class="btn btn-secondary" @onclick="SortByDate">
+        <button type="button" class="btn btn-secondary btn-sm" @onclick="SortByCategory">
+            <i class="bi bi-sort-up"></i> Sort by Category
+        </button>
+        <button type="button" class="btn btn-secondary btn-sm" @onclick="SortByDate">
             <i class="bi bi-sort-up"></i> Sort by Date
         </button>
     </div>
     
     <!-- Add Recipe Button -->
     <div>
-        <button type="button" class="btn btn-success" @onclick="ShowAddModal">
+        <button type="button" class="btn btn-success btn-sm" @onclick="ShowAddModal">
             <i class="bi bi-plus-circle"></i> Add Recipe
         </button>
     </div>
@@ -60,11 +63,11 @@
                     }
                 </td>
                 <td>@rec.CreatedDate</td>
-                <td class="text-center">
-                    <button type="button" class="btn btn-primary" @onclick="() => ShowInstructionsModal(rec)">View Instructions</button>
-                    <button type="button" class="btn btn-warning" @onclick="()=> OpenEditModal(rec)">Edit</button>
-                    <button type="button" class="btn btn-secondary" @onclick="() => ViewPictureModal(rec)">View Picture</button>
-                    <button type="button" class="btn btn-danger" @onclick="() => ConfirmDeleteRecipe(rec)">Delete</button>
+                <td class="text-center ">
+                    <button type="button" class="btn btn-primary btn-sm" @onclick="() => ShowInstructionsModal(rec)">View Instructions</button>
+                    <button type="button" class="btn btn-warning btn-sm" @onclick="()=> OpenEditModal(rec)">Edit</button>
+                    <button type="button" class="btn btn-secondary btn-sm" @onclick="() => ViewPictureModal(rec)">View Picture</button>
+                    <button type="button" class="btn btn-danger btn-sm" @onclick="() => ConfirmDeleteRecipe(rec)">Delete</button>
                 </td>
             </tr>
         }
@@ -258,6 +261,7 @@
     }
     private bool isAscending = true;
     private bool isNameAscending = true;
+    private bool isCategoryAscending = true;
     private bool isDateAscending = true;
     private List<Category> categories = new();
 
@@ -316,6 +320,19 @@
         }
         isNameAscending = !isNameAscending;
     }
+
+    private void SortByCategory()
+    {
+        if (isCategoryAscending)
+        {
+            filteredRecipes = filteredRecipes.OrderBy(r => r.Categories.FirstOrDefault()?.Name).ToList();
+        }
+        else
+        {
+            filteredRecipes = filteredRecipes.OrderByDescending(r => r.Categories.FirstOrDefault()?.Name).ToList();
+        }
+        isCategoryAscending = !isCategoryAscending;
+        }
 
     private void SortByDate()
     {
