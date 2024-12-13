@@ -2,12 +2,14 @@
 @rendermode InteractiveServer
 @using Microsoft.EntityFrameworkCore
 @inject CookBookDBContext context
+@inject IJSRuntime JS
+
 <h3>Category</h3>
 <table class="table table-striped">
     <thead>
         <tr><th colspan="3" class="text-end">
-            <button type="button" class="btn btn-success"
-            @onclick="showAddModal">Create Category</button>
+            <button type="button" class="btn btn-success btn-sm"
+            @onclick="showAddModal">Add New Category</button>
         </th></tr>
         <tr><th>ID</th><th>Name</th><th>Actions</th></tr>
     </thead>
@@ -16,8 +18,8 @@
             <tr><td>@cat.Id</td>
             <td>@cat.Name</td>
             <td>
-                <button type="button" class="btn btn-warning" @onclick="() => showEditModal(cat)">Edit</button>
-                <button type="button" class="btn btn-danger">Delete</button>
+                <button type="button" class="btn btn-warning btn-sm" @onclick="() => showEditModal(cat)">Edit</button>
+                <button type="button" class="btn btn-danger btn-sm" @onclick="() => DeleteCategory(cat)">Delete</button>
             </td>
             </tr>
         }
@@ -113,6 +115,18 @@
         category = new Category();
         modalAddDisplay = "none";
     }
+
+	async Task DeleteCategory(Category categoryToDelete)
+	{
+		var confirmed = await JS.InvokeAsync<bool>("confirm", $"Are you sure you want to delete the category '{categoryToDelete.Name}'?");
+		if (confirmed)
+		{
+			context.Categories.Remove(categoryToDelete);
+			await context.SaveChangesAsync();
+			categories.Remove(categoryToDelete);
+			StateHasChanged();
+		}
+	}
 
     async Task UpdateCategory()
     {
