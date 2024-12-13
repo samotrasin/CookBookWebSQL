@@ -1,11 +1,12 @@
 @page "/recipes"
 @rendermode InteractiveServer
 @inject CookBookWebSQL.Service.RecipeService recipeService
+@inject CookBookWebSQL.Service.CategoryService categoryService
 @inject IWebHostEnvironment Environment
 @inject ILogger<RecipePage> Logger
 @inject IJSRuntime JS
 
-<h3 class="mb-5">Recipe Page</h3>
+<h3 class="mb-5">Recipes Page</h3>
 
 <div class="d-flex justify-content-between mb-2">
     <!-- Search Section -->
@@ -52,8 +53,13 @@
             <tr>
                 <td>@rec.Id</td>
                 <td>@rec.Name</td>
+                <td>
+                    @foreach(var category in rec.Categories)
+                    {
+                        @category.Name
+                    }
+                </td>
                 <td>@rec.CreatedDate</td>
-                <td>@rec.UpdatedDate</td>
                 <td class="text-center">
                     <button type="button" class="btn btn-primary" @onclick="() => ShowInstructionsModal(rec)">View Instructions</button>
                     <button type="button" class="btn btn-warning" @onclick="()=> OpenEditModal(rec)">Edit</button>
@@ -71,13 +77,22 @@
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title">Add New Recipe</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                <button type="button" class="btn-close" @onclick="()=>isAddModalShowing=false" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
                 <form method="post">
                     <div class="form-group">
                         <label class="form-label">Recipe Name</label>
                         <input @bind="recipeName" class="form-control" @ref="controlName">
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Category</label>
+                        <select @bind="selectedCategoryId" class="form-control">
+                            @foreach (var category in categories)
+                            {
+                                <option value="@category.Id">@category.Name</option>
+                            }
+                        </select>
                     </div>
                     <div class="form-group">
                         <label class="form-label">Instructions</label>
@@ -124,6 +139,15 @@
                     <div class="form-group">
                         <label class="form-label">Recipe Name</label>
                         <input @bind="recipeName" class="form-control" @ref="controlNameEdit">
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Category</label>
+                        <select @bind="selectedCategoryId" class="form-control">
+                            @foreach (var category in categories)
+                            {
+                                <option value="@category.Id">@category.Name</option>
+                            }
+                        </select>
                     </div>
                     <div class="form-group">
                         <label class="form-label">Instructions</label>
@@ -235,6 +259,7 @@
     private bool isAscending = true;
     private bool isNameAscending = true;
     private bool isDateAscending = true;
+    private List<Category> categories = new();
 
     string getDisplay()
     {
@@ -250,6 +275,7 @@
     {
         recipes = await recipeService.GetRecipesAsync();
         filteredRecipes = recipes;
+        categories = await categoryService.GetCategoriesAsync();
         UpdateImageList();
     }
 
@@ -323,6 +349,7 @@
             currentRecipe.CreatedDate = DateTime.Now;
             currentRecipe.UpdatedDate = DateTime.Now;
             currentRecipe.Images = recipeImages;
+            currentRecipe.Categories = categories.Where(c => c.Id == selectedCategoryId).ToList();
 
             // Call the AddRecipe method to save the recipe to the database
             await recipeService.AddRecipe(currentRecipe);
@@ -353,6 +380,7 @@
             currentRecipe!.Instructions = recipeInstructions;
             currentRecipe!.UpdatedDate = DateTime.Now;
             currentRecipe!.Images = recipeImages;
+            currentRecipe!.Categories = categories.Where(c => c.Id == selectedCategoryId).ToList();
             await recipeService.UpdateRecipe(currentRecipe);
             recipes = await recipeService.GetRecipesAsync();
             filteredRecipes = recipes;
@@ -367,6 +395,7 @@
         currentRecipe = recipe;
         recipeName = recipe.Name;
         recipeInstructions = recipe.Instructions;
+        selectedCategoryId = recipe.Categories.FirstOrDefault()?.Id ?? 0;
         recipeImages = new List<RecipeImage>(recipe.Images);
         UpdateImageList();
         modalTitle = "Edit Recipe";
