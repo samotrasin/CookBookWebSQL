@@ -284,3 +284,6 @@ C:\Users\Asus\Documents\CODE\C#\ASP.NET Core\CookBookWebSQL\obj\Debug\net8.0\sco
 C:\Users\Asus\Documents\CODE\C#\ASP.NET Core\CookBookWebSQL\obj\Debug\net8.0\CookBook.572D0A1F.Up2Date
 C:\Users\Asus\Documents\CODE\C#\ASP.NET Core\CookBookWebSQL\obj\Debug\net8.0\CookBookWebSQL.genruntimeconfig.cache
 C:\Users\Asus\Documents\CODE\C#\ASP.NET Core\CookBookWebSQL\obj\Debug\net8.0\ref\CookBookWebSQL.dll
+C:\Users\ssamo\Documents\IT STEP CLOUD\IT STEP\Term 4\ASPNET\CookBookWebSQL\bin\Debug\net8.0\CookBookWebSQL.staticwebassets.endpoints.json
+C:\Users\ssamo\Documents\IT STEP CLOUD\IT STEP\Term 4\ASPNET\CookBookWebSQL\obj\Debug\net8.0\staticwebassets.build.endpoints.json
+C:\Users\ssamo\Documents\IT STEP CLOUD\IT STEP\Term 4\ASPNET\CookBookWebSQL\obj\Debug\net8.0\staticwebassets\msbuild.CookBookWebSQL.Microsoft.AspNetCore.StaticWebAssetEndpoints.props

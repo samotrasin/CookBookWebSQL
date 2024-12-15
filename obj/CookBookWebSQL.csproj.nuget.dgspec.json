@@ -1,25 +1,28 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Asus\\Documents\\CODE\\C#\\ASP.NET Core\\CookBookWebSQL\\CookBookWebSQL.csproj": {}
+    "C:\\Users\\ssamo\\Documents\\IT STEP CLOUD\\IT STEP\\Term 4\\ASPNET\\CookBookWebSQL\\CookBookWebSQL.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Asus\\Documents\\CODE\\C#\\ASP.NET Core\\CookBookWebSQL\\CookBookWebSQL.csproj": {
+    "C:\\Users\\ssamo\\Documents\\IT STEP CLOUD\\IT STEP\\Term 4\\ASPNET\\CookBookWebSQL\\CookBookWebSQL.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Asus\\Documents\\CODE\\C#\\ASP.NET Core\\CookBookWebSQL\\CookBookWebSQL.csproj",
+        "projectUniqueName": "C:\\Users\\ssamo\\Documents\\IT STEP CLOUD\\IT STEP\\Term 4\\ASPNET\\CookBookWebSQL\\CookBookWebSQL.csproj",
         "projectName": "CookBookWebSQL",
-        "projectPath": "C:\\Users\\Asus\\Documents\\CODE\\C#\\ASP.NET Core\\CookBookWebSQL\\CookBookWebSQL.csproj",
-        "packagesPath": "C:\\Users\\Asus\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Asus\\Documents\\CODE\\C#\\ASP.NET Core\\CookBookWebSQL\\obj\\",
+        "projectPath": "C:\\Users\\ssamo\\Documents\\IT STEP CLOUD\\IT STEP\\Term 4\\ASPNET\\CookBookWebSQL\\CookBookWebSQL.csproj",
+        "packagesPath": "C:\\Users\\ssamo\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\ssamo\\Documents\\IT STEP CLOUD\\IT STEP\\Term 4\\ASPNET\\CookBookWebSQL\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Asus\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "C:\\Users\\ssamo\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net8.0"
         ],
         "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -36,8 +39,9 @@
         "restoreAuditProperties": {
           "enableAudit": "true",
           "auditLevel": "low",
-          "auditMode": "direct"
-        }
+          "auditMode": "all"
+        },
+        "SdkAnalysisLevel": "9.0.100"
       },
       "frameworks": {
         "net8.0": {
@@ -75,6 +79,24 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
+          "downloadDependencies": [
+            {
+              "name": "Microsoft.AspNetCore.App.Ref",
+              "version": "[8.0.11, 8.0.11]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Host.win-x64",
+              "version": "[8.0.11, 8.0.11]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Ref",
+              "version": "[8.0.11, 8.0.11]"
+            },
+            {
+              "name": "Microsoft.WindowsDesktop.App.Ref",
+              "version": "[8.0.11, 8.0.11]"
+            }
+          ],
           "frameworkReferences": {
             "Microsoft.AspNetCore.App": {
               "privateAssets": "none"
@@ -83,7 +105,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "c:\\program files\\dotnet\\sdk\\8.0.403/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.100/PortableRuntimeIdentifierGraph.json"
         }
       }
     }
