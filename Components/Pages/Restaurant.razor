@@ -1,8 +1,634 @@
-@page "/restaurants"
+@* @page "/restaurants"
+@rendermode InteractiveServer
 @inject CookBookWebSQL.Service.RestaurantService restaurantService
+@inject IWebHostEnvironment Environment
+@inject ILogger<RecipePage> Logger
+@inject IJSRuntime JS
+<h3 >Restaurant Page</h3>
+<div class="d-flex mb-2" >
+    <!-- Sort Restaurant by name -->
+    <div>
+        <button type="button" class="btn btn-secondary" @onclick="SortByName" style="margin-right: 15px;">
+            <i class="bi bi-sort-up"></i> Sort by Name
+        </button>
+    </div>
+    <!-- Add Restaurant button -->
+    <div>
+        <button type="button" class="btn btn-success" @onclick="ShowAddModal">
+            <i class="bi bi-plus-circle"></i> Add Restaurant
+        </button>
+    </div>
+</div>
 
-<h3 class="mb-5">Restaurant Page</h3>
+<!-- Display Restaurant table -->
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Image</th>
+            <th class="text-center">Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        
+        @foreach(var restaurant in filteredRestaurant){
+            <tr>
+                
+                <td>@restaurant.Id</td>  
+                <td>@restaurant.Name</td>
+                <td>@restaurant.Images</td>
 
+                <!-- Display images -->
+                 @foreach (var image in restaurant.Images)
+                {
+                    <img src="/uploads/@image.ImagePath" alt="Image" width="150" height="150"  />
+                }
+                <td>
+                    <button type="button" class="btn btn-primary" @onclick="() => ShowInstructionsModal(restaurant)">Information</button>
+                    <button type="button" class="btn btn-warning" @onclick="()=> OpenEditModal(restaurant)">Edit</button>
+                    <button type="button" class="btn btn-danger" @onclick="()=> ConfirmDeleteRestaurant(restaurant)">Delete</button>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+<!-- Add Restaurant modal -->
+<div class="modal fade show" style="display: @getDisplay();" tabindex="-1" >
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Add New Restaurant</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form method="post">
+                    <div class="form-group">
+                        <label>Restaurant Name</label>
+                        <input @bind="resName" class="form-control" @ref="controlName">
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Information</label>
+                        <textarea @bind="resInfo" class="form-control" rows="5"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Image</label>
+                        <InputFile onchange=LoadFiles class="form-control"></InputFile>
+                        <br>
+                        @foreach(var img in restaurantImages){
+                            <b>@img.ImagePath</b>
+                            <br>
+                        }
+                        <div class="row g-3">
+                            @foreach(var img in restaurantImages){
+                                <div class="card text-center">
+                                    <img src="/uploads/@img.ImagePath" class="card-img" alt="@img.ImagePath">
+                                </div>
+                            }
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button"class="btn btn-secondary" @onclick="()=>isAddModalShowing=false">Close</button>
+                <button type="button" class="btn btn-primary" @onclick="AddNewRestaurant">Save</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Edit Restaurant modal -->
+<div class="modal fade show" style="display: @getDisplayEdit();" tabindex="-1">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Edit Current Restaurant</h5>
+                <button type="button" class="btn-close" @onclick="() => isEditModalShowing = false" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form method="post">
+                    <div class="form-group">
+                        <label class="form-label">Restaurant Name</label>
+                        <input @bind="resName" class="form-control" @ref="controlNameEdit">
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Information</label>
+                        <textarea @bind="resInfo" class="form-control text-start" rows="10" style="height: 180px; padding: 12px 28px;"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Images</label>
+                        <InputFile OnChange=LoadFiles class="form-control" multiple />
+                        <br>
+                        @foreach (var img in restaurantImages)
+                        {
+                            <b>@img.ImagePath</b>
+                            <br>
+                        }
+                        <div class="row g-3">
+                            @foreach (var img in restaurantImages)
+                            {
+                                <div class="card text-center">
+                                    <img src="/uploads/@img.ImagePath" class="card-img" alt="@img.ImagePath">
+                                </div>
+                            }
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" @onclick="() => isEditModalShowing = false">Close</button>
+                <button type="button" class="btn btn-primary" @onclick="EditRestaurant">Save</button>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- View Restaurant Information -->
+<div class="modal fade show" style="display: @(isInstructionsModalShowing ? "block" : "none")" tabindex="-1">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">More Information</h5>
+                <button type="button" class="btn-close" @onclick="HideInstructionsModal"></button>
+            </div>
+            <div class="modal-body">
+                <textarea class="form-control" rows="10" readonly>@resInfo</textarea>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" @onclick="HideInstructionsModal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
 @code{
-    
+    List<CookBookWebSQL.Models.Restaurant> restaurants = [];
+    List<CookBookWebSQL.Models.Restaurant> filteredRestaurant = [];
+    private CookBookWebSQL.Models.Restaurant currentRes = new();
+    List<CookBookWebSQL.Models.RestaurantImage> restaurantImages = new List<RestaurantImage>();
+    bool isAddModalShowing = false;
+    bool isEditModalShowing = false;
+    bool isInstructionsModalShowing = false;
+    private string resName = "";
+    private string resInfo = "";
+    private ElementReference controlName;
+    private ElementReference controlNameEdit;
+    private bool isNameAscending = true;
+    string getDisplay(){
+        return isAddModalShowing ? "block" : "none";
+    }
+    string getDisplayEdit()
+    {
+        return isEditModalShowing ? "block" : "none";
+    }
+    public void ShowInstructionsModal(CookBookWebSQL.Models.Restaurant restaurant)
+    {
+        resInfo = restaurant.Description;
+        isInstructionsModalShowing = true;
+    }
+
+    public void HideInstructionsModal()
+    {
+        isInstructionsModalShowing = false;
+    }
+    protected override async Task OnInitializedAsync()
+    {
+        restaurants = await restaurantService.GetRestaurantAsync();
+        filteredRestaurant = restaurants;
+        UpdateImageList();
+    }
+
+
+    public void ShowAddModal(){
+        currentRes = new CookBookWebSQL.Models.Restaurant();
+        resName ="";
+        resInfo ="";
+        isAddModalShowing=true;
+    }
+    private void SortByName()
+    {
+        if (isNameAscending)
+        {
+            filteredRestaurant = filteredRestaurant.OrderBy(r => r.Name).ToList();
+        }
+        else
+        {
+            filteredRestaurant = filteredRestaurant.OrderByDescending(r => r.Name).ToList();
+        }
+        isNameAscending = !isNameAscending;
+    }
+    public async Task AddNewRestaurant(){
+        try{
+            currentRes.Name = resName;
+            currentRes.Description = resInfo;
+            currentRes.CreatedDate = DateTime.Now;
+            currentRes.UpdatedDate = DateTime.Now;
+            currentRes.Images = restaurantImages;
+            await restaurantService.AddRestaurant(currentRes);
+            restaurants = await restaurantService.GetRestaurantAsync();
+            filteredRestaurant = restaurants;
+            restaurantImages = new List<RestaurantImage>();
+            isAddModalShowing = false;
+            StateHasChanged();
+        }
+        catch(Exception e){
+            Logger.LogError(e, "Error adding new restaurant");
+        }
+    }
+    public async Task EditRestaurant()
+    {
+        if (currentRes != null)
+        {
+            currentRes!.Name = resName;
+            currentRes!.Description = resInfo;
+            currentRes!.UpdatedDate = DateTime.Now;
+            currentRes!.Images = restaurantImages;
+            await restaurantService.UpdateRestaurant(currentRes);
+            restaurants = await restaurantService.GetRestaurantAsync();
+            filteredRestaurant = restaurants;
+            restaurantImages = new List<CookBookWebSQL.Models.RestaurantImage>();
+            isEditModalShowing = false;
+            StateHasChanged();
+        }
+    }
+    public void OpenEditModal(CookBookWebSQL.Models.Restaurant restaurant)
+    {
+        currentRes = restaurant;
+        resName = restaurant.Name;
+        resInfo = restaurant.Description;
+        restaurantImages = new List<RestaurantImage>(restaurant.Images);
+        UpdateImageList();
+        isEditModalShowing = true;
+    }
+    public async Task ConfirmDeleteRestaurant(CookBookWebSQL.Models.Restaurant restaurant)
+    {
+        var res = await JS.InvokeAsync<bool>("confirm", "Are you sure you want to delete this restaurant?");
+        if (res)
+        {
+            await restaurantService.DeleteRestaurant(restaurant);
+            restaurants = await restaurantService.GetRestaurantAsync();
+            filteredRestaurant = restaurants;
+            StateHasChanged();
+        }
+    }
+    private void UpdateImageList()
+    {
+        restaurantImages = restaurantImages.Where(img => File.Exists(Path.Combine(Environment.WebRootPath, "uploads", img.ImagePath))).ToList();
+        StateHasChanged();
+    }
+    private async Task LoadFiles(InputFileChangeEventArgs e){
+        try{
+            restaurantImages.Clear();
+            foreach (var file in e.GetMultipleFiles())
+            {
+                var extension = Path.GetExtension(file.Name).ToLowerInvariant();
+                Logger.LogInformation($"Processing file: {file.Name} with extension: {extension}");
+                if (extension == ".jpg" || extension == ".jpeg" || extension == ".png" || extension == ".webp")
+                {
+                    var trustedFileName = Path.GetFileName(file.Name);
+                    var path = Path.Combine(Environment.WebRootPath, "uploads", trustedFileName);
+                    await using FileStream fileStream = new(path, FileMode.Create);
+                    await file.OpenReadStream(long.MaxValue).CopyToAsync(fileStream);
+                    restaurantImages.Add(new RestaurantImage { ImagePath = trustedFileName });
+                    Logger.LogInformation($"File uploaded successfully: {trustedFileName}");
+                }
+                else
+                {
+                    Logger.LogWarning($"Unsupported file extension: {extension}");
+                }
+            }
+            StateHasChanged();
+        }
+        catch (Exception ex)
+        {
+            Logger.LogError(ex, "Error uploading files");
+        }
+    }
+} *@
+@page "/restaurants"
+@rendermode InteractiveServer
+@inject CookBookWebSQL.Service.RestaurantService restaurantService
+@inject IWebHostEnvironment Environment
+@inject ILogger<RecipePage> Logger
+@inject IJSRuntime JS
+
+<h3>Restaurant Page</h3>
+<div class="d-flex mb-2">
+    <!-- Sort Restaurant by name -->
+    <div>
+        <button type="button" class="btn btn-secondary" @onclick="SortByName" style="margin-right: 15px;">
+            <i class="bi bi-sort-up"></i> Sort by Name
+        </button>
+    </div>
+    <!-- Add Restaurant button -->
+    <div>
+        <button type="button" class="btn btn-success" @onclick="ShowAddModal">
+            <i class="bi bi-plus-circle"></i> Add Restaurant
+        </button>
+    </div>
+</div>
+
+<!-- Display Restaurant table -->
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Image</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var restaurant in filteredRestaurant)
+        {
+            <tr>
+                <td>@restaurant.Id</td>
+                <td>@restaurant.Name</td>
+                <td>
+                    <!-- Display images -->
+                    @foreach (var image in restaurant.Images)
+                    {
+                        <img src="/uploads/@image.ImagePath" alt="Image" width="150" height="150" />
+                    }
+                </td>
+                <td>
+                    <button type="button" class="btn btn-primary" @onclick="() => ShowInstructionsModal(restaurant)">Information</button>
+                    <button type="button" class="btn btn-warning" @onclick="() => OpenEditModal(restaurant)">Edit</button>
+                    <button type="button" class="btn btn-danger" @onclick="() => ConfirmDeleteRestaurant(restaurant)">Delete</button>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<!-- Add Restaurant modal -->
+<div class="modal fade show" style="display: @getDisplay();" tabindex="-1">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Add New Restaurant</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form method="post">
+                    <div class="form-group">
+                        <label>Restaurant Name</label>
+                        <input @bind="resName" class="form-control" @ref="controlName">
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Information</label>
+                        <textarea @bind="resInfo" class="form-control" rows="5"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Image</label>
+                        <InputFile OnChange="LoadFiles" class="form-control"></InputFile>
+                        <br>
+                        @foreach (var img in restaurantImages)
+                        {
+                            <b>@img.ImagePath</b>
+                            <br>
+                        }
+                        <div class="row g-3">
+                            @foreach (var img in restaurantImages)
+                            {
+                                <div class="card text-center">
+                                    <img src="/uploads/@img.ImagePath" class="card-img" alt="@img.ImagePath">
+                                </div>
+                            }
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" @onclick="() => isAddModalShowing = false">Close</button>
+                <button type="button" class="btn btn-primary" @onclick="AddNewRestaurant">Save</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Edit Restaurant modal -->
+<div class="modal fade show" style="display: @getDisplayEdit();" tabindex="-1">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Edit Current Restaurant</h5>
+                <button type="button" class="btn-close" @onclick="() => isEditModalShowing = false" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form method="post">
+                    <div class="form-group">
+                        <label class="form-label">Restaurant Name</label>
+                        <input @bind="resName" class="form-control" @ref="controlNameEdit">
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Information</label>
+                        <textarea @bind="resInfo" class="form-control text-start" rows="10" style="height: 180px; padding: 12px 28px;"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Images</label>
+                        <InputFile OnChange="LoadFiles" class="form-control" multiple />
+                        <br>
+                        @foreach (var img in restaurantImages)
+                        {
+                            <b>@img.ImagePath</b>
+                            <br>
+                        }
+                        <div class="row g-3">
+                            @foreach (var img in restaurantImages)
+                            {
+                                <div class="card text-center">
+                                    <img src="/uploads/@img.ImagePath" class="card-img" alt="@img.ImagePath">
+                                </div>
+                            }
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" @onclick="() => isEditModalShowing = false">Close</button>
+                <button type="button" class="btn btn-primary" @onclick="EditRestaurant">Save</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- View Restaurant Information -->
+<div class="modal fade show" style="display: @(isInstructionsModalShowing ? "block" : "none")" tabindex="-1">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">More Information</h5>
+                <button type="button" class="btn-close" @onclick="HideInstructionsModal"></button>
+            </div>
+            <div class="modal-body">
+                <textarea class="form-control" rows="10" readonly>@resInfo</textarea>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" @onclick="HideInstructionsModal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+@code {
+    List<CookBookWebSQL.Models.Restaurant> restaurants = [];
+    List<CookBookWebSQL.Models.Restaurant> filteredRestaurant = [];
+    private CookBookWebSQL.Models.Restaurant currentRes = new();
+    List<RestaurantImage> restaurantImages = new List<RestaurantImage>();
+    bool isAddModalShowing = false;
+    bool isEditModalShowing = false;
+    bool isInstructionsModalShowing = false;
+    private string resName = "";
+    private string resInfo = "";
+    private ElementReference controlName;
+    private ElementReference controlNameEdit;
+    private bool isNameAscending = true;
+
+    string getDisplay()
+    {
+        return isAddModalShowing ? "block" : "none";
+    }
+
+    string getDisplayEdit()
+    {
+        return isEditModalShowing ? "block" : "none";
+    }
+
+    public void ShowInstructionsModal(CookBookWebSQL.Models.Restaurant restaurant)
+    {
+        resInfo = restaurant.Description;
+        isInstructionsModalShowing = true;
+    }
+
+    public void HideInstructionsModal()
+    {
+        isInstructionsModalShowing = false;
+    }
+
+    protected override async Task OnInitializedAsync()
+    {
+        restaurants = await restaurantService.GetRestaurantAsync();
+        filteredRestaurant = restaurants;
+        UpdateImageList();
+    }
+
+    public void ShowAddModal()
+    {
+        currentRes = new CookBookWebSQL.Models.Restaurant();
+        resName = "";
+        resInfo = "";
+        isAddModalShowing = true;
+    }
+
+    private void SortByName()
+    {
+        if (isNameAscending)
+        {
+            filteredRestaurant = filteredRestaurant.OrderBy(r => r.Name).ToList();
+        }
+        else
+        {
+            filteredRestaurant = filteredRestaurant.OrderByDescending(r => r.Name).ToList();
+        }
+        isNameAscending = !isNameAscending;
+    }
+
+    public async Task AddNewRestaurant()
+    {
+        try
+        {
+            currentRes.Name = resName;
+            currentRes.Description = resInfo;
+            currentRes.CreatedDate = DateTime.Now;
+            currentRes.UpdatedDate = DateTime.Now;
+            currentRes.Images = restaurantImages;
+            await restaurantService.AddRestaurant(currentRes);
+            restaurants = await restaurantService.GetRestaurantAsync();
+            filteredRestaurant = restaurants;
+            restaurantImages = new List<RestaurantImage>();
+            isAddModalShowing = false;
+            StateHasChanged();
+        }
+        catch (Exception e)
+        {
+            Logger.LogError(e, "Error adding new restaurant");
+        }
+    }
+
+    public async Task EditRestaurant()
+    {
+        if (currentRes != null)
+        {
+            currentRes.Name = resName;
+            currentRes.Description = resInfo;
+            currentRes.UpdatedDate = DateTime.Now;
+            currentRes.Images = restaurantImages;
+            await restaurantService.UpdateRestaurant(currentRes);
+            restaurants = await restaurantService.GetRestaurantAsync();
+            filteredRestaurant = restaurants;
+            restaurantImages = new List<CookBookWebSQL.Models.RestaurantImage>();
+            isEditModalShowing = false;
+            StateHasChanged();
+        }
+    }
+
+    public void OpenEditModal(CookBookWebSQL.Models.Restaurant restaurant)
+    {
+        currentRes = restaurant;
+        resName = restaurant.Name;
+        resInfo = restaurant.Description;
+        restaurantImages = new List<RestaurantImage>(restaurant.Images);
+        UpdateImageList();
+        isEditModalShowing = true;
+    }
+
+    public async Task ConfirmDeleteRestaurant(CookBookWebSQL.Models.Restaurant restaurant)
+    {
+        var res = await JS.InvokeAsync<bool>("confirm", "Are you sure you want to delete this restaurant?");
+        if (res)
+        {
+            await restaurantService.DeleteRestaurant(restaurant);
+            restaurants = await restaurantService.GetRestaurantAsync();
+            filteredRestaurant = restaurants;
+            StateHasChanged();
+        }
+    }
+
+    private void UpdateImageList()
+    {
+        restaurantImages = restaurantImages.Where(img => File.Exists(Path.Combine(Environment.WebRootPath, "uploads", img.ImagePath))).ToList();
+        StateHasChanged();
+    }
+
+    private async Task LoadFiles(InputFileChangeEventArgs e)
+    {
+        try
+        {
+            restaurantImages.Clear();
+            foreach (var file in e.GetMultipleFiles())
+            {
+                var extension = Path.GetExtension(file.Name).ToLowerInvariant();
+                Logger.LogInformation($"Processing file: {file.Name} with extension: {extension}");
+                if (extension == ".jpg" || extension == ".jpeg" || extension == ".png" || extension == ".webp")
+                {
+                    var trustedFileName = Path.GetFileName(file.Name);
+                    var path = Path.Combine(Environment.WebRootPath, "uploads", trustedFileName);
+                    await using FileStream fileStream = new(path, FileMode.Create);
+                    await file.OpenReadStream(long.MaxValue).CopyToAsync(fileStream);
+                    restaurantImages.Add(new RestaurantImage { ImagePath = trustedFileName });
+                    Logger.LogInformation($"File uploaded successfully: {trustedFileName}");
+                }
+                else
+                {
+                    Logger.LogWarning($"Unsupported file extension: {extension}");
+                }
+            }
+            StateHasChanged();
+        }
+        catch (Exception ex)
+        {
+            Logger.LogError(ex, "Error uploading files");
+        }
+    }
 }

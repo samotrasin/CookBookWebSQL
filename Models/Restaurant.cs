@@ -6,6 +6,6 @@ namespace CookBookWebSQL.Models{
         public DateTime CreatedDate {get;set;} = DateTime.Now;
         public DateTime UpdatedDate {get;set;} = DateTime.Now;
         public List<RestaurantImage> Images {get;set;} = new List<RestaurantImage>();
-
+        public List<RestaurantMenu> RestaurantMenus { get; set; } = new List<RestaurantMenu>();
     }
 }

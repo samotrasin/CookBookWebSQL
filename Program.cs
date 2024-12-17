@@ -23,6 +23,7 @@ builder.Services.AddScoped<CategoryService>();
 builder.Services.AddScoped<IngredientService>();
 builder.Services.AddScoped<UserService>();
 builder.Services.AddScoped<FeedbackService>();
+builder.Services.AddScoped<CookBookWebSQL.Service.RestaurantService>();
 builder.Services.AddScoped<RestaurantManagementWebSQL.Service.RestaurantService>();
 
 // Add Razor Pages and Server-Side Blazor
