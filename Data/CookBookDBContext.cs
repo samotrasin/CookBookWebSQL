@@ -22,10 +22,9 @@ public class CookBookDBContext : DbContext{
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         modelBuilder.Entity<User>()
-            .HasMany(u => u.Images)
-            .WithOne()
-            .HasForeignKey("UserId")
-            .OnDelete(DeleteBehavior.Cascade); // Enable cascade delete
+        .HasMany(u => u.Images)
+        .WithOne(ui => ui.User)
+        .HasForeignKey(ui => ui.UserId);
     }
 }
 
