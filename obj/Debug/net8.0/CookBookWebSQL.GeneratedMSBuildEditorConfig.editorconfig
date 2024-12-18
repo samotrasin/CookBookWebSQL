@@ -9,63 +9,73 @@ build_property.EnforceExtendedAnalyzerRules =
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = CookBookWebSQL
 build_property.RootNamespace = CookBookWebSQL
-build_property.ProjectDir = C:\Users\Asus\Documents\CODE\C#\ASP.NET Core\CookBookWebSQL\
+build_property.ProjectDir = C:\Users\accer lmc\OneDrive\Desktop\E\CookBookWebSQL\
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 
 build_property.RazorLangVersion = 8.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = C:\Users\Asus\Documents\CODE\C#\ASP.NET Core\CookBookWebSQL
+build_property.MSBuildProjectDirectory = C:\Users\accer lmc\OneDrive\Desktop\E\CookBookWebSQL
 build_property._RazorSourceGeneratorDebug = 
+build_property.EffectiveAnalysisLevelStyle = 8.0
+build_property.EnableCodeStyleSeverity = 
 
-[C:/Users/Asus/Documents/CODE/C\#/ASP.NET Core/CookBookWebSQL/Components/App.razor]
+[C:/Users/accer lmc/OneDrive/Desktop/E/CookBookWebSQL/Components/App.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xBcHAucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Asus/Documents/CODE/C\#/ASP.NET Core/CookBookWebSQL/Components/Pages/CategoryPage.razor]
+[C:/Users/accer lmc/OneDrive/Desktop/E/CookBookWebSQL/Components/Pages/CategoryPage.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xDYXRlZ29yeVBhZ2UucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Asus/Documents/CODE/C\#/ASP.NET Core/CookBookWebSQL/Components/Pages/Comment.razor]
+[C:/Users/accer lmc/OneDrive/Desktop/E/CookBookWebSQL/Components/Pages/Comment.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xDb21tZW50LnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Asus/Documents/CODE/C\#/ASP.NET Core/CookBookWebSQL/Components/Pages/Counter.razor]
+[C:/Users/accer lmc/OneDrive/Desktop/E/CookBookWebSQL/Components/Pages/Counter.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xDb3VudGVyLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Asus/Documents/CODE/C\#/ASP.NET Core/CookBookWebSQL/Components/Pages/Cuisine.razor]
+[C:/Users/accer lmc/OneDrive/Desktop/E/CookBookWebSQL/Components/Pages/Cuisine.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xDdWlzaW5lLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Asus/Documents/CODE/C\#/ASP.NET Core/CookBookWebSQL/Components/Pages/Error.razor]
+[C:/Users/accer lmc/OneDrive/Desktop/E/CookBookWebSQL/Components/Pages/Error.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xFcnJvci5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Asus/Documents/CODE/C\#/ASP.NET Core/CookBookWebSQL/Components/Pages/Home.razor]
+[C:/Users/accer lmc/OneDrive/Desktop/E/CookBookWebSQL/Components/Pages/Home.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xIb21lLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Asus/Documents/CODE/C\#/ASP.NET Core/CookBookWebSQL/Components/Pages/RecipePage.razor]
+[C:/Users/accer lmc/OneDrive/Desktop/E/CookBookWebSQL/Components/Pages/IngredientPage.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xJbmdyZWRpZW50UGFnZS5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/accer lmc/OneDrive/Desktop/E/CookBookWebSQL/Components/Pages/RecipePage.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xSZWNpcGVQYWdlLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Asus/Documents/CODE/C\#/ASP.NET Core/CookBookWebSQL/Components/Pages/Weather.razor]
+[C:/Users/accer lmc/OneDrive/Desktop/E/CookBookWebSQL/Components/Pages/UserManagementPage.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xVc2VyTWFuYWdlbWVudFBhZ2UucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/accer lmc/OneDrive/Desktop/E/CookBookWebSQL/Components/Pages/Weather.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xXZWF0aGVyLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Asus/Documents/CODE/C\#/ASP.NET Core/CookBookWebSQL/Components/Routes.razor]
+[C:/Users/accer lmc/OneDrive/Desktop/E/CookBookWebSQL/Components/Routes.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xSb3V0ZXMucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Asus/Documents/CODE/C\#/ASP.NET Core/CookBookWebSQL/Components/_Imports.razor]
+[C:/Users/accer lmc/OneDrive/Desktop/E/CookBookWebSQL/Components/_Imports.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xfSW1wb3J0cy5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Asus/Documents/CODE/C\#/ASP.NET Core/CookBookWebSQL/Components/Layout/MainLayout.razor]
+[C:/Users/accer lmc/OneDrive/Desktop/E/CookBookWebSQL/Components/Layout/MainLayout.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xMYXlvdXRcTWFpbkxheW91dC5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = b-0x5i16ou1q
 
-[C:/Users/Asus/Documents/CODE/C\#/ASP.NET Core/CookBookWebSQL/Components/Layout/NavMenu.razor]
+[C:/Users/accer lmc/OneDrive/Desktop/E/CookBookWebSQL/Components/Layout/NavMenu.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xMYXlvdXRcTmF2TWVudS5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = b-gyu3lhuzql

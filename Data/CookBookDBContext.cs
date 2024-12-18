@@ -16,6 +16,8 @@ public class CookBookDBContext : DbContext{
     public DbSet<RecipeImage> RecipeImages{get; set;}
     public DbSet<User>Users{get;set;}
     public DbSet<UserImage>UserImages{get;set;}
+    public DbSet<Ingredient>Ingredients { get; set; }
+    public DbSet<IngredientImage>IngredientImages { get; set; }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
