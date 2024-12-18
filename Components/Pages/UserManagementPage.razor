@@ -10,6 +10,8 @@
 
 
 <h3>User Management</h3>
+@* <img src="/uploads/code2.png" alt="User Image" /> *@
+@* <button class="btn btn-primary" @onclick="AddImagesManually">addmanually</button> *@
 
 <!-- User Table -->
 @if(loggedInUser !=null)
@@ -31,6 +33,7 @@
             <th>Phone</th>
             <th>Role</th>
             <th>Created</th>
+            <th>Updated</th>
             <th>Actions</th>
         </tr>
     </thead>
@@ -39,20 +42,20 @@
         {
             @foreach (var user in filteredUsers)
             {
-                var images = user.Images; 
-                    <tr>
-                        <td>@user.Id</td>
-                        <td>@user.UserName</td>
-                        <td>@user.Email</td>
-                        <td>@user.PhoneNumber</td>
-                        <td>@user.Roles</td>
-                        <td>@user.createdDate</td>
-                        <td>
-                            <button class="btn btn-secondary" @onclick=" () => ViewPictureModal(user,images) ">Picture</button>
-                            <button class="btn btn-warning" @onclick=" () => OpenEditModal(user)">Edit</button>
-                            <button class="btn btn-danger" @onclick=" () => ConfirmDeleteUser(user)">Delete</button>
-                        </td>
-                    </tr>
+                <tr>
+                    <td>@user.Id</td>
+                    <td>@user.UserName</td>
+                    <td>@user.Email</td>
+                    <td>@user.PhoneNumber</td>
+                    <td>@user.Roles</td>
+                    <td>@user.createdDate</td>
+                    <td>@user.updatedDate</td>
+                    <td>
+                        <button class="btn btn-secondary" @onclick=" () => ViewPictureModal(user,user.Images) ">Picture</button>
+                        <button class="btn btn-warning" @onclick=" () => OpenEditModal(user)">Edit</button>
+                        <button class="btn btn-danger" @onclick=" () => ConfirmDeleteUser(user)">Delete</button>
+                    </td>
+                </tr>
             }
         }
         else
@@ -71,6 +74,7 @@
 
 @* Add Modal *@
 <div class="modal fade show" style="display: @(isAddModalShowing ? "block" : "none")" tabindex="-1">
+    using System.Reflection;
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
@@ -99,20 +103,20 @@
                     <label for="userRole">Role:</label>
                     <select id="userRole" @bind="newUser.Roles" class="form-control" aria-placeholder="Select Role">
                         <option value="Admin">Admin</option>
-                        <option value="viewer">User</option>
+                        <option value="Viewer">User</option>
                     </select>
                 </div>
                 <div class="form-group">
                 <label class="form-label">Images</label>
                 <InputFile OnChange=LoadFiles class="form-control" multiple />
                 <br>
-                @foreach (var img in userImages)
+                @foreach (var img in newUserImages)
                 {
                     <b>@img.userImagePath</b>
                     <br>
                 }
                 <div class="row g-3">
-                    @foreach (var img in userImages)
+                    @foreach (var img in newUserImages)
                     {
                         <div class="card text-center">
                             <img src="uploads/@img.userImagePath" class="card-img" alt="@img.userImagePath">
@@ -161,7 +165,7 @@
                     <div class="form-group">
                         <label for="userRole">Role:</label>
                         <select id="userRole" @bind="roles" class="form-control" aria-placeholder="Select Role">
-                            <option value="Editor">Admin</option>
+                            <option value="Admin">Admin</option>
                             <option value="Viewer">User</option>
                         </select>
                     </div>
@@ -182,15 +186,15 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title">User Pictures</h5>
-                    <button type="button" class="btn-close" @onclick=" ClosePictureModal "></button>
+                    <button type="button" class="btn-close" @onclick="ClosePictureModal"></button>
                 </div>
                 <div class="modal-body text-center">
-                    @if (userImages != null && userImages.Any())
+                    @if (newUserImages != null && newUserImages.Any())
                     {
-                        @foreach (var img in userImages)
+                        @foreach (var img in newUserImages)
                         {
                             <div class="mb-3">
-                                <img src="/uploads/@img.userImagePath" alt="User Picture" class="img-fluid rounded" style="max-height: 400px;" />
+                                <img src="@("/uploads/" + selectedImagePath)" alt="User Picture" class="img-fluid rounded" style="max-height: 400px;" />
                                 <p class="text-muted">@img.userImagePath</p>
                             </div>
                         }
@@ -201,12 +205,13 @@
                     }
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" @onclick=" ClosePictureModal ">Close</button>
+                    <button type="button" class="btn btn-secondary" @onclick="ClosePictureModal">Close</button>
                 </div>
             </div>
         </div>
     </div>
 }
+
 
 
 @if (isLoginModalShowing)
@@ -313,6 +318,8 @@
     private InputFile? inputFile;
     private ElementReference imgPreview;
     private bool isPictureModalShowing = false;
+    private string selectedImagePath ="";
+
 
     private void ShowLoginModal()
     {
@@ -371,21 +378,21 @@
 
     string str = "";
     protected override async Task OnInitializedAsync()
-{
-    try
     {
-        filteredUsers = users;
-        users = await userService.GetUsersAsync();
-        foreach(var u in users){
-            str += $"{u.Images.Count},";
+        try
+        {
+            filteredUsers = users;
+            users = await userService.GetUsersAsync();
+            foreach(var u in users){
+                str += $"{u.Images.Count},";
+            }
+            StateHasChanged(); 
         }
-        StateHasChanged(); 
+        catch (Exception ex)
+        {
+            Logger.LogError($"Error fetching users: {ex.Message}");
+        }
     }
-    catch (Exception ex)
-    {
-        Logger.LogError($"Error fetching users: {ex.Message}");
-    }
-}
 
 
     private void OpenAddModal()
@@ -398,20 +405,21 @@
 
     private async Task SaveNewUser()
     {
-        try
-        {
-            newUser.Images = userImages;
+            newUser.createdDate = DateTime.Now;
+            newUser.updatedDate = DateTime.Now;
+            foreach(var image in newUserImages){
+                image.UserId = newUser.Id;
+            }
+            newUser.Images = newUserImages;
             await userService.AddUserAsync(newUser);
+            if(newUser.Id>0){
+                foreach(var image in newUserImages){
+                    image.Id = newUser.Id;
+                }
+            }
             users.Add(newUser);
-            userImages.Clear();
+            newUserImages.Clear();
             CloseAddModal();
-            await JS.InvokeVoidAsync("showToast", "User added successfully!", "success");
-        }
-        catch (Exception ex)
-        {
-            Logger.LogError(ex, "Failed to save new user.");
-            await JS.InvokeVoidAsync("showToast", "Error saving user!", "error");
-        }
     }
 
 
@@ -429,6 +437,7 @@
         newUser = user;
         username = user.UserName;
         email = user.Email;
+        password = user.Password;
         phonenumber = user.PhoneNumber;
         roles = user.Roles;
 
@@ -452,9 +461,9 @@
         newUser!.PhoneNumber = phonenumber;
         newUser!.Roles = roles;
         newUser!.updatedDate = DateTime.Now;
-        newUser!.Images = userImages;
+        newUser!.Images = newUserImages;
         await userService.UpdateUserAsync(newUser);
-        userImages = new List<UserImage>();
+        @* newUserImages = new List<UserImage>(); *@
         isEditModalShowing = false;
         StateHasChanged();
        }
@@ -476,19 +485,30 @@
     {
         try
         {
-            userImages.Clear();
+            newUserImages.Clear();
+            var uploadPath = Path.Combine(Environment.ContentRootPath,"wwwroot","uploads");
+
+            if(!Directory.Exists(uploadPath)){
+                Directory.CreateDirectory(uploadPath);
+            }
+
             foreach (var file in e.GetMultipleFiles())
             {
+                if(file.Size>1024*350){
+                    Console.WriteLine($"File{file.Name} exceeds the file limit of 350KB.");
+                    continue;
+                }
                 var trustedFileName = file.Name;
-                var path = Path.Combine(Environment.ContentRootPath, "wwwroot", "uploads", trustedFileName);
+                var path = Path.Combine(uploadPath, trustedFileName);
                 await using FileStream fileStream = new(path, FileMode.Create);
                 await file.OpenReadStream(1024*350).CopyToAsync(fileStream); // 350kb
-                userImages.Add(new() { userImagePath = trustedFileName });
+                newUserImages.Add(new UserImage { userImagePath = trustedFileName });
             }
         }
-        catch (Exception)
+        catch (Exception ex)
         {
-            return;
+            Console.WriteLine($"Error Loading files : {ex.Message}");
+            return; 
         }
     }
 
@@ -497,40 +517,46 @@
     private void ClosePictureModal()
     {
         isPictureModalShowing = false;
-        userImages.Clear(); // Clear the images when the modal is closed
+        newUserImages.Clear(); // Clear the images when the modal is closed
         StateHasChanged();
     }
+    
+    @* private void AddImagesManually()
+    {
+        // Add images manually to the userImages list
+        userImages.Add(new UserImage { userImagePath = @"C:\Users\rithc\OneDrive\Pictures\Screenshots\Screenshot 2024-11-07 125558.png" });
+        userImages.Add(new UserImage { userImagePath = @"C:\Users\rithc\OneDrive\Pictures\Screenshots\Screenshot 2024-11-07 125621.png" });
+
+        // Add images manually to the newUserImages list
+        newUserImages.Add(new UserImage { userImagePath = @"C:\Users\rithc\OneDrive\Pictures\Screenshots\Screenshot 2024-11-11 104343.png" });
+        newUserImages.Add(new UserImage { userImagePath = @"C:\Users\rithc\OneDrive\Pictures\Screenshots\Screenshot 2024-11-11 105110.png" });
+
+        // You can print the counts for debugging
+        Console.WriteLine($"userImages count: {userImages.Count}");
+        Console.WriteLine($"newUserImages count: {newUserImages.Count}");
+    } *@
 
     private void ViewPictureModal(User user, List<UserImage> images)
     {
-        try
-        {
-            // Clear any previously loaded images
-            userImages.Clear();
-
-            // Directory path where user images are stored
-            var directoryPath = Path.Combine(Environment.ContentRootPath, "wwwroot", "uploads");
-
-            // Get all image files for the user
-            var userImageFiles = Directory.EnumerateFiles(directoryPath, $"{user.Id}_*.*");
-
-            // Add the file paths to the userImages list
-            foreach (var filePath in userImageFiles)
+        Console.WriteLine($"userImages count: {userImages.Count}");
+        Console.WriteLine($"newUserImages count: {newUserImages.Count}");
+        if(images!=null && images.Any()){
+            var selectedImage = images.FirstOrDefault(image => !string.IsNullOrEmpty(image.userImagePath)); // Select the first image or choose one based on your logic
+            if (selectedImage != null)
             {
-                var fileName = Path.GetFileName(filePath);
-                userImages.Add(new UserImage { userImagePath = fileName });
+                selectedImagePath = selectedImage.userImagePath;
+                Console.WriteLine($"Selected Image Path: {selectedImagePath}");
+            }else{
+                Console.WriteLine("No Image Found.");
             }
-
-            // Show the picture modal
-            isPictureModalShowing = true;
         }
-        catch (Exception ex)
-        {
-            Logger.LogError($"Error loading images for user {user.UserName}: {ex.Message}");
+        else{
+            Console.WriteLine("No images available.");
+            
         }
-
-        StateHasChanged();
         
+        isPictureModalShowing = true;
+        StateHasChanged();
     }
     
 
@@ -554,5 +580,11 @@
         loggedInUser = null;
         ShowLoginModal();
     }
+    
+    
+    
+
 }
+
+
 
