@@ -14,4 +14,18 @@ public class CookBookDBContext : DbContext{
     public DbSet<Category> Categories{get; set;}
     public DbSet<Recipe> Recipes{get; set;}
     public DbSet<RecipeImage> RecipeImages{get; set;}
+    public DbSet<User>Users{get;set;}
+    public DbSet<UserImage>UserImages{get;set;}
+    public DbSet<Ingredient>Ingredients { get; set; }
+    public DbSet<IngredientImage>IngredientImages { get; set; }
+
+    protected override void OnModelCreating(ModelBuilder modelBuilder)
+    {
+        modelBuilder.Entity<User>()
+            .HasMany(u => u.Images)
+            .WithOne()
+            .HasForeignKey("UserId")
+            .OnDelete(DeleteBehavior.Cascade); // Enable cascade delete
+    }
 }
+
