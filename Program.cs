@@ -22,6 +22,7 @@ builder.Services.AddScoped<RecipeService>();
 builder.Services.AddScoped<CategoryService>();
 builder.Services.AddScoped<IngredientService>();
 builder.Services.AddScoped<UserService>();
+builder.Services.AddScoped<FeedbackService>();
 
 var app = builder.Build();
 
