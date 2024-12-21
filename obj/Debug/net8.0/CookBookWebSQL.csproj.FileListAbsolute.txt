@@ -436,3 +436,13 @@ C:\Users\ssamo\Documents\IT STEP CLOUD\IT STEP\Term 4\ASPNET\CookBookWebSQL\obj\
 C:\Users\ssamo\Documents\IT STEP CLOUD\IT STEP\Term 4\ASPNET\CookBookWebSQL\obj\Debug\net8.0\CookBookWebSQL.pdb
 C:\Users\ssamo\Documents\IT STEP CLOUD\IT STEP\Term 4\ASPNET\CookBookWebSQL\obj\Debug\net8.0\CookBookWebSQL.genruntimeconfig.cache
 C:\Users\ssamo\Documents\IT STEP CLOUD\IT STEP\Term 4\ASPNET\CookBookWebSQL\obj\Debug\net8.0\ref\CookBookWebSQL.dll
+D:\IT_Step\ASPNET1\CookBookWebSQL\obj\Debug\net8.0\CookBookWebSQL.csproj.AssemblyReference.cache
+D:\IT_Step\ASPNET1\CookBookWebSQL\obj\Debug\net8.0\CookBookWebSQL.GeneratedMSBuildEditorConfig.editorconfig
+D:\IT_Step\ASPNET1\CookBookWebSQL\obj\Debug\net8.0\CookBookWebSQL.AssemblyInfoInputs.cache
+D:\IT_Step\ASPNET1\CookBookWebSQL\obj\Debug\net8.0\CookBookWebSQL.AssemblyInfo.cs
+D:\IT_Step\ASPNET1\CookBookWebSQL\obj\Debug\net8.0\CookBookWebSQL.csproj.CoreCompileInputs.cache
+D:\IT_Step\ASPNET1\CookBookWebSQL\obj\Debug\net8.0\CookBookWebSQL.MvcApplicationPartsAssemblyInfo.cache
+D:\IT_Step\ASPNET1\CookBookWebSQL\obj\Debug\net8.0\CookBookWebSQL.sourcelink.json
+D:\IT_Step\ASPNET1\CookBookWebSQL\obj\Debug\net8.0\CookBookWebSQL.dll
+D:\IT_Step\ASPNET1\CookBookWebSQL\obj\Debug\net8.0\refint\CookBookWebSQL.dll
+D:\IT_Step\ASPNET1\CookBookWebSQL\obj\Debug\net8.0\CookBookWebSQL.pdb
