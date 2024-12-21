@@ -11,8 +11,5 @@
         public DateTime CreatedDate { get; set; } = DateTime.Now;
         public DateTime UpdatedDate { get; set; } = DateTime.Now;
         public List<IngredientImage> Images { get; set; } = new List<IngredientImage>();
-        public List<Recipe> Recipes { get; set; } = new List<Recipe>();
-
-
     }
 }

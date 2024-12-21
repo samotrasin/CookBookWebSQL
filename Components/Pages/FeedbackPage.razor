@@ -1,0 +1,41 @@
+@page "/feedback"
+@using Microsoft.EntityFrameworkCore
+@inject CookBookWebSQL.Service.FeedbackService feedbackService
+@inject NavigationManager NavigationManager
+
+<PageTitle>Feedback</PageTitle>
+
+<h1>Give us your feedbacks!</h1>
+
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <EditForm method="post" Model="Feedback" OnValidSubmit="AddFeedback" FormName="create" Enhance>
+            <DataAnnotationsValidator />
+            <ValidationSummary class="text-danger" role="alert"/>
+            <div class="mb-3">
+                <label for="topic" class="form-label">Topic:</label> 
+                <InputText id="topic" @bind-Value="Feedback.Topic" class="form-control" aria-required="true"/> 
+                <ValidationMessage For="() => Feedback.Topic" class="text-danger" /> 
+            </div>        
+            <div class="mb-3">
+                <label for="description" class="form-label">Description:</label> 
+                <InputTextArea id="description" @bind-Value="Feedback.Description" class="form-control" aria-required="true" />
+                <ValidationMessage For="() => Feedback.Description" class="text-danger" /> 
+            </div>        
+            <button type="submit" class="btn btn-primary">Submit a feedback!</button>
+        </EditForm>
+    </div>
+</div>
+
+@code {
+    [SupplyParameterFromForm]
+    private Feedback Feedback { get; set; } = new();
+    
+    // To protect from overposting attacks, see https://learn.microsoft.com/aspnet/core/blazor/forms/#mitigate-overposting-attacks.
+    private async Task AddFeedback()
+    {
+        await feedbackService.AddFeedback(Feedback);
+        NavigationManager.NavigateTo("/feedback");
+    }
+}

@@ -24,6 +24,10 @@ build_property.EnableCodeStyleSeverity =
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xBcHAucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/ssamo/Documents/IT STEP CLOUD/IT STEP/Term 4/ASPNET/CookBookWebSQL/Components/Pages/AdminDashboard.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xBZG1pbkRhc2hib2FyZC5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/ssamo/Documents/IT STEP CLOUD/IT STEP/Term 4/ASPNET/CookBookWebSQL/Components/Pages/CategoryPage.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xDYXRlZ29yeVBhZ2UucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
@@ -44,6 +48,10 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xFcnJvci5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/ssamo/Documents/IT STEP CLOUD/IT STEP/Term 4/ASPNET/CookBookWebSQL/Components/Pages/FeedbackPage.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xGZWVkYmFja1BhZ2UucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/ssamo/Documents/IT STEP CLOUD/IT STEP/Term 4/ASPNET/CookBookWebSQL/Components/Pages/Home.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xIb21lLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
@@ -52,8 +60,16 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xJbmdyZWRpZW50UGFnZS5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/ssamo/Documents/IT STEP CLOUD/IT STEP/Term 4/ASPNET/CookBookWebSQL/Components/Pages/RecipeDetail.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xSZWNpcGVEZXRhaWwucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/ssamo/Documents/IT STEP CLOUD/IT STEP/Term 4/ASPNET/CookBookWebSQL/Components/Pages/RecipePage.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xSZWNpcGVQYWdlLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/ssamo/Documents/IT STEP CLOUD/IT STEP/Term 4/ASPNET/CookBookWebSQL/Components/Pages/UserDashboard.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xVc2VyRGFzaGJvYXJkLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/ssamo/Documents/IT STEP CLOUD/IT STEP/Term 4/ASPNET/CookBookWebSQL/Components/Pages/UserManagementPage.razor]
