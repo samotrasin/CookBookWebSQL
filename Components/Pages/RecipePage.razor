@@ -8,6 +8,11 @@
 
 <h3 class="mb-5">Recipe Page</h3>
 
+@if (!string.IsNullOrEmpty(errorMessage))
+{
+    <div class="alert alert-danger">@errorMessage</div>
+}
+
 <div class="d-flex justify-content-between mb-2">
     <!-- Search Section -->
     <div class="d-flex align-items-center w-25">
@@ -57,9 +62,9 @@
                 <td>@rec.Id</td>
                 <td>@rec.Name</td>
                 <td>
-                    @foreach(var category in rec.Categories)
+                    @foreach(var categoryRecipe in rec.CategoryRecipe)
                     {
-                        @category.Name
+                        @categoryRecipe.Category.Name
                     }
                 </td>
                 <td>@rec.CreatedDate</td>
@@ -90,10 +95,10 @@
                     </div>
                     <div class="form-group">
                         <label class="form-label">Category</label>
-                        <select @bind="selectedCategoryId" class="form-control">
+                        <select class="form-control" multiple @onchange="HandleCategorySelection">
                             @foreach (var category in categories)
                             {
-                                <option value="@category.Id">@category.Name</option>
+                                <option value="@category.Id" selected="@selectedCategoryIds.Contains(category.Id)">@category.Name</option>
                             }
                         </select>
                     </div>
@@ -145,10 +150,10 @@
                     </div>
                     <div class="form-group">
                         <label class="form-label">Category</label>
-                        <select @bind="selectedCategoryId" class="form-control">
+                        <select class="form-control" multiple @onchange="HandleCategorySelection">
                             @foreach (var category in categories)
                             {
-                                <option value="@category.Id">@category.Name</option>
+                                <option value="@category.Id" selected="@selectedCategoryIds.Contains(category.Id)">@category.Name</option>
                             }
                         </select>
                     </div>
@@ -232,7 +237,7 @@
 
 @code {
     List<Recipe> recipes = [];
-    List<Recipe> filteredRecipes = [];
+    List<Recipe> filteredRecipes = new();
     List<RecipeImage> recipeImages = new List<RecipeImage>();
     private List<RecipeImage> currentRecipeImages = new List<RecipeImage>();
     private Recipe currentRecipe = new();
@@ -245,8 +250,14 @@
     private string recipeName = "";
     private string recipeInstructions = "";
     private string modalTitle = "";
-    private int selectedCategoryId;
     private string _searchTerm = "";
+    private List<int> selectedCategoryIds = new List<int>();
+    private bool isAscending = true;
+    private bool isNameAscending = true;
+    private bool isCategoryAscending = true;
+    private bool isDateAscending = true;
+    private List<Category> categories = new();
+    private string errorMessage = "";
     
     private string searchTerm
     {
@@ -260,11 +271,6 @@
             }
         }
     }
-    private bool isAscending = true;
-    private bool isNameAscending = true;
-    private bool isCategoryAscending = true;
-    private bool isDateAscending = true;
-    private List<Category> categories = new();
 
     string getDisplay()
     {
@@ -284,6 +290,14 @@
         UpdateImageList();
     }
 
+    private void HandleCategorySelection(ChangeEventArgs e)
+    {
+        var selectedOptions = e.Value as IEnumerable<string>;
+        if(selectedOptions != null)
+        {
+            selectedCategoryIds = selectedOptions.Select(int.Parse).ToList();
+        }
+    }
     private void SearchRecipes()
     {
         if (string.IsNullOrWhiteSpace(searchTerm))
@@ -326,11 +340,11 @@
     {
         if (isCategoryAscending)
         {
-            filteredRecipes = filteredRecipes.OrderBy(r => r.Categories.FirstOrDefault()?.Name).ToList();
+            filteredRecipes = filteredRecipes.OrderBy(r => r.CategoryRecipe.FirstOrDefault()?.Category.Name).ToList();
         }
         else
         {
-            filteredRecipes = filteredRecipes.OrderByDescending(r => r.Categories.FirstOrDefault()?.Name).ToList();
+            filteredRecipes = filteredRecipes.OrderByDescending(r => r.CategoryRecipe.FirstOrDefault()?.Category.Name).ToList();
         }
         isCategoryAscending = !isCategoryAscending;
         }
@@ -367,7 +381,7 @@
             currentRecipe.CreatedDate = DateTime.Now;
             currentRecipe.UpdatedDate = DateTime.Now;
             currentRecipe.Images = recipeImages;
-            currentRecipe.Categories = categories.Where(c => c.Id == selectedCategoryId).ToList();
+            currentRecipe!.CategoryRecipe = selectedCategoryIds.Select(id => new CategoryRecipe { CategoryId = id, Recipe = currentRecipe }).ToList();
 
             // Call the AddRecipe method to save the recipe to the database
             await recipeService.AddRecipe(currentRecipe);
@@ -391,15 +405,18 @@
     }
 
     public async Task EditRecipe()
+{
+    try
     {
         if (currentRecipe != null)
         {
-            currentRecipe!.Name = recipeName;
-            currentRecipe!.Instructions = recipeInstructions;
-            currentRecipe!.UpdatedDate = DateTime.Now;
-            currentRecipe!.Images = recipeImages;
-            currentRecipe!.Categories = categories.Where(c => c.Id == selectedCategoryId).ToList();
-            await recipeService.UpdateRecipe(currentRecipe);
+            currentRecipe.Name = recipeName;
+            currentRecipe.Instructions = recipeInstructions;
+            currentRecipe.UpdatedDate = DateTime.Now;
+            currentRecipe.Images = recipeImages;
+            currentRecipe.CategoryRecipe = selectedCategoryIds.Select(id => new CategoryRecipe { CategoryId = id, Recipe = currentRecipe }).ToList();
+
+            await recipeService.UpdateRecipe(currentRecipe.Id, currentRecipe);
             recipes = await recipeService.GetRecipesAsync();
             filteredRecipes = recipes;
             recipeImages = new List<RecipeImage>();
@@ -407,13 +424,19 @@
             StateHasChanged();
         }
     }
+    catch (Exception ex)
+    {
+        Logger.LogError(ex, "Error editing recipe");
+        errorMessage = "Error editing recipe";
+    }
+}
 
     public void OpenEditModal(Recipe recipe)
     {
         currentRecipe = recipe;
         recipeName = recipe.Name;
         recipeInstructions = recipe.Instructions;
-        selectedCategoryId = recipe.Categories.FirstOrDefault()?.Id ?? 0;
+        selectedCategoryIds = recipe.CategoryRecipe.Select(cr => cr.CategoryId).ToList();
         recipeImages = new List<RecipeImage>(recipe.Images);
         UpdateImageList();
         modalTitle = "Edit Recipe";

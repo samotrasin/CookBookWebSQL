@@ -8,6 +8,6 @@ namespace CookBookWebSQL.Models
     public DateTime CreatedDate { get; set; } = DateTime.Now;
     public DateTime UpdatedDate { get; set; } = DateTime.Now;
     public List<RecipeImage> Images { get; set; }= new List<RecipeImage>();
-    public List<Category> Categories { get; set; }= new List<Category>();
+    public List<CategoryRecipe> CategoryRecipe { get; set; } = new List<CategoryRecipe>();
     }
 }

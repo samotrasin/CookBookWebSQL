@@ -29,18 +29,79 @@ namespace CookBookWebSQL.Service
 
         public async Task<List<Recipe>> GetRecipesAsync(){
             return await _context.Recipes
-                                    .Include(rp => rp.Images)
-                                    .Include(rp => rp.Categories)
+                                    .Include(r => r.Images)
+                                    .Include(r => r.CategoryRecipe)
+                                        .ThenInclude(cr => cr.Category) // Include the Category entity
                                     .ToListAsync();
         }
         
-        public async Task AddRecipe(Recipe recipe){
-            _context.Recipes.Add(recipe);
+        public async Task AddRecipe(Recipe recipe)
+        {
+            var categoryRecipes = new List<CategoryRecipe>();
+
+            foreach (var categoryRecipe in recipe.CategoryRecipe)
+            {
+                var category = await _context.Categories.FindAsync(categoryRecipe.CategoryId);
+                if (category != null)
+                {
+                    categoryRecipes.Add(new CategoryRecipe{ Recipe = recipe, Category = category });
+                }
+            }
+
+            recipe.CategoryRecipe = categoryRecipes;
+
+            await _context.Recipes.AddAsync(recipe);
             await _context.SaveChangesAsync();
         }
-        public async Task UpdateRecipe(Recipe recipe){
-            _context.Recipes.Update(recipe);
-            await _context.SaveChangesAsync();
+        public async Task UpdateRecipe(int id, Recipe recipe)
+        {
+            try
+            {
+                var existingRecipe = await _context.Recipes
+                                                    .Include(r => r.CategoryRecipe)
+                                                    .FirstOrDefaultAsync(r => r.Id == recipe.Id);
+                if (existingRecipe != null)
+                {
+                    existingRecipe.Name = recipe.Name;
+                    existingRecipe.Instructions = recipe.Instructions;
+                    existingRecipe.UpdatedDate = DateTime.Now;
+                    existingRecipe.Images = recipe.Images;
+
+                    // Clear existing categories
+                    existingRecipe.CategoryRecipe.Clear();
+
+                    // Update categories
+                    var categoryRecipes = new List<CategoryRecipe>();
+                    foreach (var categoryRecipe in recipe.CategoryRecipe)
+                    {
+                        var category = await _context.Categories.FindAsync(categoryRecipe.CategoryId);
+                        if (category != null)
+                        {
+                            var newCategoryRecipe = new CategoryRecipe { Recipe = existingRecipe, Category = category };
+                            categoryRecipes.Add(new CategoryRecipe { RecipeId = existingRecipe.Id, CategoryId = category.Id });
+                            categoryRecipes.Add(newCategoryRecipe);
+                        }
+                        else
+                        {
+                            Console.WriteLine($"Category with ID {categoryRecipe.CategoryId} not found");
+                        }
+                    }
+
+                    existingRecipe.CategoryRecipe = categoryRecipes;
+
+                    await _context.SaveChangesAsync();
+                }
+                else
+                {
+                    throw new Exception("Recipe not found");
+                }
+            }
+            catch (Exception ex)
+            {
+                // Log the exception (you can use a logging framework or simply write to console for now)
+                Console.WriteLine($"An error occurred while updating the recipe: {ex.Message}");
+                throw; // Re-throw the exception to be handled by the calling code
+            }
         }
 
         public async Task DeleteRecipe(Recipe recipe){

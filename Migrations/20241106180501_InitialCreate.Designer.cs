@@ -25,147 +25,147 @@ namespace CookBookWebSQL.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
-            modelBuilder.Entity("CategoryRecipe", b =>
-                {
-                    b.Property<int>("CategoriesId")
-                        .HasColumnType("int");
+            // modelBuilder.Entity("CategoryRecipe", b =>
+            //     {
+            //         b.Property<int>("CategoriesId")
+            //             .HasColumnType("int");
 
-                    b.Property<int>("RecipesId")
-                        .HasColumnType("int");
+            //         b.Property<int>("RecipesId")
+            //             .HasColumnType("int");
 
-                    b.HasKey("CategoriesId", "RecipesId");
+            //         b.HasKey("CategoriesId", "RecipesId");
 
-                    b.HasIndex("RecipesId");
+            //         b.HasIndex("RecipesId");
 
-                    b.ToTable("CategoryRecipe");
-                });
+            //         b.ToTable("CategoryRecipe");
+            //     });
 
-            modelBuilder.Entity("CookBookWebSQL.Models.Category", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
+            // modelBuilder.Entity("CookBookWebSQL.Models.Category", b =>
+            //     {
+            //         b.Property<int>("Id")
+            //             .ValueGeneratedOnAdd()
+            //             .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+            //         SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+            //         b.Property<string>("Name")
+            //             .IsRequired()
+            //             .HasColumnType("nvarchar(max)");
 
-                    b.HasKey("Id");
+            //         b.HasKey("Id");
 
-                    b.ToTable("Categories");
-                });
+            //         b.ToTable("Categories");
+            //     });
 
-            modelBuilder.Entity("CookBookWebSQL.Models.Cuisine", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
+            // modelBuilder.Entity("CookBookWebSQL.Models.Cuisine", b =>
+            //     {
+            //         b.Property<int>("Id")
+            //             .ValueGeneratedOnAdd()
+            //             .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+            //         SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+            //         b.Property<string>("Name")
+            //             .IsRequired()
+            //             .HasColumnType("nvarchar(max)");
 
-                    b.HasKey("Id");
+            //         b.HasKey("Id");
 
-                    b.ToTable("Cuisines");
-                });
+            //         b.ToTable("Cuisines");
+            //     });
 
-            modelBuilder.Entity("CookBookWebSQL.Models.Recipe", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
+            // modelBuilder.Entity("CookBookWebSQL.Models.Recipe", b =>
+            //     {
+            //         b.Property<int>("Id")
+            //             .ValueGeneratedOnAdd()
+            //             .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+            //         SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<DateTime>("CreatedDate")
-                        .HasColumnType("datetime2");
+            //         b.Property<DateTime>("CreatedDate")
+            //             .HasColumnType("datetime2");
 
-                    b.Property<int?>("CuisineId")
-                        .HasColumnType("int");
+            //         b.Property<int?>("CuisineId")
+            //             .HasColumnType("int");
 
-                    b.Property<string>("Instructions")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+            //         b.Property<string>("Instructions")
+            //             .IsRequired()
+            //             .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+            //         b.Property<string>("Name")
+            //             .IsRequired()
+            //             .HasColumnType("nvarchar(max)");
 
-                    b.Property<DateTime>("UpdatedDate")
-                        .HasColumnType("datetime2");
+            //         b.Property<DateTime>("UpdatedDate")
+            //             .HasColumnType("datetime2");
 
-                    b.HasKey("Id");
+            //         b.HasKey("Id");
 
-                    b.HasIndex("CuisineId");
+            //         b.HasIndex("CuisineId");
 
-                    b.ToTable("Recipes");
-                });
+            //         b.ToTable("Recipes");
+            //     });
 
-            modelBuilder.Entity("CookBookWebSQL.Models.RecipeImage", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
+            // modelBuilder.Entity("CookBookWebSQL.Models.RecipeImage", b =>
+            //     {
+            //         b.Property<int>("Id")
+            //             .ValueGeneratedOnAdd()
+            //             .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+            //         SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<string>("Path")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+            //         b.Property<string>("Path")
+            //             .IsRequired()
+            //             .HasColumnType("nvarchar(max)");
 
-                    b.Property<int?>("RecipeId")
-                        .HasColumnType("int");
+            //         b.Property<int?>("RecipeId")
+            //             .HasColumnType("int");
 
-                    b.HasKey("Id");
+            //         b.HasKey("Id");
 
-                    b.HasIndex("RecipeId");
+            //         b.HasIndex("RecipeId");
 
-                    b.ToTable("RecipeImages");
-                });
+            //         b.ToTable("RecipeImages");
+            //     });
 
-            modelBuilder.Entity("CategoryRecipe", b =>
-                {
-                    b.HasOne("CookBookWebSQL.Models.Category", null)
-                        .WithMany()
-                        .HasForeignKey("CategoriesId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+            // modelBuilder.Entity("CategoryRecipe", b =>
+            //     {
+            //         b.HasOne("CookBookWebSQL.Models.Category", null)
+            //             .WithMany()
+            //             .HasForeignKey("CategoriesId")
+            //             .OnDelete(DeleteBehavior.Cascade)
+            //             .IsRequired();
 
-                    b.HasOne("CookBookWebSQL.Models.Recipe", null)
-                        .WithMany()
-                        .HasForeignKey("RecipesId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-                });
+            //         b.HasOne("CookBookWebSQL.Models.Recipe", null)
+            //             .WithMany()
+            //             .HasForeignKey("RecipesId")
+            //             .OnDelete(DeleteBehavior.Cascade)
+            //             .IsRequired();
+            //     });
 
-            modelBuilder.Entity("CookBookWebSQL.Models.Recipe", b =>
-                {
-                    b.HasOne("CookBookWebSQL.Models.Cuisine", null)
-                        .WithMany("Recipes")
-                        .HasForeignKey("CuisineId");
-                });
+            // modelBuilder.Entity("CookBookWebSQL.Models.Recipe", b =>
+            //     {
+            //         b.HasOne("CookBookWebSQL.Models.Cuisine", null)
+            //             .WithMany("Recipes")
+            //             .HasForeignKey("CuisineId");
+            //     });
 
-            modelBuilder.Entity("CookBookWebSQL.Models.RecipeImage", b =>
-                {
-                    b.HasOne("CookBookWebSQL.Models.Recipe", null)
-                        .WithMany("Images")
-                        .HasForeignKey("RecipeId");
-                });
+            // modelBuilder.Entity("CookBookWebSQL.Models.RecipeImage", b =>
+            //     {
+            //         b.HasOne("CookBookWebSQL.Models.Recipe", null)
+            //             .WithMany("Images")
+            //             .HasForeignKey("RecipeId");
+            //     });
 
-            modelBuilder.Entity("CookBookWebSQL.Models.Cuisine", b =>
-                {
-                    b.Navigation("Recipes");
-                });
+            // modelBuilder.Entity("CookBookWebSQL.Models.Cuisine", b =>
+            //     {
+            //         b.Navigation("Recipes");
+            //     });
 
-            modelBuilder.Entity("CookBookWebSQL.Models.Recipe", b =>
-                {
-                    b.Navigation("Images");
-                });
+            // modelBuilder.Entity("CookBookWebSQL.Models.Recipe", b =>
+            //     {
+            //         b.Navigation("Images");
+            //     });
 #pragma warning restore 612, 618
         }
     }
