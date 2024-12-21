@@ -1,8 +1,111 @@
 @page "/recipe-detail"
 
-<PageTitle>Home</PageTitle>
+@using CookBookWebSQL.Models
+@using CookBookWebSQL.Service
+@inject RecipeService RecipeService
 
-<h1>Recipe Detail</h1>
+<PageTitle>Recipe Detail</PageTitle>
 
-Welcome to Recipe Detail.
-Coming Soon!
+<div class="container mx-auto py-8">
+    <h1 class="text-4xl font-bold text-center text-blue-600 mb-8">Recipe Details</h1>
+
+    @if (Recipes == null)
+    {
+        <div class="text-center text-lg text-gray-500">Loading recipes...</div>
+    }
+    else if (!Recipes.Any())
+    {
+        <div class="text-center text-lg text-gray-500">No recipes found.</div>
+    }
+    else
+    {
+        <!-- Recipe List -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 px-6">
+            @foreach (var recipe in Recipes)
+            {
+                <div class="card bg-white rounded-lg shadow-lg transition-transform transform hover:scale-105 hover:shadow-xl">
+                    @if (recipe.Images.Any())
+                    {
+                        <img src="@recipe.Images.First().Path" alt="@recipe.Name" class="w-full h-48 object-cover rounded-t-lg" />
+                    }
+                    <div class="p-6">
+                        <h2 class="text-2xl font-semibold text-gray-800">@recipe.Name</h2>
+                        <p class="text-sm text-gray-600 mt-2">@recipe.Instructions.Substring(0, Math.Min(recipe.Instructions.Length, 100))...</p>
+                        <button @onclick="() => ShowRecipeDetails(recipe.Id)" class="mt-4 bg-blue-500 text-white px-5 py-2 rounded-lg hover:bg-blue-600 transition-colors">
+                            View Details
+                        </button>
+                    </div>
+                </div>
+            }
+        </div>
+    }
+
+    <!-- Selected Recipe Details -->
+    @if (SelectedRecipe != null)
+    {
+        <div class="max-w-4xl mx-auto my-8 p-8 bg-white rounded-lg shadow-xl transition-all">
+            <h2 class="text-3xl font-bold text-gray-800 mb-4">@SelectedRecipe.Name</h2>
+            <p class="text-lg text-gray-600 mb-4"><strong>Instructions:</strong> @SelectedRecipe.Instructions</p>
+            <p class="text-sm text-gray-500 mb-4"><strong>Created:</strong> @SelectedRecipe.CreatedDate.ToString("g")</p>
+            <p class="text-sm text-gray-500 mb-4"><strong>Updated:</strong> @SelectedRecipe.UpdatedDate.ToString("g")</p>
+
+            <!-- Images -->
+            @if (SelectedRecipe.Images.Any())
+            {
+                <div class="mt-6">
+                    <h3 class="text-2xl font-semibold text-gray-800 mb-4">Images:</h3>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                        @foreach (var image in SelectedRecipe.Images)
+                        {
+                            <div class="card bg-gray-100 rounded-lg shadow-md">
+                                <img src="@image.Path" alt="@SelectedRecipe.Name" class="w-full h-64 object-cover rounded-lg" />
+                            </div>
+                        }
+                    </div>
+                </div>
+            }
+
+            <!-- Categories -->
+            @if (SelectedRecipe.Categories.Any())
+            {
+                <div class="mt-6">
+                    <h3 class="text-2xl font-semibold text-gray-800 mb-4">Categories:</h3>
+                    <div class="flex flex-wrap">
+                        @foreach (var category in SelectedRecipe.Categories)
+                        {
+                            <span class="inline-block bg-green-200 text-green-700 px-4 py-2 rounded-full text-sm mr-2 mb-2">
+                                @category.Name
+                            </span>
+                        }
+                    </div>
+                </div>
+            }
+
+            <button @onclick="() => SelectedRecipe = null" class="mt-8 bg-gray-300 text-black px-5 py-2 rounded-lg hover:bg-gray-400 transition-colors">
+                Back to Recipe List
+            </button>
+        </div>
+    }
+</div>
+
+@code {
+    private List<Recipe>? Recipes;
+    private Recipe? SelectedRecipe;
+
+    protected override async Task OnInitializedAsync()
+    {
+        Recipes = await RecipeService.GetRecipesAsync();
+        Console.WriteLine($"Recipes Loaded: {Recipes?.Count}");
+    }
+
+    private void ShowRecipeDetails(int recipeId)
+    {
+        Console.WriteLine($"Recipe ID Selected: {recipeId}");
+        SelectedRecipe = Recipes?.FirstOrDefault(r => r.Id == recipeId);
+        if (SelectedRecipe == null)
+        {
+            Console.WriteLine("SelectedRecipe is null.");
+        }
+        StateHasChanged();
+    }
+}
