@@ -1,146 +1,3 @@
-C:\Users\ssamo\Documents\IT STEP CLOUD\IT STEP\Term 4\ASPNET\CookBookWebSQL\obj\Debug\net8.0\CookBookWebSQL.csproj.AssemblyReference.cache
-C:\Users\ssamo\Documents\IT STEP CLOUD\IT STEP\Term 4\ASPNET\CookBookWebSQL\obj\Debug\net8.0\CookBookWebSQL.GeneratedMSBuildEditorConfig.editorconfig
-C:\Users\ssamo\Documents\IT STEP CLOUD\IT STEP\Term 4\ASPNET\CookBookWebSQL\obj\Debug\net8.0\CookBookWebSQL.AssemblyInfoInputs.cache
-C:\Users\ssamo\Documents\IT STEP CLOUD\IT STEP\Term 4\ASPNET\CookBookWebSQL\obj\Debug\net8.0\CookBookWebSQL.AssemblyInfo.cs
-C:\Users\ssamo\Documents\IT STEP CLOUD\IT STEP\Term 4\ASPNET\CookBookWebSQL\obj\Debug\net8.0\CookBookWebSQL.csproj.CoreCompileInputs.cache
-C:\Users\ssamo\Documents\IT STEP CLOUD\IT STEP\Term 4\ASPNET\CookBookWebSQL\obj\Debug\net8.0\CookBookWebSQL.MvcApplicationPartsAssemblyInfo.cache
-C:\Users\ssamo\Documents\IT STEP CLOUD\IT STEP\Term 4\ASPNET\CookBookWebSQL\bin\Debug\net8.0\appsettings.Development.json
-C:\Users\ssamo\Documents\IT STEP CLOUD\IT STEP\Term 4\ASPNET\CookBookWebSQL\bin\Debug\net8.0\appsettings.json
-C:\Users\ssamo\Documents\IT STEP CLOUD\IT STEP\Term 4\ASPNET\CookBookWebSQL\bin\Debug\net8.0\CookBookWebSQL.staticwebassets.runtime.json
-C:\Users\ssamo\Documents\IT STEP CLOUD\IT STEP\Term 4\ASPNET\CookBookWebSQL\bin\Debug\net8.0\CookBookWebSQL.exe
-C:\Users\ssamo\Documents\IT STEP CLOUD\IT STEP\Term 4\ASPNET\CookBookWebSQL\bin\Debug\net8.0\CookBookWebSQL.deps.json
-C:\Users\ssamo\Documents\IT STEP CLOUD\IT STEP\Term 4\ASPNET\CookBookWebSQL\bin\Debug\net8.0\CookBookWebSQL.runtimeconfig.json
-C:\Users\ssamo\Documents\IT STEP CLOUD\IT STEP\Term 4\ASPNET\CookBookWebSQL\bin\Debug\net8.0\CookBookWebSQL.dll
-C:\Users\ssamo\Documents\IT STEP CLOUD\IT STEP\Term 4\ASPNET\CookBookWebSQL\bin\Debug\net8.0\CookBookWebSQL.pdb
-C:\Users\ssamo\Documents\IT STEP CLOUD\IT STEP\Term 4\ASPNET\CookBookWebSQL\bin\Debug\net8.0\Azure.Core.dll
-C:\Users\ssamo\Documents\IT STEP CLOUD\IT STEP\Term 4\ASPNET\CookBookWebSQL\bin\Debug\net8.0\Azure.Identity.dll
-C:\Users\ssamo\Documents\IT STEP CLOUD\IT STEP\Term 4\ASPNET\CookBookWebSQL\bin\Debug\net8.0\Humanizer.dll
-C:\Users\ssamo\Documents\IT STEP CLOUD\IT STEP\Term 4\ASPNET\CookBookWebSQL\bin\Debug\net8.0\Microsoft.Bcl.AsyncInterfaces.dll
-C:\Users\ssamo\Documents\IT STEP CLOUD\IT STEP\Term 4\ASPNET\CookBookWebSQL\bin\Debug\net8.0\Microsoft.CodeAnalysis.dll
-C:\Users\ssamo\Documents\IT STEP CLOUD\IT STEP\Term 4\ASPNET\CookBookWebSQL\bin\Debug\net8.0\Microsoft.CodeAnalysis.CSharp.dll
-C:\Users\ssamo\Documents\IT STEP CLOUD\IT STEP\Term 4\ASPNET\CookBookWebSQL\bin\Debug\net8.0\Microsoft.CodeAnalysis.CSharp.Workspaces.dll
-C:\Users\ssamo\Documents\IT STEP CLOUD\IT STEP\Term 4\ASPNET\CookBookWebSQL\bin\Debug\net8.0\Microsoft.CodeAnalysis.Workspaces.dll
-C:\Users\ssamo\Documents\IT STEP CLOUD\IT STEP\Term 4\ASPNET\CookBookWebSQL\bin\Debug\net8.0\Microsoft.Data.SqlClient.dll
-C:\Users\ssamo\Documents\IT STEP CLOUD\IT STEP\Term 4\ASPNET\CookBookWebSQL\bin\Debug\net8.0\Microsoft.EntityFrameworkCore.dll
-C:\Users\ssamo\Documents\IT STEP CLOUD\IT STEP\Term 4\ASPNET\CookBookWebSQL\bin\Debug\net8.0\Microsoft.EntityFrameworkCore.Abstractions.dll
-C:\Users\ssamo\Documents\IT STEP CLOUD\IT STEP\Term 4\ASPNET\CookBookWebSQL\bin\Debug\net8.0\Microsoft.EntityFrameworkCore.Design.dll
-C:\Users\ssamo\Documents\IT STEP CLOUD\IT STEP\Term 4\ASPNET\CookBookWebSQL\bin\Debug\net8.0\Microsoft.EntityFrameworkCore.Relational.dll
-C:\Users\ssamo\Documents\IT STEP CLOUD\IT STEP\Term 4\ASPNET\CookBookWebSQL\bin\Debug\net8.0\Microsoft.EntityFrameworkCore.SqlServer.dll
-C:\Users\ssamo\Documents\IT STEP CLOUD\IT STEP\Term 4\ASPNET\CookBookWebSQL\bin\Debug\net8.0\Microsoft.Extensions.Caching.Memory.dll
-C:\Users\ssamo\Documents\IT STEP CLOUD\IT STEP\Term 4\ASPNET\CookBookWebSQL\bin\Debug\net8.0\Microsoft.Extensions.DependencyInjection.dll
-C:\Users\ssamo\Documents\IT STEP CLOUD\IT STEP\Term 4\ASPNET\CookBookWebSQL\bin\Debug\net8.0\Microsoft.Extensions.DependencyInjection.Abstractions.dll
-C:\Users\ssamo\Documents\IT STEP CLOUD\IT STEP\Term 4\ASPNET\CookBookWebSQL\bin\Debug\net8.0\Microsoft.Extensions.DependencyModel.dll
-C:\Users\ssamo\Documents\IT STEP CLOUD\IT STEP\Term 4\ASPNET\CookBookWebSQL\bin\Debug\net8.0\Microsoft.Extensions.Logging.dll
-C:\Users\ssamo\Documents\IT STEP CLOUD\IT STEP\Term 4\ASPNET\CookBookWebSQL\bin\Debug\net8.0\Microsoft.Extensions.Logging.Abstractions.dll
-C:\Users\ssamo\Documents\IT STEP CLOUD\IT STEP\Term 4\ASPNET\CookBookWebSQL\bin\Debug\net8.0\Microsoft.Extensions.Options.dll
-C:\Users\ssamo\Documents\IT STEP CLOUD\IT STEP\Term 4\ASPNET\CookBookWebSQL\bin\Debug\net8.0\Microsoft.Identity.Client.dll
-C:\Users\ssamo\Documents\IT STEP CLOUD\IT STEP\Term 4\ASPNET\CookBookWebSQL\bin\Debug\net8.0\Microsoft.Identity.Client.Extensions.Msal.dll
-C:\Users\ssamo\Documents\IT STEP CLOUD\IT STEP\Term 4\ASPNET\CookBookWebSQL\bin\Debug\net8.0\Microsoft.IdentityModel.Abstractions.dll
-C:\Users\ssamo\Documents\IT STEP CLOUD\IT STEP\Term 4\ASPNET\CookBookWebSQL\bin\Debug\net8.0\Microsoft.IdentityModel.JsonWebTokens.dll
-C:\Users\ssamo\Documents\IT STEP CLOUD\IT STEP\Term 4\ASPNET\CookBookWebSQL\bin\Debug\net8.0\Microsoft.IdentityModel.Logging.dll
-C:\Users\ssamo\Documents\IT STEP CLOUD\IT STEP\Term 4\ASPNET\CookBookWebSQL\bin\Debug\net8.0\Microsoft.IdentityModel.Protocols.dll
-C:\Users\ssamo\Documents\IT STEP CLOUD\IT STEP\Term 4\ASPNET\CookBookWebSQL\bin\Debug\net8.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
-C:\Users\ssamo\Documents\IT STEP CLOUD\IT STEP\Term 4\ASPNET\CookBookWebSQL\bin\Debug\net8.0\Microsoft.IdentityModel.Tokens.dll
-C:\Users\ssamo\Documents\IT STEP CLOUD\IT STEP\Term 4\ASPNET\CookBookWebSQL\bin\Debug\net8.0\Microsoft.SqlServer.Server.dll
-C:\Users\ssamo\Documents\IT STEP CLOUD\IT STEP\Term 4\ASPNET\CookBookWebSQL\bin\Debug\net8.0\Microsoft.Win32.SystemEvents.dll
-C:\Users\ssamo\Documents\IT STEP CLOUD\IT STEP\Term 4\ASPNET\CookBookWebSQL\bin\Debug\net8.0\Mono.TextTemplating.dll
-C:\Users\ssamo\Documents\IT STEP CLOUD\IT STEP\Term 4\ASPNET\CookBookWebSQL\bin\Debug\net8.0\System.CodeDom.dll
-C:\Users\ssamo\Documents\IT STEP CLOUD\IT STEP\Term 4\ASPNET\CookBookWebSQL\bin\Debug\net8.0\System.Composition.AttributedModel.dll
-C:\Users\ssamo\Documents\IT STEP CLOUD\IT STEP\Term 4\ASPNET\CookBookWebSQL\bin\Debug\net8.0\System.Composition.Convention.dll
-C:\Users\ssamo\Documents\IT STEP CLOUD\IT STEP\Term 4\ASPNET\CookBookWebSQL\bin\Debug\net8.0\System.Composition.Hosting.dll
-C:\Users\ssamo\Documents\IT STEP CLOUD\IT STEP\Term 4\ASPNET\CookBookWebSQL\bin\Debug\net8.0\System.Composition.Runtime.dll
-C:\Users\ssamo\Documents\IT STEP CLOUD\IT STEP\Term 4\ASPNET\CookBookWebSQL\bin\Debug\net8.0\System.Composition.TypedParts.dll
-C:\Users\ssamo\Documents\IT STEP CLOUD\IT STEP\Term 4\ASPNET\CookBookWebSQL\bin\Debug\net8.0\System.Configuration.ConfigurationManager.dll
-C:\Users\ssamo\Documents\IT STEP CLOUD\IT STEP\Term 4\ASPNET\CookBookWebSQL\bin\Debug\net8.0\System.Drawing.Common.dll
-C:\Users\ssamo\Documents\IT STEP CLOUD\IT STEP\Term 4\ASPNET\CookBookWebSQL\bin\Debug\net8.0\System.IdentityModel.Tokens.Jwt.dll
-C:\Users\ssamo\Documents\IT STEP CLOUD\IT STEP\Term 4\ASPNET\CookBookWebSQL\bin\Debug\net8.0\System.Memory.Data.dll
-C:\Users\ssamo\Documents\IT STEP CLOUD\IT STEP\Term 4\ASPNET\CookBookWebSQL\bin\Debug\net8.0\System.Runtime.Caching.dll
-C:\Users\ssamo\Documents\IT STEP CLOUD\IT STEP\Term 4\ASPNET\CookBookWebSQL\bin\Debug\net8.0\System.Security.Cryptography.ProtectedData.dll
-C:\Users\ssamo\Documents\IT STEP CLOUD\IT STEP\Term 4\ASPNET\CookBookWebSQL\bin\Debug\net8.0\System.Security.Permissions.dll
-C:\Users\ssamo\Documents\IT STEP CLOUD\IT STEP\Term 4\ASPNET\CookBookWebSQL\bin\Debug\net8.0\System.Windows.Extensions.dll
-C:\Users\ssamo\Documents\IT STEP CLOUD\IT STEP\Term 4\ASPNET\CookBookWebSQL\bin\Debug\net8.0\cs\Microsoft.CodeAnalysis.resources.dll
-C:\Users\ssamo\Documents\IT STEP CLOUD\IT STEP\Term 4\ASPNET\CookBookWebSQL\bin\Debug\net8.0\de\Microsoft.CodeAnalysis.resources.dll
-C:\Users\ssamo\Documents\IT STEP CLOUD\IT STEP\Term 4\ASPNET\CookBookWebSQL\bin\Debug\net8.0\es\Microsoft.CodeAnalysis.resources.dll
-C:\Users\ssamo\Documents\IT STEP CLOUD\IT STEP\Term 4\ASPNET\CookBookWebSQL\bin\Debug\net8.0\fr\Microsoft.CodeAnalysis.resources.dll
-C:\Users\ssamo\Documents\IT STEP CLOUD\IT STEP\Term 4\ASPNET\CookBookWebSQL\bin\Debug\net8.0\it\Microsoft.CodeAnalysis.resources.dll
-C:\Users\ssamo\Documents\IT STEP CLOUD\IT STEP\Term 4\ASPNET\CookBookWebSQL\bin\Debug\net8.0\ja\Microsoft.CodeAnalysis.resources.dll
-C:\Users\ssamo\Documents\IT STEP CLOUD\IT STEP\Term 4\ASPNET\CookBookWebSQL\bin\Debug\net8.0\ko\Microsoft.CodeAnalysis.resources.dll
-C:\Users\ssamo\Documents\IT STEP CLOUD\IT STEP\Term 4\ASPNET\CookBookWebSQL\bin\Debug\net8.0\pl\Microsoft.CodeAnalysis.resources.dll
-C:\Users\ssamo\Documents\IT STEP CLOUD\IT STEP\Term 4\ASPNET\CookBookWebSQL\bin\Debug\net8.0\pt-BR\Microsoft.CodeAnalysis.resources.dll
-C:\Users\ssamo\Documents\IT STEP CLOUD\IT STEP\Term 4\ASPNET\CookBookWebSQL\bin\Debug\net8.0\ru\Microsoft.CodeAnalysis.resources.dll
-C:\Users\ssamo\Documents\IT STEP CLOUD\IT STEP\Term 4\ASPNET\CookBookWebSQL\bin\Debug\net8.0\tr\Microsoft.CodeAnalysis.resources.dll
-C:\Users\ssamo\Documents\IT STEP CLOUD\IT STEP\Term 4\ASPNET\CookBookWebSQL\bin\Debug\net8.0\zh-Hans\Microsoft.CodeAnalysis.resources.dll
-C:\Users\ssamo\Documents\IT STEP CLOUD\IT STEP\Term 4\ASPNET\CookBookWebSQL\bin\Debug\net8.0\zh-Hant\Microsoft.CodeAnalysis.resources.dll
-C:\Users\ssamo\Documents\IT STEP CLOUD\IT STEP\Term 4\ASPNET\CookBookWebSQL\bin\Debug\net8.0\cs\Microsoft.CodeAnalysis.CSharp.resources.dll
-C:\Users\ssamo\Documents\IT STEP CLOUD\IT STEP\Term 4\ASPNET\CookBookWebSQL\bin\Debug\net8.0\de\Microsoft.CodeAnalysis.CSharp.resources.dll
-C:\Users\ssamo\Documents\IT STEP CLOUD\IT STEP\Term 4\ASPNET\CookBookWebSQL\bin\Debug\net8.0\es\Microsoft.CodeAnalysis.CSharp.resources.dll
-C:\Users\ssamo\Documents\IT STEP CLOUD\IT STEP\Term 4\ASPNET\CookBookWebSQL\bin\Debug\net8.0\fr\Microsoft.CodeAnalysis.CSharp.resources.dll
-C:\Users\ssamo\Documents\IT STEP CLOUD\IT STEP\Term 4\ASPNET\CookBookWebSQL\bin\Debug\net8.0\it\Microsoft.CodeAnalysis.CSharp.resources.dll
-C:\Users\ssamo\Documents\IT STEP CLOUD\IT STEP\Term 4\ASPNET\CookBookWebSQL\bin\Debug\net8.0\ja\Microsoft.CodeAnalysis.CSharp.resources.dll
-C:\Users\ssamo\Documents\IT STEP CLOUD\IT STEP\Term 4\ASPNET\CookBookWebSQL\bin\Debug\net8.0\ko\Microsoft.CodeAnalysis.CSharp.resources.dll
-C:\Users\ssamo\Documents\IT STEP CLOUD\IT STEP\Term 4\ASPNET\CookBookWebSQL\bin\Debug\net8.0\pl\Microsoft.CodeAnalysis.CSharp.resources.dll
-C:\Users\ssamo\Documents\IT STEP CLOUD\IT STEP\Term 4\ASPNET\CookBookWebSQL\bin\Debug\net8.0\pt-BR\Microsoft.CodeAnalysis.CSharp.resources.dll
-C:\Users\ssamo\Documents\IT STEP CLOUD\IT STEP\Term 4\ASPNET\CookBookWebSQL\bin\Debug\net8.0\ru\Microsoft.CodeAnalysis.CSharp.resources.dll
-C:\Users\ssamo\Documents\IT STEP CLOUD\IT STEP\Term 4\ASPNET\CookBookWebSQL\bin\Debug\net8.0\tr\Microsoft.CodeAnalysis.CSharp.resources.dll
-C:\Users\ssamo\Documents\IT STEP CLOUD\IT STEP\Term 4\ASPNET\CookBookWebSQL\bin\Debug\net8.0\zh-Hans\Microsoft.CodeAnalysis.CSharp.resources.dll
-C:\Users\ssamo\Documents\IT STEP CLOUD\IT STEP\Term 4\ASPNET\CookBookWebSQL\bin\Debug\net8.0\zh-Hant\Microsoft.CodeAnalysis.CSharp.resources.dll
-C:\Users\ssamo\Documents\IT STEP CLOUD\IT STEP\Term 4\ASPNET\CookBookWebSQL\bin\Debug\net8.0\cs\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
-C:\Users\ssamo\Documents\IT STEP CLOUD\IT STEP\Term 4\ASPNET\CookBookWebSQL\bin\Debug\net8.0\de\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
-C:\Users\ssamo\Documents\IT STEP CLOUD\IT STEP\Term 4\ASPNET\CookBookWebSQL\bin\Debug\net8.0\es\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
-C:\Users\ssamo\Documents\IT STEP CLOUD\IT STEP\Term 4\ASPNET\CookBookWebSQL\bin\Debug\net8.0\fr\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
-C:\Users\ssamo\Documents\IT STEP CLOUD\IT STEP\Term 4\ASPNET\CookBookWebSQL\bin\Debug\net8.0\it\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
-C:\Users\ssamo\Documents\IT STEP CLOUD\IT STEP\Term 4\ASPNET\CookBookWebSQL\bin\Debug\net8.0\ja\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
-C:\Users\ssamo\Documents\IT STEP CLOUD\IT STEP\Term 4\ASPNET\CookBookWebSQL\bin\Debug\net8.0\ko\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
-C:\Users\ssamo\Documents\IT STEP CLOUD\IT STEP\Term 4\ASPNET\CookBookWebSQL\bin\Debug\net8.0\pl\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
-C:\Users\ssamo\Documents\IT STEP CLOUD\IT STEP\Term 4\ASPNET\CookBookWebSQL\bin\Debug\net8.0\pt-BR\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
-C:\Users\ssamo\Documents\IT STEP CLOUD\IT STEP\Term 4\ASPNET\CookBookWebSQL\bin\Debug\net8.0\ru\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
-C:\Users\ssamo\Documents\IT STEP CLOUD\IT STEP\Term 4\ASPNET\CookBookWebSQL\bin\Debug\net8.0\tr\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
-C:\Users\ssamo\Documents\IT STEP CLOUD\IT STEP\Term 4\ASPNET\CookBookWebSQL\bin\Debug\net8.0\zh-Hans\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
-C:\Users\ssamo\Documents\IT STEP CLOUD\IT STEP\Term 4\ASPNET\CookBookWebSQL\bin\Debug\net8.0\zh-Hant\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
-C:\Users\ssamo\Documents\IT STEP CLOUD\IT STEP\Term 4\ASPNET\CookBookWebSQL\bin\Debug\net8.0\cs\Microsoft.CodeAnalysis.Workspaces.resources.dll
-C:\Users\ssamo\Documents\IT STEP CLOUD\IT STEP\Term 4\ASPNET\CookBookWebSQL\bin\Debug\net8.0\de\Microsoft.CodeAnalysis.Workspaces.resources.dll
-C:\Users\ssamo\Documents\IT STEP CLOUD\IT STEP\Term 4\ASPNET\CookBookWebSQL\bin\Debug\net8.0\es\Microsoft.CodeAnalysis.Workspaces.resources.dll
-C:\Users\ssamo\Documents\IT STEP CLOUD\IT STEP\Term 4\ASPNET\CookBookWebSQL\bin\Debug\net8.0\fr\Microsoft.CodeAnalysis.Workspaces.resources.dll
-C:\Users\ssamo\Documents\IT STEP CLOUD\IT STEP\Term 4\ASPNET\CookBookWebSQL\bin\Debug\net8.0\it\Microsoft.CodeAnalysis.Workspaces.resources.dll
-C:\Users\ssamo\Documents\IT STEP CLOUD\IT STEP\Term 4\ASPNET\CookBookWebSQL\bin\Debug\net8.0\ja\Microsoft.CodeAnalysis.Workspaces.resources.dll
-C:\Users\ssamo\Documents\IT STEP CLOUD\IT STEP\Term 4\ASPNET\CookBookWebSQL\bin\Debug\net8.0\ko\Microsoft.CodeAnalysis.Workspaces.resources.dll
-C:\Users\ssamo\Documents\IT STEP CLOUD\IT STEP\Term 4\ASPNET\CookBookWebSQL\bin\Debug\net8.0\pl\Microsoft.CodeAnalysis.Workspaces.resources.dll
-C:\Users\ssamo\Documents\IT STEP CLOUD\IT STEP\Term 4\ASPNET\CookBookWebSQL\bin\Debug\net8.0\pt-BR\Microsoft.CodeAnalysis.Workspaces.resources.dll
-C:\Users\ssamo\Documents\IT STEP CLOUD\IT STEP\Term 4\ASPNET\CookBookWebSQL\bin\Debug\net8.0\ru\Microsoft.CodeAnalysis.Workspaces.resources.dll
-C:\Users\ssamo\Documents\IT STEP CLOUD\IT STEP\Term 4\ASPNET\CookBookWebSQL\bin\Debug\net8.0\tr\Microsoft.CodeAnalysis.Workspaces.resources.dll
-C:\Users\ssamo\Documents\IT STEP CLOUD\IT STEP\Term 4\ASPNET\CookBookWebSQL\bin\Debug\net8.0\zh-Hans\Microsoft.CodeAnalysis.Workspaces.resources.dll
-C:\Users\ssamo\Documents\IT STEP CLOUD\IT STEP\Term 4\ASPNET\CookBookWebSQL\bin\Debug\net8.0\zh-Hant\Microsoft.CodeAnalysis.Workspaces.resources.dll
-C:\Users\ssamo\Documents\IT STEP CLOUD\IT STEP\Term 4\ASPNET\CookBookWebSQL\bin\Debug\net8.0\runtimes\unix\lib\net6.0\Microsoft.Data.SqlClient.dll
-C:\Users\ssamo\Documents\IT STEP CLOUD\IT STEP\Term 4\ASPNET\CookBookWebSQL\bin\Debug\net8.0\runtimes\win\lib\net6.0\Microsoft.Data.SqlClient.dll
-C:\Users\ssamo\Documents\IT STEP CLOUD\IT STEP\Term 4\ASPNET\CookBookWebSQL\bin\Debug\net8.0\runtimes\win-arm\native\Microsoft.Data.SqlClient.SNI.dll
-C:\Users\ssamo\Documents\IT STEP CLOUD\IT STEP\Term 4\ASPNET\CookBookWebSQL\bin\Debug\net8.0\runtimes\win-arm64\native\Microsoft.Data.SqlClient.SNI.dll
-C:\Users\ssamo\Documents\IT STEP CLOUD\IT STEP\Term 4\ASPNET\CookBookWebSQL\bin\Debug\net8.0\runtimes\win-x64\native\Microsoft.Data.SqlClient.SNI.dll
-C:\Users\ssamo\Documents\IT STEP CLOUD\IT STEP\Term 4\ASPNET\CookBookWebSQL\bin\Debug\net8.0\runtimes\win-x86\native\Microsoft.Data.SqlClient.SNI.dll
-C:\Users\ssamo\Documents\IT STEP CLOUD\IT STEP\Term 4\ASPNET\CookBookWebSQL\bin\Debug\net8.0\runtimes\win\lib\net6.0\Microsoft.Win32.SystemEvents.dll
-C:\Users\ssamo\Documents\IT STEP CLOUD\IT STEP\Term 4\ASPNET\CookBookWebSQL\bin\Debug\net8.0\runtimes\unix\lib\net6.0\System.Drawing.Common.dll
-C:\Users\ssamo\Documents\IT STEP CLOUD\IT STEP\Term 4\ASPNET\CookBookWebSQL\bin\Debug\net8.0\runtimes\win\lib\net6.0\System.Drawing.Common.dll
-C:\Users\ssamo\Documents\IT STEP CLOUD\IT STEP\Term 4\ASPNET\CookBookWebSQL\bin\Debug\net8.0\runtimes\win\lib\net6.0\System.Runtime.Caching.dll
-C:\Users\ssamo\Documents\IT STEP CLOUD\IT STEP\Term 4\ASPNET\CookBookWebSQL\bin\Debug\net8.0\runtimes\win\lib\net6.0\System.Security.Cryptography.ProtectedData.dll
-C:\Users\ssamo\Documents\IT STEP CLOUD\IT STEP\Term 4\ASPNET\CookBookWebSQL\bin\Debug\net8.0\runtimes\win\lib\net6.0\System.Windows.Extensions.dll
-C:\Users\ssamo\Documents\IT STEP CLOUD\IT STEP\Term 4\ASPNET\CookBookWebSQL\obj\Debug\net8.0\staticwebassets.build.json
-C:\Users\ssamo\Documents\IT STEP CLOUD\IT STEP\Term 4\ASPNET\CookBookWebSQL\obj\Debug\net8.0\staticwebassets.development.json
-C:\Users\ssamo\Documents\IT STEP CLOUD\IT STEP\Term 4\ASPNET\CookBookWebSQL\obj\Debug\net8.0\staticwebassets\msbuild.CookBookWebSQL.Microsoft.AspNetCore.StaticWebAssets.props
-C:\Users\ssamo\Documents\IT STEP CLOUD\IT STEP\Term 4\ASPNET\CookBookWebSQL\obj\Debug\net8.0\staticwebassets\msbuild.build.CookBookWebSQL.props
-C:\Users\ssamo\Documents\IT STEP CLOUD\IT STEP\Term 4\ASPNET\CookBookWebSQL\obj\Debug\net8.0\staticwebassets\msbuild.buildMultiTargeting.CookBookWebSQL.props
-C:\Users\ssamo\Documents\IT STEP CLOUD\IT STEP\Term 4\ASPNET\CookBookWebSQL\obj\Debug\net8.0\staticwebassets\msbuild.buildTransitive.CookBookWebSQL.props
-C:\Users\ssamo\Documents\IT STEP CLOUD\IT STEP\Term 4\ASPNET\CookBookWebSQL\obj\Debug\net8.0\staticwebassets.pack.json
-C:\Users\ssamo\Documents\IT STEP CLOUD\IT STEP\Term 4\ASPNET\CookBookWebSQL\obj\Debug\net8.0\scopedcss\Components\Layout\MainLayout.razor.rz.scp.css
-C:\Users\ssamo\Documents\IT STEP CLOUD\IT STEP\Term 4\ASPNET\CookBookWebSQL\obj\Debug\net8.0\scopedcss\Components\Layout\NavMenu.razor.rz.scp.css
-C:\Users\ssamo\Documents\IT STEP CLOUD\IT STEP\Term 4\ASPNET\CookBookWebSQL\obj\Debug\net8.0\scopedcss\bundle\CookBookWebSQL.styles.css
-C:\Users\ssamo\Documents\IT STEP CLOUD\IT STEP\Term 4\ASPNET\CookBookWebSQL\obj\Debug\net8.0\scopedcss\projectbundle\CookBookWebSQL.bundle.scp.css
-C:\Users\ssamo\Documents\IT STEP CLOUD\IT STEP\Term 4\ASPNET\CookBookWebSQL\obj\Debug\net8.0\CookBook.572D0A1F.Up2Date
-C:\Users\ssamo\Documents\IT STEP CLOUD\IT STEP\Term 4\ASPNET\CookBookWebSQL\obj\Debug\net8.0\CookBookWebSQL.dll
-C:\Users\ssamo\Documents\IT STEP CLOUD\IT STEP\Term 4\ASPNET\CookBookWebSQL\obj\Debug\net8.0\refint\CookBookWebSQL.dll
-C:\Users\ssamo\Documents\IT STEP CLOUD\IT STEP\Term 4\ASPNET\CookBookWebSQL\obj\Debug\net8.0\CookBookWebSQL.pdb
-C:\Users\ssamo\Documents\IT STEP CLOUD\IT STEP\Term 4\ASPNET\CookBookWebSQL\obj\Debug\net8.0\CookBookWebSQL.genruntimeconfig.cache
-C:\Users\ssamo\Documents\IT STEP CLOUD\IT STEP\Term 4\ASPNET\CookBookWebSQL\obj\Debug\net8.0\ref\CookBookWebSQL.dll
-C:\Users\ssamo\Documents\IT STEP CLOUD\IT STEP\Term 4\ASPNET\CookBookWebSQL\bin\Debug\net8.0\libman.json
-C:\Users\ssamo\Documents\IT STEP CLOUD\IT STEP\Term 4\ASPNET\CookBookWebSQL\obj\Debug\net8.0\CookBookWebSQL.sourcelink.json
 C:\Users\Asus\Documents\CODE\C#\ASP.NET Core\CookBookWebSQL\obj\Debug\net8.0\CookBookWebSQL.csproj.AssemblyReference.cache
 C:\Users\Asus\Documents\CODE\C#\ASP.NET Core\CookBookWebSQL\obj\Debug\net8.0\CookBookWebSQL.GeneratedMSBuildEditorConfig.editorconfig
 C:\Users\Asus\Documents\CODE\C#\ASP.NET Core\CookBookWebSQL\obj\Debug\net8.0\CookBookWebSQL.AssemblyInfoInputs.cache
@@ -284,6 +141,298 @@ C:\Users\Asus\Documents\CODE\C#\ASP.NET Core\CookBookWebSQL\obj\Debug\net8.0\sco
 C:\Users\Asus\Documents\CODE\C#\ASP.NET Core\CookBookWebSQL\obj\Debug\net8.0\CookBook.572D0A1F.Up2Date
 C:\Users\Asus\Documents\CODE\C#\ASP.NET Core\CookBookWebSQL\obj\Debug\net8.0\CookBookWebSQL.genruntimeconfig.cache
 C:\Users\Asus\Documents\CODE\C#\ASP.NET Core\CookBookWebSQL\obj\Debug\net8.0\ref\CookBookWebSQL.dll
+<<<<<<< HEAD
+=======
+C:\Users\accer lmc\OneDrive\Desktop\E\CookBookWebSQL\bin\Debug\net8.0\Microsoft.Bcl.AsyncInterfaces.dll
+C:\Users\accer lmc\OneDrive\Desktop\E\CookBookWebSQL\bin\Debug\net8.0\Microsoft.CodeAnalysis.CSharp.dll
+C:\Users\accer lmc\OneDrive\Desktop\E\CookBookWebSQL\bin\Debug\net8.0\Microsoft.EntityFrameworkCore.dll
+C:\Users\accer lmc\OneDrive\Desktop\E\CookBookWebSQL\obj\Debug\net8.0\CookBookWebSQL.csproj.AssemblyReference.cache
+C:\Users\accer lmc\OneDrive\Desktop\E\CookBookWebSQL\obj\Debug\net8.0\CookBookWebSQL.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\accer lmc\OneDrive\Desktop\E\CookBookWebSQL\obj\Debug\net8.0\CookBookWebSQL.AssemblyInfoInputs.cache
+C:\Users\accer lmc\OneDrive\Desktop\E\CookBookWebSQL\obj\Debug\net8.0\CookBookWebSQL.AssemblyInfo.cs
+C:\Users\accer lmc\OneDrive\Desktop\E\CookBookWebSQL\obj\Debug\net8.0\CookBookWebSQL.csproj.CoreCompileInputs.cache
+C:\Users\accer lmc\OneDrive\Desktop\E\CookBookWebSQL\obj\Debug\net8.0\CookBookWebSQL.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\accer lmc\OneDrive\Desktop\E\CookBookWebSQL\obj\Debug\net8.0\CookBookWebSQL.sourcelink.json
+C:\Users\accer lmc\OneDrive\Desktop\E\CookBookWebSQL\bin\Debug\net8.0\appsettings.Development.json
+C:\Users\accer lmc\OneDrive\Desktop\E\CookBookWebSQL\bin\Debug\net8.0\appsettings.json
+C:\Users\accer lmc\OneDrive\Desktop\E\CookBookWebSQL\bin\Debug\net8.0\libman.json
+C:\Users\accer lmc\OneDrive\Desktop\E\CookBookWebSQL\bin\Debug\net8.0\CookBookWebSQL.staticwebassets.runtime.json
+C:\Users\accer lmc\OneDrive\Desktop\E\CookBookWebSQL\bin\Debug\net8.0\CookBookWebSQL.staticwebassets.endpoints.json
+C:\Users\accer lmc\OneDrive\Desktop\E\CookBookWebSQL\bin\Debug\net8.0\CookBookWebSQL.exe
+C:\Users\accer lmc\OneDrive\Desktop\E\CookBookWebSQL\bin\Debug\net8.0\CookBookWebSQL.deps.json
+C:\Users\accer lmc\OneDrive\Desktop\E\CookBookWebSQL\bin\Debug\net8.0\CookBookWebSQL.runtimeconfig.json
+C:\Users\accer lmc\OneDrive\Desktop\E\CookBookWebSQL\bin\Debug\net8.0\CookBookWebSQL.dll
+C:\Users\accer lmc\OneDrive\Desktop\E\CookBookWebSQL\bin\Debug\net8.0\CookBookWebSQL.pdb
+C:\Users\accer lmc\OneDrive\Desktop\E\CookBookWebSQL\bin\Debug\net8.0\Azure.Core.dll
+C:\Users\accer lmc\OneDrive\Desktop\E\CookBookWebSQL\bin\Debug\net8.0\Azure.Identity.dll
+C:\Users\accer lmc\OneDrive\Desktop\E\CookBookWebSQL\bin\Debug\net8.0\Humanizer.dll
+C:\Users\accer lmc\OneDrive\Desktop\E\CookBookWebSQL\bin\Debug\net8.0\Microsoft.CodeAnalysis.dll
+C:\Users\accer lmc\OneDrive\Desktop\E\CookBookWebSQL\bin\Debug\net8.0\Microsoft.CodeAnalysis.CSharp.Workspaces.dll
+C:\Users\accer lmc\OneDrive\Desktop\E\CookBookWebSQL\bin\Debug\net8.0\Microsoft.CodeAnalysis.Workspaces.dll
+C:\Users\accer lmc\OneDrive\Desktop\E\CookBookWebSQL\bin\Debug\net8.0\Microsoft.Data.SqlClient.dll
+C:\Users\accer lmc\OneDrive\Desktop\E\CookBookWebSQL\bin\Debug\net8.0\Microsoft.EntityFrameworkCore.Abstractions.dll
+C:\Users\accer lmc\OneDrive\Desktop\E\CookBookWebSQL\bin\Debug\net8.0\Microsoft.EntityFrameworkCore.Design.dll
+C:\Users\accer lmc\OneDrive\Desktop\E\CookBookWebSQL\bin\Debug\net8.0\Microsoft.EntityFrameworkCore.Relational.dll
+C:\Users\accer lmc\OneDrive\Desktop\E\CookBookWebSQL\bin\Debug\net8.0\Microsoft.EntityFrameworkCore.SqlServer.dll
+C:\Users\accer lmc\OneDrive\Desktop\E\CookBookWebSQL\bin\Debug\net8.0\Microsoft.Extensions.Caching.Memory.dll
+C:\Users\accer lmc\OneDrive\Desktop\E\CookBookWebSQL\bin\Debug\net8.0\Microsoft.Extensions.DependencyInjection.dll
+C:\Users\accer lmc\OneDrive\Desktop\E\CookBookWebSQL\bin\Debug\net8.0\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+C:\Users\accer lmc\OneDrive\Desktop\E\CookBookWebSQL\bin\Debug\net8.0\Microsoft.Extensions.DependencyModel.dll
+C:\Users\accer lmc\OneDrive\Desktop\E\CookBookWebSQL\bin\Debug\net8.0\Microsoft.Extensions.Logging.dll
+C:\Users\accer lmc\OneDrive\Desktop\E\CookBookWebSQL\bin\Debug\net8.0\Microsoft.Extensions.Logging.Abstractions.dll
+C:\Users\accer lmc\OneDrive\Desktop\E\CookBookWebSQL\bin\Debug\net8.0\Microsoft.Extensions.Options.dll
+C:\Users\accer lmc\OneDrive\Desktop\E\CookBookWebSQL\bin\Debug\net8.0\Microsoft.Identity.Client.dll
+C:\Users\accer lmc\OneDrive\Desktop\E\CookBookWebSQL\bin\Debug\net8.0\Microsoft.Identity.Client.Extensions.Msal.dll
+C:\Users\accer lmc\OneDrive\Desktop\E\CookBookWebSQL\bin\Debug\net8.0\Microsoft.IdentityModel.Abstractions.dll
+C:\Users\accer lmc\OneDrive\Desktop\E\CookBookWebSQL\bin\Debug\net8.0\Microsoft.IdentityModel.JsonWebTokens.dll
+C:\Users\accer lmc\OneDrive\Desktop\E\CookBookWebSQL\bin\Debug\net8.0\Microsoft.IdentityModel.Logging.dll
+C:\Users\accer lmc\OneDrive\Desktop\E\CookBookWebSQL\bin\Debug\net8.0\Microsoft.IdentityModel.Protocols.dll
+C:\Users\accer lmc\OneDrive\Desktop\E\CookBookWebSQL\bin\Debug\net8.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+C:\Users\accer lmc\OneDrive\Desktop\E\CookBookWebSQL\bin\Debug\net8.0\Microsoft.IdentityModel.Tokens.dll
+C:\Users\accer lmc\OneDrive\Desktop\E\CookBookWebSQL\bin\Debug\net8.0\Microsoft.SqlServer.Server.dll
+C:\Users\accer lmc\OneDrive\Desktop\E\CookBookWebSQL\bin\Debug\net8.0\Microsoft.Win32.SystemEvents.dll
+C:\Users\accer lmc\OneDrive\Desktop\E\CookBookWebSQL\bin\Debug\net8.0\Mono.TextTemplating.dll
+C:\Users\accer lmc\OneDrive\Desktop\E\CookBookWebSQL\bin\Debug\net8.0\System.CodeDom.dll
+C:\Users\accer lmc\OneDrive\Desktop\E\CookBookWebSQL\bin\Debug\net8.0\System.Composition.AttributedModel.dll
+C:\Users\accer lmc\OneDrive\Desktop\E\CookBookWebSQL\bin\Debug\net8.0\System.Composition.Convention.dll
+C:\Users\accer lmc\OneDrive\Desktop\E\CookBookWebSQL\bin\Debug\net8.0\System.Composition.Hosting.dll
+C:\Users\accer lmc\OneDrive\Desktop\E\CookBookWebSQL\bin\Debug\net8.0\System.Composition.Runtime.dll
+C:\Users\accer lmc\OneDrive\Desktop\E\CookBookWebSQL\bin\Debug\net8.0\System.Composition.TypedParts.dll
+C:\Users\accer lmc\OneDrive\Desktop\E\CookBookWebSQL\bin\Debug\net8.0\System.Configuration.ConfigurationManager.dll
+C:\Users\accer lmc\OneDrive\Desktop\E\CookBookWebSQL\bin\Debug\net8.0\System.Drawing.Common.dll
+C:\Users\accer lmc\OneDrive\Desktop\E\CookBookWebSQL\bin\Debug\net8.0\System.IdentityModel.Tokens.Jwt.dll
+C:\Users\accer lmc\OneDrive\Desktop\E\CookBookWebSQL\bin\Debug\net8.0\System.Memory.Data.dll
+C:\Users\accer lmc\OneDrive\Desktop\E\CookBookWebSQL\bin\Debug\net8.0\System.Runtime.Caching.dll
+C:\Users\accer lmc\OneDrive\Desktop\E\CookBookWebSQL\bin\Debug\net8.0\System.Security.Cryptography.ProtectedData.dll
+C:\Users\accer lmc\OneDrive\Desktop\E\CookBookWebSQL\bin\Debug\net8.0\System.Security.Permissions.dll
+C:\Users\accer lmc\OneDrive\Desktop\E\CookBookWebSQL\bin\Debug\net8.0\System.Windows.Extensions.dll
+C:\Users\accer lmc\OneDrive\Desktop\E\CookBookWebSQL\bin\Debug\net8.0\cs\Microsoft.CodeAnalysis.resources.dll
+C:\Users\accer lmc\OneDrive\Desktop\E\CookBookWebSQL\bin\Debug\net8.0\de\Microsoft.CodeAnalysis.resources.dll
+C:\Users\accer lmc\OneDrive\Desktop\E\CookBookWebSQL\bin\Debug\net8.0\es\Microsoft.CodeAnalysis.resources.dll
+C:\Users\accer lmc\OneDrive\Desktop\E\CookBookWebSQL\bin\Debug\net8.0\fr\Microsoft.CodeAnalysis.resources.dll
+C:\Users\accer lmc\OneDrive\Desktop\E\CookBookWebSQL\bin\Debug\net8.0\it\Microsoft.CodeAnalysis.resources.dll
+C:\Users\accer lmc\OneDrive\Desktop\E\CookBookWebSQL\bin\Debug\net8.0\ja\Microsoft.CodeAnalysis.resources.dll
+C:\Users\accer lmc\OneDrive\Desktop\E\CookBookWebSQL\bin\Debug\net8.0\ko\Microsoft.CodeAnalysis.resources.dll
+C:\Users\accer lmc\OneDrive\Desktop\E\CookBookWebSQL\bin\Debug\net8.0\pl\Microsoft.CodeAnalysis.resources.dll
+C:\Users\accer lmc\OneDrive\Desktop\E\CookBookWebSQL\bin\Debug\net8.0\pt-BR\Microsoft.CodeAnalysis.resources.dll
+C:\Users\accer lmc\OneDrive\Desktop\E\CookBookWebSQL\bin\Debug\net8.0\ru\Microsoft.CodeAnalysis.resources.dll
+C:\Users\accer lmc\OneDrive\Desktop\E\CookBookWebSQL\bin\Debug\net8.0\tr\Microsoft.CodeAnalysis.resources.dll
+C:\Users\accer lmc\OneDrive\Desktop\E\CookBookWebSQL\bin\Debug\net8.0\zh-Hans\Microsoft.CodeAnalysis.resources.dll
+C:\Users\accer lmc\OneDrive\Desktop\E\CookBookWebSQL\bin\Debug\net8.0\zh-Hant\Microsoft.CodeAnalysis.resources.dll
+C:\Users\accer lmc\OneDrive\Desktop\E\CookBookWebSQL\bin\Debug\net8.0\cs\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Users\accer lmc\OneDrive\Desktop\E\CookBookWebSQL\bin\Debug\net8.0\de\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Users\accer lmc\OneDrive\Desktop\E\CookBookWebSQL\bin\Debug\net8.0\es\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Users\accer lmc\OneDrive\Desktop\E\CookBookWebSQL\bin\Debug\net8.0\fr\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Users\accer lmc\OneDrive\Desktop\E\CookBookWebSQL\bin\Debug\net8.0\it\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Users\accer lmc\OneDrive\Desktop\E\CookBookWebSQL\bin\Debug\net8.0\ja\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Users\accer lmc\OneDrive\Desktop\E\CookBookWebSQL\bin\Debug\net8.0\ko\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Users\accer lmc\OneDrive\Desktop\E\CookBookWebSQL\bin\Debug\net8.0\pl\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Users\accer lmc\OneDrive\Desktop\E\CookBookWebSQL\bin\Debug\net8.0\pt-BR\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Users\accer lmc\OneDrive\Desktop\E\CookBookWebSQL\bin\Debug\net8.0\ru\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Users\accer lmc\OneDrive\Desktop\E\CookBookWebSQL\bin\Debug\net8.0\tr\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Users\accer lmc\OneDrive\Desktop\E\CookBookWebSQL\bin\Debug\net8.0\zh-Hans\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Users\accer lmc\OneDrive\Desktop\E\CookBookWebSQL\bin\Debug\net8.0\zh-Hant\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Users\accer lmc\OneDrive\Desktop\E\CookBookWebSQL\bin\Debug\net8.0\cs\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:\Users\accer lmc\OneDrive\Desktop\E\CookBookWebSQL\bin\Debug\net8.0\de\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:\Users\accer lmc\OneDrive\Desktop\E\CookBookWebSQL\bin\Debug\net8.0\es\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:\Users\accer lmc\OneDrive\Desktop\E\CookBookWebSQL\bin\Debug\net8.0\fr\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:\Users\accer lmc\OneDrive\Desktop\E\CookBookWebSQL\bin\Debug\net8.0\it\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:\Users\accer lmc\OneDrive\Desktop\E\CookBookWebSQL\bin\Debug\net8.0\ja\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:\Users\accer lmc\OneDrive\Desktop\E\CookBookWebSQL\bin\Debug\net8.0\ko\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:\Users\accer lmc\OneDrive\Desktop\E\CookBookWebSQL\bin\Debug\net8.0\pl\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:\Users\accer lmc\OneDrive\Desktop\E\CookBookWebSQL\bin\Debug\net8.0\pt-BR\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:\Users\accer lmc\OneDrive\Desktop\E\CookBookWebSQL\bin\Debug\net8.0\ru\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:\Users\accer lmc\OneDrive\Desktop\E\CookBookWebSQL\bin\Debug\net8.0\tr\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:\Users\accer lmc\OneDrive\Desktop\E\CookBookWebSQL\bin\Debug\net8.0\zh-Hans\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:\Users\accer lmc\OneDrive\Desktop\E\CookBookWebSQL\bin\Debug\net8.0\zh-Hant\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:\Users\accer lmc\OneDrive\Desktop\E\CookBookWebSQL\bin\Debug\net8.0\cs\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\Users\accer lmc\OneDrive\Desktop\E\CookBookWebSQL\bin\Debug\net8.0\de\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\Users\accer lmc\OneDrive\Desktop\E\CookBookWebSQL\bin\Debug\net8.0\es\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\Users\accer lmc\OneDrive\Desktop\E\CookBookWebSQL\bin\Debug\net8.0\fr\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\Users\accer lmc\OneDrive\Desktop\E\CookBookWebSQL\bin\Debug\net8.0\it\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\Users\accer lmc\OneDrive\Desktop\E\CookBookWebSQL\bin\Debug\net8.0\ja\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\Users\accer lmc\OneDrive\Desktop\E\CookBookWebSQL\bin\Debug\net8.0\ko\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\Users\accer lmc\OneDrive\Desktop\E\CookBookWebSQL\bin\Debug\net8.0\pl\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\Users\accer lmc\OneDrive\Desktop\E\CookBookWebSQL\bin\Debug\net8.0\pt-BR\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\Users\accer lmc\OneDrive\Desktop\E\CookBookWebSQL\bin\Debug\net8.0\ru\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\Users\accer lmc\OneDrive\Desktop\E\CookBookWebSQL\bin\Debug\net8.0\tr\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\Users\accer lmc\OneDrive\Desktop\E\CookBookWebSQL\bin\Debug\net8.0\zh-Hans\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\Users\accer lmc\OneDrive\Desktop\E\CookBookWebSQL\bin\Debug\net8.0\zh-Hant\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\Users\accer lmc\OneDrive\Desktop\E\CookBookWebSQL\bin\Debug\net8.0\runtimes\unix\lib\net6.0\Microsoft.Data.SqlClient.dll
+C:\Users\accer lmc\OneDrive\Desktop\E\CookBookWebSQL\bin\Debug\net8.0\runtimes\win\lib\net6.0\Microsoft.Data.SqlClient.dll
+C:\Users\accer lmc\OneDrive\Desktop\E\CookBookWebSQL\bin\Debug\net8.0\runtimes\win-arm\native\Microsoft.Data.SqlClient.SNI.dll
+C:\Users\accer lmc\OneDrive\Desktop\E\CookBookWebSQL\bin\Debug\net8.0\runtimes\win-arm64\native\Microsoft.Data.SqlClient.SNI.dll
+C:\Users\accer lmc\OneDrive\Desktop\E\CookBookWebSQL\bin\Debug\net8.0\runtimes\win-x64\native\Microsoft.Data.SqlClient.SNI.dll
+C:\Users\accer lmc\OneDrive\Desktop\E\CookBookWebSQL\bin\Debug\net8.0\runtimes\win-x86\native\Microsoft.Data.SqlClient.SNI.dll
+C:\Users\accer lmc\OneDrive\Desktop\E\CookBookWebSQL\bin\Debug\net8.0\runtimes\win\lib\net6.0\Microsoft.Win32.SystemEvents.dll
+C:\Users\accer lmc\OneDrive\Desktop\E\CookBookWebSQL\bin\Debug\net8.0\runtimes\unix\lib\net6.0\System.Drawing.Common.dll
+C:\Users\accer lmc\OneDrive\Desktop\E\CookBookWebSQL\bin\Debug\net8.0\runtimes\win\lib\net6.0\System.Drawing.Common.dll
+C:\Users\accer lmc\OneDrive\Desktop\E\CookBookWebSQL\bin\Debug\net8.0\runtimes\win\lib\net6.0\System.Runtime.Caching.dll
+C:\Users\accer lmc\OneDrive\Desktop\E\CookBookWebSQL\bin\Debug\net8.0\runtimes\win\lib\net6.0\System.Security.Cryptography.ProtectedData.dll
+C:\Users\accer lmc\OneDrive\Desktop\E\CookBookWebSQL\bin\Debug\net8.0\runtimes\win\lib\net6.0\System.Windows.Extensions.dll
+C:\Users\accer lmc\OneDrive\Desktop\E\CookBookWebSQL\obj\Debug\net8.0\scopedcss\Components\Layout\MainLayout.razor.rz.scp.css
+C:\Users\accer lmc\OneDrive\Desktop\E\CookBookWebSQL\obj\Debug\net8.0\scopedcss\Components\Layout\NavMenu.razor.rz.scp.css
+C:\Users\accer lmc\OneDrive\Desktop\E\CookBookWebSQL\obj\Debug\net8.0\scopedcss\bundle\CookBookWebSQL.styles.css
+C:\Users\accer lmc\OneDrive\Desktop\E\CookBookWebSQL\obj\Debug\net8.0\scopedcss\projectbundle\CookBookWebSQL.bundle.scp.css
+C:\Users\accer lmc\OneDrive\Desktop\E\CookBookWebSQL\obj\Debug\net8.0\staticwebassets.build.json
+C:\Users\accer lmc\OneDrive\Desktop\E\CookBookWebSQL\obj\Debug\net8.0\staticwebassets.development.json
+C:\Users\accer lmc\OneDrive\Desktop\E\CookBookWebSQL\obj\Debug\net8.0\staticwebassets.build.endpoints.json
+C:\Users\accer lmc\OneDrive\Desktop\E\CookBookWebSQL\obj\Debug\net8.0\staticwebassets\msbuild.CookBookWebSQL.Microsoft.AspNetCore.StaticWebAssets.props
+C:\Users\accer lmc\OneDrive\Desktop\E\CookBookWebSQL\obj\Debug\net8.0\staticwebassets\msbuild.CookBookWebSQL.Microsoft.AspNetCore.StaticWebAssetEndpoints.props
+C:\Users\accer lmc\OneDrive\Desktop\E\CookBookWebSQL\obj\Debug\net8.0\staticwebassets\msbuild.build.CookBookWebSQL.props
+C:\Users\accer lmc\OneDrive\Desktop\E\CookBookWebSQL\obj\Debug\net8.0\staticwebassets\msbuild.buildMultiTargeting.CookBookWebSQL.props
+C:\Users\accer lmc\OneDrive\Desktop\E\CookBookWebSQL\obj\Debug\net8.0\staticwebassets\msbuild.buildTransitive.CookBookWebSQL.props
+C:\Users\accer lmc\OneDrive\Desktop\E\CookBookWebSQL\obj\Debug\net8.0\staticwebassets.pack.json
+C:\Users\accer lmc\OneDrive\Desktop\E\CookBookWebSQL\obj\Debug\net8.0\CookBook.572D0A1F.Up2Date
+C:\Users\accer lmc\OneDrive\Desktop\E\CookBookWebSQL\obj\Debug\net8.0\CookBookWebSQL.dll
+C:\Users\accer lmc\OneDrive\Desktop\E\CookBookWebSQL\obj\Debug\net8.0\refint\CookBookWebSQL.dll
+C:\Users\accer lmc\OneDrive\Desktop\E\CookBookWebSQL\obj\Debug\net8.0\CookBookWebSQL.pdb
+C:\Users\accer lmc\OneDrive\Desktop\E\CookBookWebSQL\obj\Debug\net8.0\CookBookWebSQL.genruntimeconfig.cache
+C:\Users\accer lmc\OneDrive\Desktop\E\CookBookWebSQL\obj\Debug\net8.0\ref\CookBookWebSQL.dll
+>>>>>>> 09aaefa14de4d525114a5366ddab5ea4d76d2c7e
+C:\Users\ssamo\Documents\IT STEP CLOUD\IT STEP\Term 4\ASPNET\CookBookWebSQL\obj\Debug\net8.0\CookBookWebSQL.csproj.AssemblyReference.cache
+C:\Users\ssamo\Documents\IT STEP CLOUD\IT STEP\Term 4\ASPNET\CookBookWebSQL\obj\Debug\net8.0\CookBookWebSQL.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\ssamo\Documents\IT STEP CLOUD\IT STEP\Term 4\ASPNET\CookBookWebSQL\obj\Debug\net8.0\CookBookWebSQL.AssemblyInfoInputs.cache
+C:\Users\ssamo\Documents\IT STEP CLOUD\IT STEP\Term 4\ASPNET\CookBookWebSQL\obj\Debug\net8.0\CookBookWebSQL.AssemblyInfo.cs
+C:\Users\ssamo\Documents\IT STEP CLOUD\IT STEP\Term 4\ASPNET\CookBookWebSQL\obj\Debug\net8.0\CookBookWebSQL.csproj.CoreCompileInputs.cache
+C:\Users\ssamo\Documents\IT STEP CLOUD\IT STEP\Term 4\ASPNET\CookBookWebSQL\obj\Debug\net8.0\CookBookWebSQL.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\ssamo\Documents\IT STEP CLOUD\IT STEP\Term 4\ASPNET\CookBookWebSQL\obj\Debug\net8.0\CookBookWebSQL.sourcelink.json
+C:\Users\ssamo\Documents\IT STEP CLOUD\IT STEP\Term 4\ASPNET\CookBookWebSQL\bin\Debug\net8.0\appsettings.Development.json
+C:\Users\ssamo\Documents\IT STEP CLOUD\IT STEP\Term 4\ASPNET\CookBookWebSQL\bin\Debug\net8.0\appsettings.json
+C:\Users\ssamo\Documents\IT STEP CLOUD\IT STEP\Term 4\ASPNET\CookBookWebSQL\bin\Debug\net8.0\libman.json
+C:\Users\ssamo\Documents\IT STEP CLOUD\IT STEP\Term 4\ASPNET\CookBookWebSQL\bin\Debug\net8.0\CookBookWebSQL.staticwebassets.runtime.json
 C:\Users\ssamo\Documents\IT STEP CLOUD\IT STEP\Term 4\ASPNET\CookBookWebSQL\bin\Debug\net8.0\CookBookWebSQL.staticwebassets.endpoints.json
+C:\Users\ssamo\Documents\IT STEP CLOUD\IT STEP\Term 4\ASPNET\CookBookWebSQL\bin\Debug\net8.0\CookBookWebSQL.exe
+C:\Users\ssamo\Documents\IT STEP CLOUD\IT STEP\Term 4\ASPNET\CookBookWebSQL\bin\Debug\net8.0\CookBookWebSQL.deps.json
+C:\Users\ssamo\Documents\IT STEP CLOUD\IT STEP\Term 4\ASPNET\CookBookWebSQL\bin\Debug\net8.0\CookBookWebSQL.runtimeconfig.json
+C:\Users\ssamo\Documents\IT STEP CLOUD\IT STEP\Term 4\ASPNET\CookBookWebSQL\bin\Debug\net8.0\CookBookWebSQL.dll
+C:\Users\ssamo\Documents\IT STEP CLOUD\IT STEP\Term 4\ASPNET\CookBookWebSQL\bin\Debug\net8.0\CookBookWebSQL.pdb
+C:\Users\ssamo\Documents\IT STEP CLOUD\IT STEP\Term 4\ASPNET\CookBookWebSQL\bin\Debug\net8.0\Azure.Core.dll
+C:\Users\ssamo\Documents\IT STEP CLOUD\IT STEP\Term 4\ASPNET\CookBookWebSQL\bin\Debug\net8.0\Azure.Identity.dll
+C:\Users\ssamo\Documents\IT STEP CLOUD\IT STEP\Term 4\ASPNET\CookBookWebSQL\bin\Debug\net8.0\Humanizer.dll
+C:\Users\ssamo\Documents\IT STEP CLOUD\IT STEP\Term 4\ASPNET\CookBookWebSQL\bin\Debug\net8.0\Microsoft.Bcl.AsyncInterfaces.dll
+C:\Users\ssamo\Documents\IT STEP CLOUD\IT STEP\Term 4\ASPNET\CookBookWebSQL\bin\Debug\net8.0\Microsoft.CodeAnalysis.dll
+C:\Users\ssamo\Documents\IT STEP CLOUD\IT STEP\Term 4\ASPNET\CookBookWebSQL\bin\Debug\net8.0\Microsoft.CodeAnalysis.CSharp.dll
+C:\Users\ssamo\Documents\IT STEP CLOUD\IT STEP\Term 4\ASPNET\CookBookWebSQL\bin\Debug\net8.0\Microsoft.CodeAnalysis.CSharp.Workspaces.dll
+C:\Users\ssamo\Documents\IT STEP CLOUD\IT STEP\Term 4\ASPNET\CookBookWebSQL\bin\Debug\net8.0\Microsoft.CodeAnalysis.Workspaces.dll
+C:\Users\ssamo\Documents\IT STEP CLOUD\IT STEP\Term 4\ASPNET\CookBookWebSQL\bin\Debug\net8.0\Microsoft.Data.SqlClient.dll
+C:\Users\ssamo\Documents\IT STEP CLOUD\IT STEP\Term 4\ASPNET\CookBookWebSQL\bin\Debug\net8.0\Microsoft.EntityFrameworkCore.dll
+C:\Users\ssamo\Documents\IT STEP CLOUD\IT STEP\Term 4\ASPNET\CookBookWebSQL\bin\Debug\net8.0\Microsoft.EntityFrameworkCore.Abstractions.dll
+C:\Users\ssamo\Documents\IT STEP CLOUD\IT STEP\Term 4\ASPNET\CookBookWebSQL\bin\Debug\net8.0\Microsoft.EntityFrameworkCore.Design.dll
+C:\Users\ssamo\Documents\IT STEP CLOUD\IT STEP\Term 4\ASPNET\CookBookWebSQL\bin\Debug\net8.0\Microsoft.EntityFrameworkCore.Relational.dll
+C:\Users\ssamo\Documents\IT STEP CLOUD\IT STEP\Term 4\ASPNET\CookBookWebSQL\bin\Debug\net8.0\Microsoft.EntityFrameworkCore.SqlServer.dll
+C:\Users\ssamo\Documents\IT STEP CLOUD\IT STEP\Term 4\ASPNET\CookBookWebSQL\bin\Debug\net8.0\Microsoft.Extensions.Caching.Memory.dll
+C:\Users\ssamo\Documents\IT STEP CLOUD\IT STEP\Term 4\ASPNET\CookBookWebSQL\bin\Debug\net8.0\Microsoft.Extensions.DependencyInjection.dll
+C:\Users\ssamo\Documents\IT STEP CLOUD\IT STEP\Term 4\ASPNET\CookBookWebSQL\bin\Debug\net8.0\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+C:\Users\ssamo\Documents\IT STEP CLOUD\IT STEP\Term 4\ASPNET\CookBookWebSQL\bin\Debug\net8.0\Microsoft.Extensions.DependencyModel.dll
+C:\Users\ssamo\Documents\IT STEP CLOUD\IT STEP\Term 4\ASPNET\CookBookWebSQL\bin\Debug\net8.0\Microsoft.Extensions.Logging.dll
+C:\Users\ssamo\Documents\IT STEP CLOUD\IT STEP\Term 4\ASPNET\CookBookWebSQL\bin\Debug\net8.0\Microsoft.Extensions.Logging.Abstractions.dll
+C:\Users\ssamo\Documents\IT STEP CLOUD\IT STEP\Term 4\ASPNET\CookBookWebSQL\bin\Debug\net8.0\Microsoft.Extensions.Options.dll
+C:\Users\ssamo\Documents\IT STEP CLOUD\IT STEP\Term 4\ASPNET\CookBookWebSQL\bin\Debug\net8.0\Microsoft.Identity.Client.dll
+C:\Users\ssamo\Documents\IT STEP CLOUD\IT STEP\Term 4\ASPNET\CookBookWebSQL\bin\Debug\net8.0\Microsoft.Identity.Client.Extensions.Msal.dll
+C:\Users\ssamo\Documents\IT STEP CLOUD\IT STEP\Term 4\ASPNET\CookBookWebSQL\bin\Debug\net8.0\Microsoft.IdentityModel.Abstractions.dll
+C:\Users\ssamo\Documents\IT STEP CLOUD\IT STEP\Term 4\ASPNET\CookBookWebSQL\bin\Debug\net8.0\Microsoft.IdentityModel.JsonWebTokens.dll
+C:\Users\ssamo\Documents\IT STEP CLOUD\IT STEP\Term 4\ASPNET\CookBookWebSQL\bin\Debug\net8.0\Microsoft.IdentityModel.Logging.dll
+C:\Users\ssamo\Documents\IT STEP CLOUD\IT STEP\Term 4\ASPNET\CookBookWebSQL\bin\Debug\net8.0\Microsoft.IdentityModel.Protocols.dll
+C:\Users\ssamo\Documents\IT STEP CLOUD\IT STEP\Term 4\ASPNET\CookBookWebSQL\bin\Debug\net8.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+C:\Users\ssamo\Documents\IT STEP CLOUD\IT STEP\Term 4\ASPNET\CookBookWebSQL\bin\Debug\net8.0\Microsoft.IdentityModel.Tokens.dll
+C:\Users\ssamo\Documents\IT STEP CLOUD\IT STEP\Term 4\ASPNET\CookBookWebSQL\bin\Debug\net8.0\Microsoft.SqlServer.Server.dll
+C:\Users\ssamo\Documents\IT STEP CLOUD\IT STEP\Term 4\ASPNET\CookBookWebSQL\bin\Debug\net8.0\Microsoft.Win32.SystemEvents.dll
+C:\Users\ssamo\Documents\IT STEP CLOUD\IT STEP\Term 4\ASPNET\CookBookWebSQL\bin\Debug\net8.0\Mono.TextTemplating.dll
+C:\Users\ssamo\Documents\IT STEP CLOUD\IT STEP\Term 4\ASPNET\CookBookWebSQL\bin\Debug\net8.0\System.CodeDom.dll
+C:\Users\ssamo\Documents\IT STEP CLOUD\IT STEP\Term 4\ASPNET\CookBookWebSQL\bin\Debug\net8.0\System.Composition.AttributedModel.dll
+C:\Users\ssamo\Documents\IT STEP CLOUD\IT STEP\Term 4\ASPNET\CookBookWebSQL\bin\Debug\net8.0\System.Composition.Convention.dll
+C:\Users\ssamo\Documents\IT STEP CLOUD\IT STEP\Term 4\ASPNET\CookBookWebSQL\bin\Debug\net8.0\System.Composition.Hosting.dll
+C:\Users\ssamo\Documents\IT STEP CLOUD\IT STEP\Term 4\ASPNET\CookBookWebSQL\bin\Debug\net8.0\System.Composition.Runtime.dll
+C:\Users\ssamo\Documents\IT STEP CLOUD\IT STEP\Term 4\ASPNET\CookBookWebSQL\bin\Debug\net8.0\System.Composition.TypedParts.dll
+C:\Users\ssamo\Documents\IT STEP CLOUD\IT STEP\Term 4\ASPNET\CookBookWebSQL\bin\Debug\net8.0\System.Configuration.ConfigurationManager.dll
+C:\Users\ssamo\Documents\IT STEP CLOUD\IT STEP\Term 4\ASPNET\CookBookWebSQL\bin\Debug\net8.0\System.Drawing.Common.dll
+C:\Users\ssamo\Documents\IT STEP CLOUD\IT STEP\Term 4\ASPNET\CookBookWebSQL\bin\Debug\net8.0\System.IdentityModel.Tokens.Jwt.dll
+C:\Users\ssamo\Documents\IT STEP CLOUD\IT STEP\Term 4\ASPNET\CookBookWebSQL\bin\Debug\net8.0\System.Memory.Data.dll
+C:\Users\ssamo\Documents\IT STEP CLOUD\IT STEP\Term 4\ASPNET\CookBookWebSQL\bin\Debug\net8.0\System.Runtime.Caching.dll
+C:\Users\ssamo\Documents\IT STEP CLOUD\IT STEP\Term 4\ASPNET\CookBookWebSQL\bin\Debug\net8.0\System.Security.Cryptography.ProtectedData.dll
+C:\Users\ssamo\Documents\IT STEP CLOUD\IT STEP\Term 4\ASPNET\CookBookWebSQL\bin\Debug\net8.0\System.Security.Permissions.dll
+C:\Users\ssamo\Documents\IT STEP CLOUD\IT STEP\Term 4\ASPNET\CookBookWebSQL\bin\Debug\net8.0\System.Windows.Extensions.dll
+C:\Users\ssamo\Documents\IT STEP CLOUD\IT STEP\Term 4\ASPNET\CookBookWebSQL\bin\Debug\net8.0\cs\Microsoft.CodeAnalysis.resources.dll
+C:\Users\ssamo\Documents\IT STEP CLOUD\IT STEP\Term 4\ASPNET\CookBookWebSQL\bin\Debug\net8.0\de\Microsoft.CodeAnalysis.resources.dll
+C:\Users\ssamo\Documents\IT STEP CLOUD\IT STEP\Term 4\ASPNET\CookBookWebSQL\bin\Debug\net8.0\es\Microsoft.CodeAnalysis.resources.dll
+C:\Users\ssamo\Documents\IT STEP CLOUD\IT STEP\Term 4\ASPNET\CookBookWebSQL\bin\Debug\net8.0\fr\Microsoft.CodeAnalysis.resources.dll
+C:\Users\ssamo\Documents\IT STEP CLOUD\IT STEP\Term 4\ASPNET\CookBookWebSQL\bin\Debug\net8.0\it\Microsoft.CodeAnalysis.resources.dll
+C:\Users\ssamo\Documents\IT STEP CLOUD\IT STEP\Term 4\ASPNET\CookBookWebSQL\bin\Debug\net8.0\ja\Microsoft.CodeAnalysis.resources.dll
+C:\Users\ssamo\Documents\IT STEP CLOUD\IT STEP\Term 4\ASPNET\CookBookWebSQL\bin\Debug\net8.0\ko\Microsoft.CodeAnalysis.resources.dll
+C:\Users\ssamo\Documents\IT STEP CLOUD\IT STEP\Term 4\ASPNET\CookBookWebSQL\bin\Debug\net8.0\pl\Microsoft.CodeAnalysis.resources.dll
+C:\Users\ssamo\Documents\IT STEP CLOUD\IT STEP\Term 4\ASPNET\CookBookWebSQL\bin\Debug\net8.0\pt-BR\Microsoft.CodeAnalysis.resources.dll
+C:\Users\ssamo\Documents\IT STEP CLOUD\IT STEP\Term 4\ASPNET\CookBookWebSQL\bin\Debug\net8.0\ru\Microsoft.CodeAnalysis.resources.dll
+C:\Users\ssamo\Documents\IT STEP CLOUD\IT STEP\Term 4\ASPNET\CookBookWebSQL\bin\Debug\net8.0\tr\Microsoft.CodeAnalysis.resources.dll
+C:\Users\ssamo\Documents\IT STEP CLOUD\IT STEP\Term 4\ASPNET\CookBookWebSQL\bin\Debug\net8.0\zh-Hans\Microsoft.CodeAnalysis.resources.dll
+C:\Users\ssamo\Documents\IT STEP CLOUD\IT STEP\Term 4\ASPNET\CookBookWebSQL\bin\Debug\net8.0\zh-Hant\Microsoft.CodeAnalysis.resources.dll
+C:\Users\ssamo\Documents\IT STEP CLOUD\IT STEP\Term 4\ASPNET\CookBookWebSQL\bin\Debug\net8.0\cs\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Users\ssamo\Documents\IT STEP CLOUD\IT STEP\Term 4\ASPNET\CookBookWebSQL\bin\Debug\net8.0\de\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Users\ssamo\Documents\IT STEP CLOUD\IT STEP\Term 4\ASPNET\CookBookWebSQL\bin\Debug\net8.0\es\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Users\ssamo\Documents\IT STEP CLOUD\IT STEP\Term 4\ASPNET\CookBookWebSQL\bin\Debug\net8.0\fr\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Users\ssamo\Documents\IT STEP CLOUD\IT STEP\Term 4\ASPNET\CookBookWebSQL\bin\Debug\net8.0\it\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Users\ssamo\Documents\IT STEP CLOUD\IT STEP\Term 4\ASPNET\CookBookWebSQL\bin\Debug\net8.0\ja\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Users\ssamo\Documents\IT STEP CLOUD\IT STEP\Term 4\ASPNET\CookBookWebSQL\bin\Debug\net8.0\ko\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Users\ssamo\Documents\IT STEP CLOUD\IT STEP\Term 4\ASPNET\CookBookWebSQL\bin\Debug\net8.0\pl\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Users\ssamo\Documents\IT STEP CLOUD\IT STEP\Term 4\ASPNET\CookBookWebSQL\bin\Debug\net8.0\pt-BR\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Users\ssamo\Documents\IT STEP CLOUD\IT STEP\Term 4\ASPNET\CookBookWebSQL\bin\Debug\net8.0\ru\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Users\ssamo\Documents\IT STEP CLOUD\IT STEP\Term 4\ASPNET\CookBookWebSQL\bin\Debug\net8.0\tr\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Users\ssamo\Documents\IT STEP CLOUD\IT STEP\Term 4\ASPNET\CookBookWebSQL\bin\Debug\net8.0\zh-Hans\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Users\ssamo\Documents\IT STEP CLOUD\IT STEP\Term 4\ASPNET\CookBookWebSQL\bin\Debug\net8.0\zh-Hant\Microsoft.CodeAnalysis.CSharp.resources.dll
+C:\Users\ssamo\Documents\IT STEP CLOUD\IT STEP\Term 4\ASPNET\CookBookWebSQL\bin\Debug\net8.0\cs\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:\Users\ssamo\Documents\IT STEP CLOUD\IT STEP\Term 4\ASPNET\CookBookWebSQL\bin\Debug\net8.0\de\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:\Users\ssamo\Documents\IT STEP CLOUD\IT STEP\Term 4\ASPNET\CookBookWebSQL\bin\Debug\net8.0\es\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:\Users\ssamo\Documents\IT STEP CLOUD\IT STEP\Term 4\ASPNET\CookBookWebSQL\bin\Debug\net8.0\fr\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:\Users\ssamo\Documents\IT STEP CLOUD\IT STEP\Term 4\ASPNET\CookBookWebSQL\bin\Debug\net8.0\it\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:\Users\ssamo\Documents\IT STEP CLOUD\IT STEP\Term 4\ASPNET\CookBookWebSQL\bin\Debug\net8.0\ja\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:\Users\ssamo\Documents\IT STEP CLOUD\IT STEP\Term 4\ASPNET\CookBookWebSQL\bin\Debug\net8.0\ko\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:\Users\ssamo\Documents\IT STEP CLOUD\IT STEP\Term 4\ASPNET\CookBookWebSQL\bin\Debug\net8.0\pl\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:\Users\ssamo\Documents\IT STEP CLOUD\IT STEP\Term 4\ASPNET\CookBookWebSQL\bin\Debug\net8.0\pt-BR\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:\Users\ssamo\Documents\IT STEP CLOUD\IT STEP\Term 4\ASPNET\CookBookWebSQL\bin\Debug\net8.0\ru\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:\Users\ssamo\Documents\IT STEP CLOUD\IT STEP\Term 4\ASPNET\CookBookWebSQL\bin\Debug\net8.0\tr\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:\Users\ssamo\Documents\IT STEP CLOUD\IT STEP\Term 4\ASPNET\CookBookWebSQL\bin\Debug\net8.0\zh-Hans\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:\Users\ssamo\Documents\IT STEP CLOUD\IT STEP\Term 4\ASPNET\CookBookWebSQL\bin\Debug\net8.0\zh-Hant\Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+C:\Users\ssamo\Documents\IT STEP CLOUD\IT STEP\Term 4\ASPNET\CookBookWebSQL\bin\Debug\net8.0\cs\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\Users\ssamo\Documents\IT STEP CLOUD\IT STEP\Term 4\ASPNET\CookBookWebSQL\bin\Debug\net8.0\de\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\Users\ssamo\Documents\IT STEP CLOUD\IT STEP\Term 4\ASPNET\CookBookWebSQL\bin\Debug\net8.0\es\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\Users\ssamo\Documents\IT STEP CLOUD\IT STEP\Term 4\ASPNET\CookBookWebSQL\bin\Debug\net8.0\fr\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\Users\ssamo\Documents\IT STEP CLOUD\IT STEP\Term 4\ASPNET\CookBookWebSQL\bin\Debug\net8.0\it\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\Users\ssamo\Documents\IT STEP CLOUD\IT STEP\Term 4\ASPNET\CookBookWebSQL\bin\Debug\net8.0\ja\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\Users\ssamo\Documents\IT STEP CLOUD\IT STEP\Term 4\ASPNET\CookBookWebSQL\bin\Debug\net8.0\ko\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\Users\ssamo\Documents\IT STEP CLOUD\IT STEP\Term 4\ASPNET\CookBookWebSQL\bin\Debug\net8.0\pl\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\Users\ssamo\Documents\IT STEP CLOUD\IT STEP\Term 4\ASPNET\CookBookWebSQL\bin\Debug\net8.0\pt-BR\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\Users\ssamo\Documents\IT STEP CLOUD\IT STEP\Term 4\ASPNET\CookBookWebSQL\bin\Debug\net8.0\ru\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\Users\ssamo\Documents\IT STEP CLOUD\IT STEP\Term 4\ASPNET\CookBookWebSQL\bin\Debug\net8.0\tr\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\Users\ssamo\Documents\IT STEP CLOUD\IT STEP\Term 4\ASPNET\CookBookWebSQL\bin\Debug\net8.0\zh-Hans\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\Users\ssamo\Documents\IT STEP CLOUD\IT STEP\Term 4\ASPNET\CookBookWebSQL\bin\Debug\net8.0\zh-Hant\Microsoft.CodeAnalysis.Workspaces.resources.dll
+C:\Users\ssamo\Documents\IT STEP CLOUD\IT STEP\Term 4\ASPNET\CookBookWebSQL\bin\Debug\net8.0\runtimes\unix\lib\net6.0\Microsoft.Data.SqlClient.dll
+C:\Users\ssamo\Documents\IT STEP CLOUD\IT STEP\Term 4\ASPNET\CookBookWebSQL\bin\Debug\net8.0\runtimes\win\lib\net6.0\Microsoft.Data.SqlClient.dll
+C:\Users\ssamo\Documents\IT STEP CLOUD\IT STEP\Term 4\ASPNET\CookBookWebSQL\bin\Debug\net8.0\runtimes\win-arm\native\Microsoft.Data.SqlClient.SNI.dll
+C:\Users\ssamo\Documents\IT STEP CLOUD\IT STEP\Term 4\ASPNET\CookBookWebSQL\bin\Debug\net8.0\runtimes\win-arm64\native\Microsoft.Data.SqlClient.SNI.dll
+C:\Users\ssamo\Documents\IT STEP CLOUD\IT STEP\Term 4\ASPNET\CookBookWebSQL\bin\Debug\net8.0\runtimes\win-x64\native\Microsoft.Data.SqlClient.SNI.dll
+C:\Users\ssamo\Documents\IT STEP CLOUD\IT STEP\Term 4\ASPNET\CookBookWebSQL\bin\Debug\net8.0\runtimes\win-x86\native\Microsoft.Data.SqlClient.SNI.dll
+C:\Users\ssamo\Documents\IT STEP CLOUD\IT STEP\Term 4\ASPNET\CookBookWebSQL\bin\Debug\net8.0\runtimes\win\lib\net6.0\Microsoft.Win32.SystemEvents.dll
+C:\Users\ssamo\Documents\IT STEP CLOUD\IT STEP\Term 4\ASPNET\CookBookWebSQL\bin\Debug\net8.0\runtimes\unix\lib\net6.0\System.Drawing.Common.dll
+C:\Users\ssamo\Documents\IT STEP CLOUD\IT STEP\Term 4\ASPNET\CookBookWebSQL\bin\Debug\net8.0\runtimes\win\lib\net6.0\System.Drawing.Common.dll
+C:\Users\ssamo\Documents\IT STEP CLOUD\IT STEP\Term 4\ASPNET\CookBookWebSQL\bin\Debug\net8.0\runtimes\win\lib\net6.0\System.Runtime.Caching.dll
+C:\Users\ssamo\Documents\IT STEP CLOUD\IT STEP\Term 4\ASPNET\CookBookWebSQL\bin\Debug\net8.0\runtimes\win\lib\net6.0\System.Security.Cryptography.ProtectedData.dll
+C:\Users\ssamo\Documents\IT STEP CLOUD\IT STEP\Term 4\ASPNET\CookBookWebSQL\bin\Debug\net8.0\runtimes\win\lib\net6.0\System.Windows.Extensions.dll
+C:\Users\ssamo\Documents\IT STEP CLOUD\IT STEP\Term 4\ASPNET\CookBookWebSQL\obj\Debug\net8.0\scopedcss\Components\Layout\MainLayout.razor.rz.scp.css
+C:\Users\ssamo\Documents\IT STEP CLOUD\IT STEP\Term 4\ASPNET\CookBookWebSQL\obj\Debug\net8.0\scopedcss\Components\Layout\NavMenu.razor.rz.scp.css
+C:\Users\ssamo\Documents\IT STEP CLOUD\IT STEP\Term 4\ASPNET\CookBookWebSQL\obj\Debug\net8.0\scopedcss\bundle\CookBookWebSQL.styles.css
+C:\Users\ssamo\Documents\IT STEP CLOUD\IT STEP\Term 4\ASPNET\CookBookWebSQL\obj\Debug\net8.0\scopedcss\projectbundle\CookBookWebSQL.bundle.scp.css
+C:\Users\ssamo\Documents\IT STEP CLOUD\IT STEP\Term 4\ASPNET\CookBookWebSQL\obj\Debug\net8.0\staticwebassets.build.json
+C:\Users\ssamo\Documents\IT STEP CLOUD\IT STEP\Term 4\ASPNET\CookBookWebSQL\obj\Debug\net8.0\staticwebassets.development.json
 C:\Users\ssamo\Documents\IT STEP CLOUD\IT STEP\Term 4\ASPNET\CookBookWebSQL\obj\Debug\net8.0\staticwebassets.build.endpoints.json
+C:\Users\ssamo\Documents\IT STEP CLOUD\IT STEP\Term 4\ASPNET\CookBookWebSQL\obj\Debug\net8.0\staticwebassets\msbuild.CookBookWebSQL.Microsoft.AspNetCore.StaticWebAssets.props
 C:\Users\ssamo\Documents\IT STEP CLOUD\IT STEP\Term 4\ASPNET\CookBookWebSQL\obj\Debug\net8.0\staticwebassets\msbuild.CookBookWebSQL.Microsoft.AspNetCore.StaticWebAssetEndpoints.props
+C:\Users\ssamo\Documents\IT STEP CLOUD\IT STEP\Term 4\ASPNET\CookBookWebSQL\obj\Debug\net8.0\staticwebassets\msbuild.build.CookBookWebSQL.props
+C:\Users\ssamo\Documents\IT STEP CLOUD\IT STEP\Term 4\ASPNET\CookBookWebSQL\obj\Debug\net8.0\staticwebassets\msbuild.buildMultiTargeting.CookBookWebSQL.props
+C:\Users\ssamo\Documents\IT STEP CLOUD\IT STEP\Term 4\ASPNET\CookBookWebSQL\obj\Debug\net8.0\staticwebassets\msbuild.buildTransitive.CookBookWebSQL.props
+C:\Users\ssamo\Documents\IT STEP CLOUD\IT STEP\Term 4\ASPNET\CookBookWebSQL\obj\Debug\net8.0\staticwebassets.pack.json
+C:\Users\ssamo\Documents\IT STEP CLOUD\IT STEP\Term 4\ASPNET\CookBookWebSQL\obj\Debug\net8.0\CookBook.572D0A1F.Up2Date
+C:\Users\ssamo\Documents\IT STEP CLOUD\IT STEP\Term 4\ASPNET\CookBookWebSQL\obj\Debug\net8.0\CookBookWebSQL.dll
+C:\Users\ssamo\Documents\IT STEP CLOUD\IT STEP\Term 4\ASPNET\CookBookWebSQL\obj\Debug\net8.0\refint\CookBookWebSQL.dll
+C:\Users\ssamo\Documents\IT STEP CLOUD\IT STEP\Term 4\ASPNET\CookBookWebSQL\obj\Debug\net8.0\CookBookWebSQL.pdb
+C:\Users\ssamo\Documents\IT STEP CLOUD\IT STEP\Term 4\ASPNET\CookBookWebSQL\obj\Debug\net8.0\CookBookWebSQL.genruntimeconfig.cache
+C:\Users\ssamo\Documents\IT STEP CLOUD\IT STEP\Term 4\ASPNET\CookBookWebSQL\obj\Debug\net8.0\ref\CookBookWebSQL.dll

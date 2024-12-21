@@ -33,6 +33,7 @@ namespace CookBookWebSQL.Service
                                     .Include(rp => rp.Categories)
                                     .ToListAsync();
         }
+        
         public async Task AddRecipe(Recipe recipe){
             _context.Recipes.Add(recipe);
             await _context.SaveChangesAsync();

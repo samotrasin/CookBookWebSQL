@@ -40,13 +40,13 @@
       <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\CookBookWebSQL.ei06sl2p6k.bundle.scp.css'))</AssetFile>
       <Selectors><![CDATA[[]]]></Selectors>
       <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-FriJtK5IH7BJTfS\u002B0jfMisjuHAFqUi5d9ikfL/j1y0A="}]]]></EndpointProperties>
-      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"no-cache"},{"Name":"Content-Length","Value":"5911"},{"Name":"Content-Type","Value":"text/css"},{"Name":"ETag","Value":"\u0022FriJtK5IH7BJTfS\u002B0jfMisjuHAFqUi5d9ikfL/j1y0A=\u0022"},{"Name":"Last-Modified","Value":"Wed, 06 Nov 2024 16:59:43 GMT"}]]]></ResponseHeaders>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"no-cache"},{"Name":"Content-Length","Value":"5911"},{"Name":"Content-Type","Value":"text/css"},{"Name":"ETag","Value":"\u0022FriJtK5IH7BJTfS\u002B0jfMisjuHAFqUi5d9ikfL/j1y0A=\u0022"},{"Name":"Last-Modified","Value":"Tue, 17 Dec 2024 17:44:57 GMT"}]]]></ResponseHeaders>
     </StaticWebAssetEndpoint>
     <StaticWebAssetEndpoint Include="_content/CookBookWebSQL/CookBookWebSQL.ei06sl2p6k.bundle.scp.css">
       <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\CookBookWebSQL.ei06sl2p6k.bundle.scp.css'))</AssetFile>
       <Selectors><![CDATA[[]]]></Selectors>
       <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"ei06sl2p6k"},{"Name":"integrity","Value":"sha256-FriJtK5IH7BJTfS\u002B0jfMisjuHAFqUi5d9ikfL/j1y0A="},{"Name":"label","Value":"_content/CookBookWebSQL/CookBookWebSQL.bundle.scp.css"}]]]></EndpointProperties>
-      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"5911"},{"Name":"Content-Type","Value":"text/css"},{"Name":"ETag","Value":"\u0022FriJtK5IH7BJTfS\u002B0jfMisjuHAFqUi5d9ikfL/j1y0A=\u0022"},{"Name":"Last-Modified","Value":"Wed, 06 Nov 2024 16:59:43 GMT"}]]]></ResponseHeaders>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"5911"},{"Name":"Content-Type","Value":"text/css"},{"Name":"ETag","Value":"\u0022FriJtK5IH7BJTfS\u002B0jfMisjuHAFqUi5d9ikfL/j1y0A=\u0022"},{"Name":"Last-Modified","Value":"Tue, 17 Dec 2024 17:44:57 GMT"}]]]></ResponseHeaders>
     </StaticWebAssetEndpoint>
     <StaticWebAssetEndpoint Include="_content/CookBookWebSQL/favicon.ifv42okdf2.png">
       <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\favicon.png'))</AssetFile>
@@ -24756,6 +24756,30 @@
       <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-jCrn1jPIRPqu\u002BZbY9K0gop9etwXoDL\u002BNSAh5gHv4DH4="}]]]></EndpointProperties>
       <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=3600, must-revalidate"},{"Name":"Content-Length","Value":"124802"},{"Name":"Content-Type","Value":"image/webp"},{"Name":"ETag","Value":"\u0022jCrn1jPIRPqu\u002BZbY9K0gop9etwXoDL\u002BNSAh5gHv4DH4=\u0022"},{"Name":"Last-Modified","Value":"Sun, 24 Nov 2024 19:18:50 GMT"}]]]></ResponseHeaders>
     </StaticWebAssetEndpoint>
+    <StaticWebAssetEndpoint Include="_content/CookBookWebSQL/uploads/Alexander's Bridge.jpg">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\Alexander's Bridge.jpg'))</AssetFile>
+      <Selectors><![CDATA[[]]]></Selectors>
+      <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-sG\u002Bov\u002BGBSPXYmR4F5FPrWztoAGhg8hXaZYAz2VqkCMI="}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=3600, must-revalidate"},{"Name":"Content-Length","Value":"317135"},{"Name":"Content-Type","Value":"image/jpeg"},{"Name":"ETag","Value":"\u0022sG\u002Bov\u002BGBSPXYmR4F5FPrWztoAGhg8hXaZYAz2VqkCMI=\u0022"},{"Name":"Last-Modified","Value":"Wed, 18 Dec 2024 02:57:14 GMT"}]]]></ResponseHeaders>
+    </StaticWebAssetEndpoint>
+    <StaticWebAssetEndpoint Include="_content/CookBookWebSQL/uploads/Alexander's Bridge.sx55v1cwqe.jpg">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\Alexander's Bridge.jpg'))</AssetFile>
+      <Selectors><![CDATA[[]]]></Selectors>
+      <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"sx55v1cwqe"},{"Name":"integrity","Value":"sha256-sG\u002Bov\u002BGBSPXYmR4F5FPrWztoAGhg8hXaZYAz2VqkCMI="},{"Name":"label","Value":"_content/CookBookWebSQL/uploads/Alexander\u0027s Bridge.jpg"}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"317135"},{"Name":"Content-Type","Value":"image/jpeg"},{"Name":"ETag","Value":"\u0022sG\u002Bov\u002BGBSPXYmR4F5FPrWztoAGhg8hXaZYAz2VqkCMI=\u0022"},{"Name":"Last-Modified","Value":"Wed, 18 Dec 2024 02:57:14 GMT"}]]]></ResponseHeaders>
+    </StaticWebAssetEndpoint>
+    <StaticWebAssetEndpoint Include="_content/CookBookWebSQL/uploads/Angkor.enejfsnlbp.jpg">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\Angkor.jpg'))</AssetFile>
+      <Selectors><![CDATA[[]]]></Selectors>
+      <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"enejfsnlbp"},{"Name":"integrity","Value":"sha256-6t8sk9rR2YI42Pj/mnvtucir1QimgB1n8tua1NWiATY="},{"Name":"label","Value":"_content/CookBookWebSQL/uploads/Angkor.jpg"}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"10730"},{"Name":"Content-Type","Value":"image/jpeg"},{"Name":"ETag","Value":"\u00226t8sk9rR2YI42Pj/mnvtucir1QimgB1n8tua1NWiATY=\u0022"},{"Name":"Last-Modified","Value":"Sun, 15 Dec 2024 18:49:08 GMT"}]]]></ResponseHeaders>
+    </StaticWebAssetEndpoint>
+    <StaticWebAssetEndpoint Include="_content/CookBookWebSQL/uploads/Angkor.jpg">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\Angkor.jpg'))</AssetFile>
+      <Selectors><![CDATA[[]]]></Selectors>
+      <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-6t8sk9rR2YI42Pj/mnvtucir1QimgB1n8tua1NWiATY="}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=3600, must-revalidate"},{"Name":"Content-Length","Value":"10730"},{"Name":"Content-Type","Value":"image/jpeg"},{"Name":"ETag","Value":"\u00226t8sk9rR2YI42Pj/mnvtucir1QimgB1n8tua1NWiATY=\u0022"},{"Name":"Last-Modified","Value":"Sun, 15 Dec 2024 18:49:08 GMT"}]]]></ResponseHeaders>
+    </StaticWebAssetEndpoint>
     <StaticWebAssetEndpoint Include="_content/CookBookWebSQL/uploads/chicken-cacciatore.kzb35qdt5d.webp">
       <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\chicken-cacciatore.webp'))</AssetFile>
       <Selectors><![CDATA[[]]]></Selectors>
@@ -24767,6 +24791,18 @@
       <Selectors><![CDATA[[]]]></Selectors>
       <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-kMPuRkeFYLrYWvvzlSyrDJZhqUXGv2P6fAEeTBhQJG4="}]]]></EndpointProperties>
       <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=3600, must-revalidate"},{"Name":"Content-Length","Value":"73724"},{"Name":"Content-Type","Value":"image/webp"},{"Name":"ETag","Value":"\u0022kMPuRkeFYLrYWvvzlSyrDJZhqUXGv2P6fAEeTBhQJG4=\u0022"},{"Name":"Last-Modified","Value":"Wed, 11 Dec 2024 17:07:19 GMT"}]]]></ResponseHeaders>
+    </StaticWebAssetEndpoint>
+    <StaticWebAssetEndpoint Include="_content/CookBookWebSQL/uploads/download (1).jpg">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\download (1).jpg'))</AssetFile>
+      <Selectors><![CDATA[[]]]></Selectors>
+      <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-T2Y0xHkOJ27uJCLoUFwWZE1C1pYs15ome7brjzVoJ4k="}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=3600, must-revalidate"},{"Name":"Content-Length","Value":"9977"},{"Name":"Content-Type","Value":"image/jpeg"},{"Name":"ETag","Value":"\u0022T2Y0xHkOJ27uJCLoUFwWZE1C1pYs15ome7brjzVoJ4k=\u0022"},{"Name":"Last-Modified","Value":"Sun, 15 Dec 2024 18:49:08 GMT"}]]]></ResponseHeaders>
+    </StaticWebAssetEndpoint>
+    <StaticWebAssetEndpoint Include="_content/CookBookWebSQL/uploads/download (1).pu21d2uae2.jpg">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\download (1).jpg'))</AssetFile>
+      <Selectors><![CDATA[[]]]></Selectors>
+      <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"pu21d2uae2"},{"Name":"integrity","Value":"sha256-T2Y0xHkOJ27uJCLoUFwWZE1C1pYs15ome7brjzVoJ4k="},{"Name":"label","Value":"_content/CookBookWebSQL/uploads/download (1).jpg"}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"9977"},{"Name":"Content-Type","Value":"image/jpeg"},{"Name":"ETag","Value":"\u0022T2Y0xHkOJ27uJCLoUFwWZE1C1pYs15ome7brjzVoJ4k=\u0022"},{"Name":"Last-Modified","Value":"Sun, 15 Dec 2024 18:49:08 GMT"}]]]></ResponseHeaders>
     </StaticWebAssetEndpoint>
     <StaticWebAssetEndpoint Include="_content/CookBookWebSQL/uploads/hibachi-style-fried-rice.on6gyorcms.webp">
       <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\hibachi-style-fried-rice.webp'))</AssetFile>
