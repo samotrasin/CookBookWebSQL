@@ -22,21 +22,6 @@ namespace CookBookWebSQL.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
-            modelBuilder.Entity("CategoryRecipe", b =>
-                {
-                    b.Property<int>("CategoriesId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("RecipesId")
-                        .HasColumnType("int");
-
-                    b.HasKey("CategoriesId", "RecipesId");
-
-                    b.HasIndex("RecipesId");
-
-                    b.ToTable("CategoryRecipe");
-                });
-
             modelBuilder.Entity("CookBookWebSQL.IngredientImage", b =>
                 {
                     b.Property<int>("Id")
@@ -74,6 +59,21 @@ namespace CookBookWebSQL.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Categories");
+                });
+
+            modelBuilder.Entity("CookBookWebSQL.Models.CategoryRecipe", b =>
+                {
+                    b.Property<int>("RecipeId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("CategoryId")
+                        .HasColumnType("int");
+
+                    b.HasKey("RecipeId", "CategoryId");
+
+                    b.HasIndex("CategoryId");
+
+                    b.ToTable("CategoryRecipes");
                 });
 
             modelBuilder.Entity("CookBookWebSQL.Models.Cuisine", b =>
@@ -254,26 +254,30 @@ namespace CookBookWebSQL.Migrations
                     b.ToTable("UserImages");
                 });
 
-            modelBuilder.Entity("CategoryRecipe", b =>
-                {
-                    b.HasOne("CookBookWebSQL.Models.Category", null)
-                        .WithMany()
-                        .HasForeignKey("CategoriesId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("CookBookWebSQL.Models.Recipe", null)
-                        .WithMany()
-                        .HasForeignKey("RecipesId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-                });
-
             modelBuilder.Entity("CookBookWebSQL.IngredientImage", b =>
                 {
                     b.HasOne("CookBookWebSQL.Models.Ingredient", null)
                         .WithMany("Images")
                         .HasForeignKey("IngredientId");
+                });
+
+            modelBuilder.Entity("CookBookWebSQL.Models.CategoryRecipe", b =>
+                {
+                    b.HasOne("CookBookWebSQL.Models.Category", "Category")
+                        .WithMany("CategoryRecipes")
+                        .HasForeignKey("CategoryId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("CookBookWebSQL.Models.Recipe", "Recipe")
+                        .WithMany("CategoryRecipe")
+                        .HasForeignKey("RecipeId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Category");
+
+                    b.Navigation("Recipe");
                 });
 
             modelBuilder.Entity("CookBookWebSQL.Models.Recipe", b =>
@@ -302,6 +306,11 @@ namespace CookBookWebSQL.Migrations
                         .OnDelete(DeleteBehavior.Cascade);
                 });
 
+            modelBuilder.Entity("CookBookWebSQL.Models.Category", b =>
+                {
+                    b.Navigation("CategoryRecipes");
+                });
+
             modelBuilder.Entity("CookBookWebSQL.Models.Cuisine", b =>
                 {
                     b.Navigation("Recipes");
@@ -316,6 +325,8 @@ namespace CookBookWebSQL.Migrations
 
             modelBuilder.Entity("CookBookWebSQL.Models.Recipe", b =>
                 {
+                    b.Navigation("CategoryRecipe");
+
                     b.Navigation("Images");
                 });
 

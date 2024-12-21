@@ -1,20 +1,24 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\accer lmc\\OneDrive\\Desktop\\E\\CookBookWebSQL\\CookBookWebSQL.csproj": {}
+    "C:\\Users\\ssamo\\Documents\\IT STEP CLOUD\\IT STEP\\Term 4\\ASPNET\\CookBookWebSQL\\CookBookWebSQL.csproj": {}
   },
   "projects": {
-    "C:\\Users\\accer lmc\\OneDrive\\Desktop\\E\\CookBookWebSQL\\CookBookWebSQL.csproj": {
+    "C:\\Users\\ssamo\\Documents\\IT STEP CLOUD\\IT STEP\\Term 4\\ASPNET\\CookBookWebSQL\\CookBookWebSQL.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\accer lmc\\OneDrive\\Desktop\\E\\CookBookWebSQL\\CookBookWebSQL.csproj",
+        "projectUniqueName": "C:\\Users\\ssamo\\Documents\\IT STEP CLOUD\\IT STEP\\Term 4\\ASPNET\\CookBookWebSQL\\CookBookWebSQL.csproj",
         "projectName": "CookBookWebSQL",
-        "projectPath": "C:\\Users\\accer lmc\\OneDrive\\Desktop\\E\\CookBookWebSQL\\CookBookWebSQL.csproj",
-        "packagesPath": "C:\\Users\\accer lmc\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\accer lmc\\OneDrive\\Desktop\\E\\CookBookWebSQL\\obj\\",
+        "projectPath": "C:\\Users\\ssamo\\Documents\\IT STEP CLOUD\\IT STEP\\Term 4\\ASPNET\\CookBookWebSQL\\CookBookWebSQL.csproj",
+        "packagesPath": "C:\\Users\\ssamo\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\ssamo\\Documents\\IT STEP CLOUD\\IT STEP\\Term 4\\ASPNET\\CookBookWebSQL\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "C:\\Users\\accer lmc\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\ssamo\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -38,7 +42,7 @@
         "restoreAuditProperties": {
           "enableAudit": "true",
           "auditLevel": "low",
-          "auditMode": "all"
+          "auditMode": "direct"
         },
         "SdkAnalysisLevel": "9.0.100"
       },
@@ -78,24 +82,6 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
-          "downloadDependencies": [
-            {
-              "name": "Microsoft.AspNetCore.App.Ref",
-              "version": "[8.0.11, 8.0.11]"
-            },
-            {
-              "name": "Microsoft.NETCore.App.Host.win-x64",
-              "version": "[8.0.11, 8.0.11]"
-            },
-            {
-              "name": "Microsoft.NETCore.App.Ref",
-              "version": "[8.0.11, 8.0.11]"
-            },
-            {
-              "name": "Microsoft.WindowsDesktop.App.Ref",
-              "version": "[8.0.11, 8.0.11]"
-            }
-          ],
           "frameworkReferences": {
             "Microsoft.AspNetCore.App": {
               "privateAssets": "none"
@@ -104,7 +90,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.100/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.101/PortableRuntimeIdentifierGraph.json"
         }
       }
     }
