@@ -24,6 +24,9 @@ builder.Services.AddScoped<IngredientService>();
 builder.Services.AddScoped<UserService>();
 builder.Services.AddScoped<FeedbackService>();
 
+//Register the AdminDashboardService
+builder.Services.AddScoped<AdminDashboardService>();
+
 var app = builder.Build();
 
 // run every web app starts
