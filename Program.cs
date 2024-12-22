@@ -12,7 +12,7 @@ builder.Services.AddRazorComponents()
 
 // Register the DbContext with the dependency injection container
 builder.Services.AddDbContext<CookBookDBContext>(options =>
-    options.UseSqlServer(builder.Configuration.GetConnectionString("CookBookDB")));
+    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
 //Register the CuisineService
 builder.Services.AddScoped<CuisineService>();
