@@ -40,13 +40,13 @@
       <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\CookBookWebSQL.ei06sl2p6k.bundle.scp.css'))</AssetFile>
       <Selectors><![CDATA[[]]]></Selectors>
       <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-FriJtK5IH7BJTfS\u002B0jfMisjuHAFqUi5d9ikfL/j1y0A="}]]]></EndpointProperties>
-      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"no-cache"},{"Name":"Content-Length","Value":"5911"},{"Name":"Content-Type","Value":"text/css"},{"Name":"ETag","Value":"\u0022FriJtK5IH7BJTfS\u002B0jfMisjuHAFqUi5d9ikfL/j1y0A=\u0022"},{"Name":"Last-Modified","Value":"Sun, 22 Dec 2024 10:13:24 GMT"}]]]></ResponseHeaders>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"no-cache"},{"Name":"Content-Length","Value":"5911"},{"Name":"Content-Type","Value":"text/css"},{"Name":"ETag","Value":"\u0022FriJtK5IH7BJTfS\u002B0jfMisjuHAFqUi5d9ikfL/j1y0A=\u0022"},{"Name":"Last-Modified","Value":"Sun, 22 Dec 2024 14:57:18 GMT"}]]]></ResponseHeaders>
     </StaticWebAssetEndpoint>
     <StaticWebAssetEndpoint Include="_content/CookBookWebSQL/CookBookWebSQL.ei06sl2p6k.bundle.scp.css">
       <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\CookBookWebSQL.ei06sl2p6k.bundle.scp.css'))</AssetFile>
       <Selectors><![CDATA[[]]]></Selectors>
       <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"ei06sl2p6k"},{"Name":"integrity","Value":"sha256-FriJtK5IH7BJTfS\u002B0jfMisjuHAFqUi5d9ikfL/j1y0A="},{"Name":"label","Value":"_content/CookBookWebSQL/CookBookWebSQL.bundle.scp.css"}]]]></EndpointProperties>
-      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"5911"},{"Name":"Content-Type","Value":"text/css"},{"Name":"ETag","Value":"\u0022FriJtK5IH7BJTfS\u002B0jfMisjuHAFqUi5d9ikfL/j1y0A=\u0022"},{"Name":"Last-Modified","Value":"Sun, 22 Dec 2024 10:13:24 GMT"}]]]></ResponseHeaders>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"5911"},{"Name":"Content-Type","Value":"text/css"},{"Name":"ETag","Value":"\u0022FriJtK5IH7BJTfS\u002B0jfMisjuHAFqUi5d9ikfL/j1y0A=\u0022"},{"Name":"Last-Modified","Value":"Sun, 22 Dec 2024 14:57:18 GMT"}]]]></ResponseHeaders>
     </StaticWebAssetEndpoint>
     <StaticWebAssetEndpoint Include="_content/CookBookWebSQL/favicon.ifv42okdf2.png">
       <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\favicon.png'))</AssetFile>

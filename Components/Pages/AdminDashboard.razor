@@ -2,7 +2,72 @@
 @rendermode InteractiveServer
 @using Microsoft.EntityFrameworkCore
 @inject CookBookDBContext context
-<h3>Admin</h3>
+@inject IJSRuntime JS
+
+<h3>Admin Dashboard</h3>
+
+ <!-- Cuisine cards -->
+<div class="container mt-4">
+    <div class="row">
+        <div class="col-md-3 ">
+            <div class="card ">
+                <div class="card-body bg-primary">
+                    <h5 class="text-white">Cuisine</h5>
+                    <p class="text-white" >2</p>
+                </div>
+            </div>
+        </div>
+
+<!-- Category cards -->
+
+        <div class="col-md-3">
+            <div class="card">
+                <div class="card-body bg-success">
+                    <h5 class="text-white" >Category</h5>
+                    <p class="text-white">9</p>
+                </div>
+            </div>
+        </div>
+
+<!-- Recipes -->
+        <div class="col-md-3">
+            <div class="card">
+                <div class="card-body bg-info">
+                    <h5 class="text-white">Recipe</h5>
+                    <p class="text-white">7</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- More dashboard content here -->
+    <div class="row mt-4">
+        <div class="col-md-12">
+            <h2>Recent Activity</h2>
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>User</th>
+                        <th>Activity</th>
+                        <th>Date</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>John Doe</td>
+                        <td>Created a new post</td>
+                        <td>2024-12-22</td>
+                    </tr>
+                    <tr>
+                        <td>Jane Smith</td>
+                        <td>Updated profile</td>
+                        <td>2024-12-21</td>
+                    </tr>
+                    <!-- More rows can go here -->
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
 
 @code{
 

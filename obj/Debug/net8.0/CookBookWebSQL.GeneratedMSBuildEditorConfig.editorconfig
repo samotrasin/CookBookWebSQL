@@ -68,6 +68,10 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xSZWNpcGVQYWdlLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
+[D:/IT_Step/ASPNET1/CookBookWebSQL/Components/Pages/RestaurantDetail.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xSZXN0YXVyYW50RGV0YWlsLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
 [D:/IT_Step/ASPNET1/CookBookWebSQL/Components/Pages/UserDashboard.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xVc2VyRGFzaGJvYXJkLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 

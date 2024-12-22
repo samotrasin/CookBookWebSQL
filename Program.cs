@@ -12,7 +12,7 @@ builder.Services.AddRazorComponents()
 
 // Register the DbContext with the dependency injection container
 builder.Services.AddDbContext<CookBookDBContext>(options =>
-    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+    options.UseSqlServer(builder.Configuration.GetConnectionString("CookBookDB")));
 
 //Register the CuisineService
 builder.Services.AddScoped<CuisineService>();
@@ -23,6 +23,7 @@ builder.Services.AddScoped<CategoryService>();
 builder.Services.AddScoped<IngredientService>();
 builder.Services.AddScoped<UserService>();
 builder.Services.AddScoped<FeedbackService>();
+builder.Services.AddRazorPages(); builder.Services.AddServerSideBlazor(); builder.Services.AddScoped<RestaurantManagementWebSQL.Service.RestaurantService>();
 
 var app = builder.Build();
 

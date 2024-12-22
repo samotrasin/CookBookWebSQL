@@ -20,7 +20,9 @@ public class CookBookDBContext : DbContext{
     public DbSet<IngredientImage>IngredientImages { get; set; }
     public DbSet<CategoryRecipe> CategoryRecipes { get; set; }
     public DbSet<Feedback> Feedbacks { get; set; }
+    public DbSet<AdminDashboard> AdminDashboards { get; set; }
 
+    public DbSet<Restaurant> Restaurants {get; set;}
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         //configure user-userimage relationship
