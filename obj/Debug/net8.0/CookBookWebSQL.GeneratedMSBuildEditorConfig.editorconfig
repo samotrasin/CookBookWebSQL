@@ -9,89 +9,91 @@ build_property.EnforceExtendedAnalyzerRules =
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = CookBookWebSQL
 build_property.RootNamespace = CookBookWebSQL
-build_property.ProjectDir = D:\IT_Step\ASPNET1\CookBookWebSQL\
+build_property.ProjectDir = C:\Study\STEP\Session4\CookBookWebSQL2\CookBookWebSQL\
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 
 build_property.RazorLangVersion = 8.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = D:\IT_Step\ASPNET1\CookBookWebSQL
+build_property.MSBuildProjectDirectory = C:\Study\STEP\Session4\CookBookWebSQL2\CookBookWebSQL
 build_property._RazorSourceGeneratorDebug = 
-build_property.EffectiveAnalysisLevelStyle = 8.0
-build_property.EnableCodeStyleSeverity = 
 
-[D:/IT_Step/ASPNET1/CookBookWebSQL/Components/App.razor]
+[C:/Study/STEP/Session4/CookBookWebSQL2/CookBookWebSQL/Components/App.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xBcHAucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/IT_Step/ASPNET1/CookBookWebSQL/Components/Pages/AdminDashboard.razor]
+[C:/Study/STEP/Session4/CookBookWebSQL2/CookBookWebSQL/Components/Pages/AdminDashboard.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xBZG1pbkRhc2hib2FyZC5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/IT_Step/ASPNET1/CookBookWebSQL/Components/Pages/CategoryPage.razor]
+[C:/Study/STEP/Session4/CookBookWebSQL2/CookBookWebSQL/Components/Pages/CategoryPage.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xDYXRlZ29yeVBhZ2UucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/IT_Step/ASPNET1/CookBookWebSQL/Components/Pages/Comment.razor]
+[C:/Study/STEP/Session4/CookBookWebSQL2/CookBookWebSQL/Components/Pages/Comment.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xDb21tZW50LnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/IT_Step/ASPNET1/CookBookWebSQL/Components/Pages/Counter.razor]
+[C:/Study/STEP/Session4/CookBookWebSQL2/CookBookWebSQL/Components/Pages/Counter.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xDb3VudGVyLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/IT_Step/ASPNET1/CookBookWebSQL/Components/Pages/Cuisine.razor]
+[C:/Study/STEP/Session4/CookBookWebSQL2/CookBookWebSQL/Components/Pages/Cuisine.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xDdWlzaW5lLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/IT_Step/ASPNET1/CookBookWebSQL/Components/Pages/Error.razor]
+[C:/Study/STEP/Session4/CookBookWebSQL2/CookBookWebSQL/Components/Pages/Error.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xFcnJvci5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/IT_Step/ASPNET1/CookBookWebSQL/Components/Pages/FeedbackPage.razor]
+[C:/Study/STEP/Session4/CookBookWebSQL2/CookBookWebSQL/Components/Pages/FeedbackPage.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xGZWVkYmFja1BhZ2UucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/IT_Step/ASPNET1/CookBookWebSQL/Components/Pages/Home.razor]
+[C:/Study/STEP/Session4/CookBookWebSQL2/CookBookWebSQL/Components/Pages/Home.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xIb21lLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/IT_Step/ASPNET1/CookBookWebSQL/Components/Pages/IngredientPage.razor]
+[C:/Study/STEP/Session4/CookBookWebSQL2/CookBookWebSQL/Components/Pages/IngredientPage.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xJbmdyZWRpZW50UGFnZS5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/IT_Step/ASPNET1/CookBookWebSQL/Components/Pages/RecipeDetail.razor]
+[C:/Study/STEP/Session4/CookBookWebSQL2/CookBookWebSQL/Components/Pages/RecipeDetail.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xSZWNpcGVEZXRhaWwucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/IT_Step/ASPNET1/CookBookWebSQL/Components/Pages/RecipePage.razor]
+[C:/Study/STEP/Session4/CookBookWebSQL2/CookBookWebSQL/Components/Pages/RecipePage.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xSZWNpcGVQYWdlLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/IT_Step/ASPNET1/CookBookWebSQL/Components/Pages/UserDashboard.razor]
+[C:/Study/STEP/Session4/CookBookWebSQL2/CookBookWebSQL/Components/Pages/RestaurantDetail.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xSZXN0YXVyYW50RGV0YWlsLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Study/STEP/Session4/CookBookWebSQL2/CookBookWebSQL/Components/Pages/UserDashboard.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xVc2VyRGFzaGJvYXJkLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/IT_Step/ASPNET1/CookBookWebSQL/Components/Pages/UserManagementPage.razor]
+[C:/Study/STEP/Session4/CookBookWebSQL2/CookBookWebSQL/Components/Pages/UserManagementPage.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xVc2VyTWFuYWdlbWVudFBhZ2UucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/IT_Step/ASPNET1/CookBookWebSQL/Components/Pages/Weather.razor]
+[C:/Study/STEP/Session4/CookBookWebSQL2/CookBookWebSQL/Components/Pages/Weather.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xXZWF0aGVyLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/IT_Step/ASPNET1/CookBookWebSQL/Components/Routes.razor]
+[C:/Study/STEP/Session4/CookBookWebSQL2/CookBookWebSQL/Components/Routes.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xSb3V0ZXMucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/IT_Step/ASPNET1/CookBookWebSQL/Components/_Imports.razor]
+[C:/Study/STEP/Session4/CookBookWebSQL2/CookBookWebSQL/Components/_Imports.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xfSW1wb3J0cy5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/IT_Step/ASPNET1/CookBookWebSQL/Components/Layout/MainLayout.razor]
+[C:/Study/STEP/Session4/CookBookWebSQL2/CookBookWebSQL/Components/Layout/MainLayout.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xMYXlvdXRcTWFpbkxheW91dC5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = b-0x5i16ou1q
 
-[D:/IT_Step/ASPNET1/CookBookWebSQL/Components/Layout/NavMenu.razor]
+[C:/Study/STEP/Session4/CookBookWebSQL2/CookBookWebSQL/Components/Layout/NavMenu.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xMYXlvdXRcTmF2TWVudS5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = b-gyu3lhuzql
