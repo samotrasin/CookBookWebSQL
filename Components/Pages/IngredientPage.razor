@@ -387,7 +387,7 @@
     }
     private void SearchIngredient()
     {
-        filteredIngredient = ingredients
+        ingredients = ingredients
             .Where(ing => ing.Name.Contains(searchTerm, StringComparison.OrdinalIgnoreCase))
             .ToList();
     }
@@ -430,6 +430,9 @@
         isDateAscending = !isDateAscending;
     }
     
+
+
+    //note
 
     @* private void SortByCategory()
     {
