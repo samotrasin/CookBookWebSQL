@@ -6,6 +6,13 @@ namespace CookBookWebSQL.Service{
         public RestaurantService(CookBookDBContext context){
             _context=context;
         }
+        public async Task<Restaurant> GetRestaurantByIdAsync(int id)
+        {
+            var restaurant = await _context.Restaurants
+                                    .Include(r => r.Images) // Ensure images are included
+                                    .FirstOrDefaultAsync(r => r.Id == id);
+            return restaurant;
+        }
          public async Task<List<Restaurant>> GetRestaurantAsync(){
             return await _context.Restaurants
                                     .Include(r => r.Images)

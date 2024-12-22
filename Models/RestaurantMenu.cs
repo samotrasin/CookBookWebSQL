@@ -1,6 +1,5 @@
-﻿using CookBookWebSQL.Models;
 
-namespace CookBookWebSQL{
+namespace CookBookWebSQL.Models{
     public class RestaurantMenu
     {
         public int Id { get; set; }
