@@ -1,4 +1,263 @@
-@page "/restaurants-recipes"
-@code{
-    
+@* @page "/restaurants-recipe"
+@using CookBookWebSQL.Models
+@inject CookBookWebSQL.Service.MenuService menuService
+@inject CookBookWebSQL.Service.RestaurantService restaurantService
+@inject IJSRuntime JS
+
+<h3>Restaurant Recipe</h3>
+
+<div class="d-flex mb-2">
+    <button type="button" class="btn btn-success" @onclick="ShowAddModal">
+        <i class="bi bi-plus-circle"></i> Add Menu
+    </button>
+</div>
+
+<!-- Add Menu Modal -->
+<div class="modal fade @(isAddModalVisible ? "show" : "")" style="display: @(isAddModalVisible ? "block" : "none");" tabindex="-1">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Add New Menu</h5>
+                <button type="button" class="btn-close" @onclick="HideAddModal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form id="addMenuForm">
+                    <div class="form-group">
+                        <label>Restaurant Name</label>
+                        <select @bind="menu.Id" class="form-control">
+                            <option value="">Select a Restaurant</option>
+                            @foreach (var restaurant in restaurants)
+                            {
+                                <option value="@restaurant.Id">@restaurant.Name</option>
+                            }
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Menu Name</label>
+                        <input type="text" @bind="menu.MenuName" class="form-control" />
+                    </div>
+                    <div class="form-group">
+                        <label>Description</label>
+                        <textarea @bind="menu.Recipe" class="form-control" rows="5"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label>Price</label>
+                        <input type="number" @bind="menu.Price" class="form-control" />
+                    </div>
+                    <div class="form-group">
+                        <label>Image</label>
+                        <InputFile OnChange="LoadFiles" class="form-control" />
+                        <br />
+                        @foreach (var img in menuImages)
+                        {
+                            <b>@img.MenuPath</b>
+                            <br />
+                        }
+                    </div>
+                    <button type="button" class="btn btn-primary" @onclick="SubmitForm">Submit</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+@code {
+    private bool isAddModalVisible = false;
+    private RestaurantMenu menu = new RestaurantMenu();
+    private List<RestaurantMenuImage> menuImages = new List<RestaurantMenuImage>();
+    private List<CookBookWebSQL.Models.Restaurant> restaurants = new List<CookBookWebSQL.Models.Restaurant>();
+
+    protected override async Task OnInitializedAsync()
+    {
+        // Load restaurants
+        restaurants = await restaurantService.GetRestaurantAsync();
+    }
+
+    private void ShowAddModal()
+    {
+        isAddModalVisible = true;
+    }
+
+    private void HideAddModal()
+    {
+        isAddModalVisible = false;
+    }
+
+    private async Task SubmitForm()
+    {
+        // Attach images to menu
+        menu.MenuImages = menuImages;
+
+        // Save menu asynchronously
+        var result = await menuService.AddMenuAsync(menu);
+
+        if (result != null)
+        {
+            // Handle successful save (e.g., show a success message, refresh the list, etc.)
+            HideAddModal();
+        }
+    }
+
+    private void LoadFiles(InputFileChangeEventArgs e)
+    {
+        // Handle file upload logic here
+        foreach (var file in e.GetMultipleFiles())
+        {
+            var imagePath = $"uploads/{file.Name}";
+            menuImages.Add(new RestaurantMenuImage { MenuPath = imagePath });
+        }
+    }
+} *@
+@page "/restaurants-recipe"
+@using CookBookWebSQL.Models
+@inject CookBookWebSQL.Service.MenuService menuService
+@inject CookBookWebSQL.Service.RestaurantService restaurantService
+
+<h3>Restaurant Recipe</h3>
+
+<div class="d-flex mb-2">
+    <button type="button" class="btn btn-success" @onclick="ShowAddModal">
+        <i class="bi bi-plus-circle"></i> Add Menu
+    </button>
+</div>
+
+<!-- Display Menu List -->
+@* @if (menus != null && menus.Count > 0)
+{
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Restaurant Name</th>
+                <th>Menu Name</th>
+                <th>Description</th>
+                <th>Price</th>
+                <th>Image</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var menu in menus)
+            {
+                <tr>
+                    <td>@menu.</td>
+                    <td>@menu.MenuName</td>
+                    <td>@menu.Recipe</td>
+                    <td>@menu.Price</td>
+                    <td>
+                        @if (menu.MenuImages != null && menu.MenuImages.Count > 0)
+                        {
+                            <img src="/uploads/@menu.MenuImages[0].MenuPath" width="100" height="100" alt="Menu Image" />
+                        }
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+else
+{
+    <p>No menus available.</p>
+} *@
+
+<!-- Add Menu Modal -->
+<div class="modal fade show" style="display: @getDisplay();" tabindex="-1">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Add New Restaurant</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            @* <div class="modal-body">
+                <form method="post">
+                    <div class="form-group">
+                        <label>Restaurant Name</label>
+                        <input @bind="resName" class="form-control" @ref="controlName">
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Information</label>
+                        <textarea @bind="resInfo" class="form-control" rows="5"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Image</label>
+                        <InputFile OnChange="LoadFiles" class="form-control"></InputFile>
+                        <br>
+                        @foreach (var img in restaurantImages)
+                        {
+                            <b>@img.ImagePath</b>
+                            <br>
+                        }
+                        <div class="row g-3">
+                            @foreach (var img in restaurantImages)
+                            {
+                                <div class="card text-center">
+                                    <img src="/uploads/@img.ImagePath" class="card-img" alt="@img.ImagePath">
+                                </div>
+                            }
+                        </div>
+                    </div>
+                </form>
+            </div> *@
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" @onclick="() => isAddModalShowing = false">Close</button>
+                <button type="button" class="btn btn-primary">Save</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+@code {
+    private bool isAddModalShowing = false;
+    private RestaurantMenu menu = new RestaurantMenu();
+    private List<RestaurantMenuImage> menuImages = new List<RestaurantMenuImage>();
+    private List<CookBookWebSQL.Models.Restaurant> restaurants = new List<CookBookWebSQL.Models.Restaurant>();
+    private List<RestaurantMenu> menus = new List<RestaurantMenu>();
+
+    string getDisplay()
+    {
+        return isAddModalShowing ? "block" : "none";
+    }
+
+    protected override async Task OnInitializedAsync()
+    {
+        // Load restaurants and menus
+        restaurants = await restaurantService.GetRestaurantAsync();
+        menus = await menuService.GetMenuAsync();
+    }
+
+    private void ShowAddModal()
+    {
+        isAddModalShowing = true;
+    }
+
+    private void HideAddModal()
+    {
+        isAddModalShowing = false;
+    }
+
+    @* private async Task HandleValidSubmit()
+    {
+        // Attach images to menu
+        menu.MenuImages = menuImages;
+
+        // Save menu asynchronously
+        var result = await menuService.AddMenuAsync(menu);
+
+        if (result != null)
+        {
+            // Refresh the list of menus
+            menus = await menuService.GetMenuAsync();
+            // Handle successful save (e.g., show a success message, refresh the list, etc.)
+            HideAddModal();
+        }
+    } *@
+
+    @* private void LoadFiles(InputFileChangeEventArgs e)
+    {
+        // Handle file upload logic here
+        foreach (var file in e.GetMultipleFiles())
+        {
+            var imagePath = $"uploads/{file.Name}";
+            menuImages.Add(new RestaurantMenuImage { MenuPath = imagePath });
+        }
+    } *@
 }

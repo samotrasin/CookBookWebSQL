@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 @page "/restaurantDetail"
 @rendermode InteractiveServer
 @inject RestaurantManagementWebSQL.Service.RestaurantService restaurantService
@@ -224,5 +225,94 @@
         isModalVisible = false;
     }
 }
+=======
+@* @page "/restaurant-detail"
+@using CookBookWebSQL.Models
+@inject CookBookWebSQL.Service.RestaurantService restaurantService
+<h3>Restaurant Details</h3>
+<div class="row">
+
+    @if (restaurantsObj.Count > 0)
+    {
+        foreach (var item in restaurantsObj)
+        {
+
+            <div class="col-auto mt-3">
+                <a href="readrestaurant/@item.Id" style="text-decoration:none;">
+                    <div class="card">
+                        <div class="card-header fw-bold h6 text-light" style="text-align: center; background-color: rgb(30, 95, 200);">@item.Name</div>
+                        <div class="card-body">
+                            <img class="card-img-top" src="@item.Images" width="200" height="200" />
+                        </div>
+                        <div class="card-footer">
+                            <ul class="list-group list-group-horizontal-sm text-center" style="list-style:none;">
+                                <li class="list-group-item-action"><i class="oi oi-thumb-up"></i></li>
+                                <li class="list-group-item-action"><i class="oi oi-share-boxed text-primary"></i></li>
+                                <li class="list-group-item-action"><i class="oi oi-arrow-circle-bottom"></i></li>
+                            </ul>
+                        </div>
+                    </div>
+                </a>
+            </div>
+
+        }
+    }
 
 
+</div>
+@code{
+    
+    private List<CookBookWebSQL.Models.Restaurant> restaurantsObj { get; set; } = new();
+    protected override async Task OnInitializedAsync()
+    {
+        restaurantsObj = await restaurantService.GetRestaurantAsync();
+    }
+
+} *@
+@page "/restaurant-detail"
+@using CookBookWebSQL.Models
+@inject CookBookWebSQL.Service.RestaurantService restaurantService
+
+<h3>Restaurant Details</h3>
+<div class="row">
+    @if (restaurantsObj.Count > 0)
+    {
+        foreach (var item in restaurantsObj)
+        {
+            <div class="col-auto mt-3">
+                <a href="readrestaurant/@item.Id" style="text-decoration:none;">
+                    <div class="card">
+                        <div class="card-header fw-bold h6 text-light" style="text-align:left; background-color: rgb(0, 42, 81); ">@item.Name</div>
+                        <div class="card-body">
+                            @if (item.Images != null && item.Images.Count > 0)
+                            {
+                                @foreach (var image in item.Images)
+                                {
+                                    <img class="card-img-top" src="/uploads/@image.ImagePath" width="200" height="200" alt="@item.Name" />
+                                }
+                            }
+                            else
+                            {
+                                <p>No images available</p>
+                            }
+                        </div>
+                    </div>
+                </a>
+            </div>
+        }
+    }
+    else
+    {
+        <p>No restaurants available.</p>
+    }
+</div>
+
+@code {
+    private List<CookBookWebSQL.Models.Restaurant> restaurantsObj { get; set; } = new();
+
+    protected override async Task OnInitializedAsync()
+    {
+        restaurantsObj = await restaurantService.GetRestaurantAsync();
+    }
+}
+>>>>>>> d9e1c92 (Update)
