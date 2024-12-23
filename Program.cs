@@ -10,6 +10,8 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddRazorComponents()
     .AddInteractiveServerComponents();
 
+string apiKey = Environment.GetEnvironmentVariable("googleMapApi");
+
 // Register the DbContext with the dependency injection container
 builder.Services.AddDbContext<CookBookDBContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("CookBookDb")));
