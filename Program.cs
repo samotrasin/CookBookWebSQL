@@ -56,7 +56,7 @@ app.UseAntiforgery();
 app.MapRazorComponents<App>()
     .AddInteractiveServerRenderMode();
 
-app.MapRazorPages();
-app.MapBlazorHub();
+// app.MapRazorPages();
+// app.MapBlazorHub();
 
 app.Run();
