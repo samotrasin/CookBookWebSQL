@@ -35,7 +35,7 @@
     else
     {
         <!-- Recipe Grid -->
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-12">
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-12" id="images">
             @foreach (var recipe in Recipes)
             {
                 <div class="card bg-white rounded-lg shadow-xl overflow-hidden transition-transform transform hover:scale-105 hover:shadow-2xl hover:border-teal-600 hover:border-2">
@@ -147,4 +147,15 @@
     {
         SelectedRecipe = null;
     }
+    
 }
+
+<link  href="/lib/viewerjs/viewer.css" rel="stylesheet">
+<script src="/lib/viewerjs/viewer.js"></script>
+<script>
+        for(let element of document.querySelectorAll('img')){
+            new Viewer(element)
+            console.log('element',element);
+            //break;
+        }
+</script>
