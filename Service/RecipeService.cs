@@ -59,6 +59,7 @@ namespace CookBookWebSQL.Service
             {
                 var existingRecipe = await _context.Recipes
                                                     .Include(r => r.CategoryRecipe)
+                                                    .ThenInclude(cr => cr.Category)
                                                     .FirstOrDefaultAsync(r => r.Id == recipe.Id);
                 if (existingRecipe != null)
                 {
@@ -77,9 +78,9 @@ namespace CookBookWebSQL.Service
                         var category = await _context.Categories.FindAsync(categoryRecipe.CategoryId);
                         if (category != null)
                         {
-                            var newCategoryRecipe = new CategoryRecipe { Recipe = existingRecipe, Category = category };
+                            //var newCategoryRecipe = new CategoryRecipe { Recipe = existingRecipe, Category = category };
                             categoryRecipes.Add(new CategoryRecipe { RecipeId = existingRecipe.Id, CategoryId = category.Id });
-                            categoryRecipes.Add(newCategoryRecipe);
+                            //categoryRecipes.Add(newCategoryRecipe);
                         }
                         else
                         {
@@ -89,6 +90,7 @@ namespace CookBookWebSQL.Service
 
                     existingRecipe.CategoryRecipe = categoryRecipes;
 
+                    _context.Recipes.Update(existingRecipe);
                     await _context.SaveChangesAsync();
                 }
                 else
@@ -98,9 +100,7 @@ namespace CookBookWebSQL.Service
             }
             catch (Exception ex)
             {
-                // Log the exception (you can use a logging framework or simply write to console for now)
                 Console.WriteLine($"An error occurred while updating the recipe: {ex.Message}");
-                throw; // Re-throw the exception to be handled by the calling code
             }
         }
 
