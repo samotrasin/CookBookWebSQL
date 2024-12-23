@@ -1,41 +1,55 @@
 @page "/recipe-detail"
 
+@rendermode InteractiveServer
 @using CookBookWebSQL.Models
 @using CookBookWebSQL.Service
 @inject RecipeService RecipeService
+@inject CookBookWebSQL.Service.RecipeService recipeService
+@inject CookBookWebSQL.Service.CategoryService categoryService
+@inject IWebHostEnvironment Environment
+@inject ILogger<RecipePage> Logger
+@inject IJSRuntime JS
 
 <PageTitle>Recipe Detail</PageTitle>
 
-<div class="container mx-auto py-10">
+<div class="container mx-auto py-12 px-4">
     <!-- Heading Section -->
-    <h1 class="text-5xl font-extrabold text-center text-teal-600 mb-10">Explore Delicious Recipes</h1>
+    <h1 class="text-5xl font-extrabold text-center text-teal-600 mb-12 tracking-wide">Explore Delicious Recipes</h1>
+
+    <!-- Error Message Section -->
+    @if (!string.IsNullOrEmpty(ErrorMessage))
+    {
+        <div class="text-center text-xl text-red-600 mb-8">
+            @ErrorMessage
+        </div>
+    }
 
     @if (Recipes == null)
     {
-        <div class="text-center text-xl text-gray-500">Loading recipes...</div>
+        <div class="text-center text-xl text-gray-600">Loading recipes...</div>
     }
     else if (!Recipes.Any())
     {
-        <div class="text-center text-xl text-gray-500">No recipes found.</div>
+        <div class="text-center text-xl text-gray-600">No recipes found.</div>
     }
     else
     {
         <!-- Recipe Grid -->
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10 px-4">
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-12">
             @foreach (var recipe in Recipes)
             {
-                <div class="card bg-white rounded-lg shadow-2xl overflow-hidden transition-all transform hover:scale-105 hover:shadow-2xl">
-                    @if (recipe.Images.Any())
+                <div class="card bg-white rounded-lg shadow-xl overflow-hidden transition-transform transform hover:scale-105 hover:shadow-2xl hover:border-teal-600 hover:border-2">
+                    @if (recipe.Images?.Any() == true)
                     {
-                        <img src="@recipe.Images.First().Path" alt="@recipe.Name" class="w-full h-60 object-cover" />
+                        <img src="/uploads/@recipe.Images.First().Path" alt="@recipe.Name" class="object-cover rounded-t-lg" style="width: 50px; height: auto;" />
                     }
                     else
                     {
-                        <p class="text-center text-sm text-gray-500">No image available</p>
+                        <p class="text-center text-sm text-gray-500 py-6">No image available</p>
                     }
                     <div class="p-6">
                         <h2 class="text-2xl font-semibold text-gray-800 truncate">@recipe.Name</h2>
-                        <button @onclick="() => ShowRecipeDetails(recipe.Id)" class="mt-4 bg-teal-500 text-white px-6 py-3 rounded-lg hover:bg-teal-600 transition-all">
+                        <button @onclick="() => ShowRecipeDetails(recipe.Id)" class="mt-6 bg-teal-600 text-white px-6 py-3 rounded-lg hover:bg-teal-700 focus:outline-none transition-all duration-300 ease-in-out transform hover:scale-105">
                             View Details
                         </button>
                     </div>
@@ -44,56 +58,58 @@
         </div>
     }
 
-    <!-- Recipe Detail Section (Initially Hidden) -->
+    <!-- Modal Popup for Recipe Details -->
     @if (SelectedRecipe != null)
     {
-        <div class="max-w-4xl mx-auto my-8 p-8 bg-white rounded-lg shadow-xl transition-all">
-            <h2 class="text-4xl font-extrabold text-gray-800 mb-4">@SelectedRecipe.Name</h2>
-            <p class="text-lg text-gray-700 mb-6"><strong>Instructions:</strong> @SelectedRecipe.Instructions</p>
-            <div class="text-sm text-gray-600 mb-4">
-                <strong>Created:</strong> @SelectedRecipe.CreatedDate.ToString("MMMM dd, yyyy") 
-                <span class="ml-4"><strong>Updated:</strong> @SelectedRecipe.UpdatedDate.ToString("MMMM dd, yyyy")</span>
+        <div class="fixed inset-0 bg-gray-900 bg-opacity-75 z-50 flex items-center justify-center overflow-y-auto transition-all duration-300 ease-in-out">
+            <div class="bg-white rounded-lg shadow-xl p-10 max-w-3xl w-full max-h-[90vh] overflow-y-auto transition-all duration-300 transform scale-95 hover:scale-100">
+                <h2 class="text-4xl font-extrabold text-gray-800 mb-6 tracking-wide">@SelectedRecipe.Name</h2>
+                <p class="text-lg text-gray-700 mb-8"><strong>Instructions:</strong> @SelectedRecipe.Instructions</p>
+                <div class="text-sm text-gray-600 mb-6">
+                    <strong>Created:</strong> @SelectedRecipe.CreatedDate.ToString("MMMM dd, yyyy") 
+                    <span class="ml-4"><strong>Updated:</strong> @SelectedRecipe.UpdatedDate.ToString("MMMM dd, yyyy")</span>
+                </div>
+
+                <!-- Recipe Images -->
+                @if (SelectedRecipe.Images?.Any() == true)
+                {
+                    <div class="mt-8">
+                        <h3 class="text-2xl font-semibold text-gray-800 mb-6">Images:</h3>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
+                            @foreach (var image in SelectedRecipe.Images)
+                            {
+                                <div class="card bg-gray-100 rounded-lg shadow-lg overflow-hidden">
+                                    <img src="/uploads/@image.Path" alt="@SelectedRecipe.Name" class="w-full h-64 object-cover rounded-lg" />
+                                </div>
+                            }
+                        </div>
+                    </div>
+                }
+                else
+                {
+                    <p class="text-center text-sm text-gray-500">No images available for this recipe.</p>
+                }
+
+                <!-- Categories Section -->
+                @if (SelectedRecipe.CategoryRecipe?.Any() == true)
+                {
+                    <div class="mt-8">
+                        <h3 class="text-2xl font-semibold text-gray-800 mb-6">Categories:</h3>
+                        <div class="flex flex-wrap">
+                            @foreach (var category in SelectedRecipe.CategoryRecipe)
+                            {
+                                <span class="inline-block bg-teal-200 text-teal-800 px-6 py-2 rounded-full text-sm mr-4 mb-4">
+                                    @category.Category?.Name
+                                </span>
+                            }
+                        </div>
+                    </div>
+                }
+
+                <button @onclick="() => CloseModal()" class="mt-8 bg-gray-300 text-black px-6 py-3 rounded-lg hover:bg-gray-400 transition-all focus:outline-none">
+                    Close
+                </button>
             </div>
-
-            <!-- Recipe Images -->
-            @if (SelectedRecipe.Images.Any())
-            {
-                <div class="mt-6">
-                    <h3 class="text-2xl font-semibold text-gray-800 mb-4">Images:</h3>
-                    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-                        @foreach (var image in SelectedRecipe.Images)
-                        {
-                            <div class="card bg-gray-100 rounded-lg shadow-md overflow-hidden">
-                                <img src="@image.Path" alt="@SelectedRecipe.Name" class="w-full h-64 object-cover rounded-lg" />
-                            </div>
-                        }
-                    </div>
-                </div>
-            }
-            else
-            {
-                <p class="text-center text-sm text-gray-500">No images available for this recipe.</p>
-            }
-
-            <!-- Categories Section -->
-            @if (SelectedRecipe.CategoryRecipe.Any())
-            {
-                <div class="mt-6">
-                    <h3 class="text-2xl font-semibold text-gray-800 mb-4">Categories:</h3>
-                    <div class="flex flex-wrap">
-                        @foreach (var category in SelectedRecipe.CategoryRecipe)
-                        {
-                            <span class="inline-block bg-teal-200 text-teal-800 px-5 py-2 rounded-full text-sm mr-2 mb-2">
-                                @category.Category.Name
-                            </span>
-                        }
-                    </div>
-                </div>
-            }
-
-            <button @onclick="() => SelectedRecipe = null" class="mt-8 bg-gray-300 text-black px-6 py-3 rounded-lg hover:bg-gray-400 transition-all">
-                Back to Recipe List
-            </button>
         </div>
     }
 </div>
@@ -101,32 +117,34 @@
 @code {
     private List<Recipe>? Recipes;
     private Recipe? SelectedRecipe;
+    private string? ErrorMessage;
 
     protected override async Task OnInitializedAsync()
     {
-        Recipes = await RecipeService.GetRecipesAsync();
-        Console.WriteLine($"Recipes Loaded: {Recipes?.Count}");
-        if (Recipes != null)
+        try
         {
-            foreach (var recipe in Recipes)
+            Recipes = await RecipeService.GetRecipesAsync();
+            Console.WriteLine($"Recipes count: {Recipes?.Count()}");
+
+            if (Recipes == null || !Recipes.Any())
             {
-                Console.WriteLine($"Recipe ID: {recipe.Id}, Recipe Name: {recipe.Name}, Recipe Images Count: {recipe.Images.Count}");
+                ErrorMessage = "No recipes found.";
             }
+        }
+        catch (Exception ex)
+        {
+            ErrorMessage = $"Error loading recipes: {ex.Message}";
+            Console.WriteLine($"Error loading recipes: {ex.Message}");
         }
     }
 
     private void ShowRecipeDetails(int recipeId)
     {
-        Console.WriteLine($"Recipe ID Selected: {recipeId}");
         SelectedRecipe = Recipes?.FirstOrDefault(r => r.Id == recipeId);
-        if (SelectedRecipe == null)
-        {
-            Console.WriteLine("SelectedRecipe is null.");
-        }
-        else
-        {
-            Console.WriteLine($"Selected Recipe: {SelectedRecipe.Name}");
-        }
-        StateHasChanged();
+    }
+
+    private void CloseModal()
+    {
+        SelectedRecipe = null;
     }
 }

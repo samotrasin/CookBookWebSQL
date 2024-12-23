@@ -44,7 +44,7 @@ namespace CookBookWebSQL.Service
         {
             _context.Ingredients.Update(ingredient);
             await _context.SaveChangesAsync();
-            //ADDD
+            
         }
 
         public async Task DeleteIngredient(Ingredient ingredient)
