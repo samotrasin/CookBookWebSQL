@@ -35,6 +35,7 @@
             <th>Address</th>
             <th>Latitude</th>
             <th>Longitude</th>
+            <th>Google Map</th>
             <th>Description</th>
             <th class="text-center">Action</th>
         </tr>
@@ -48,6 +49,7 @@
                 <td>@restaurant.Address</td>
                 <td>@restaurant.Latitude</td>
                 <td>@restaurant.Longitude</td>
+                <td><a href="@restaurant.GoogleMap" target="_blank">View Map</a></td>
                 <td>@restaurant.Description</td>
                 <td class="text-center">
                     <button type="button" class="btn btn-warning btn-sm" @onclick="() => OpenEditModal(restaurant)">Edit</button>
@@ -85,6 +87,10 @@
                         <input type="number" step="any" @bind="restaurantLongitude" class="form-control" />
                     </div>
                     <div class="form-group">
+                        <label class="form-label">Google Map</label>
+                        <input @bind="restaurantGoogleMap" class="form-control" />
+                    </div>
+                    <div class="form-group">
                         <label class="form-label">Description</label>
                         <textarea @bind="restaurantDescription" class="form-control"></textarea>
                     </div>
@@ -106,6 +112,7 @@
     private string restaurantAddress = "";
     private double restaurantLatitude;
     private double restaurantLongitude;
+    private string restaurantGoogleMap = "";
     private string restaurantDescription = "";
     private string errorMessage = "";
     private string _searchTerm = "";
@@ -152,6 +159,7 @@
         restaurantAddress = "";
         restaurantLatitude = 0;
         restaurantLongitude = 0;
+        restaurantGoogleMap = "";
         restaurantDescription = "";
         modalTitle = "Add New Restaurant";
         isModalVisible = true;
@@ -164,6 +172,7 @@
         restaurantAddress = restaurant.Address;
         restaurantLatitude = restaurant.Latitude;
         restaurantLongitude = restaurant.Longitude;
+        restaurantGoogleMap = restaurant.GoogleMap;
         restaurantDescription = restaurant.Description;
         modalTitle = "Edit Restaurant";
         isModalVisible = true;
@@ -177,6 +186,7 @@
             currentRestaurant.Address = restaurantAddress;
             currentRestaurant.Latitude = restaurantLatitude;
             currentRestaurant.Longitude = restaurantLongitude;
+            currentRestaurant.GoogleMap = restaurantGoogleMap;
             currentRestaurant.Description = restaurantDescription;
 
             if (currentRestaurant.Id == 0)
@@ -214,3 +224,5 @@
         isModalVisible = false;
     }
 }
+
+

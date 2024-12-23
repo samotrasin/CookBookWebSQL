@@ -35,13 +35,13 @@
     else
     {
         <!-- Recipe Grid -->
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-12">
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-12" id="images">
             @foreach (var recipe in Recipes)
             {
                 <div class="card bg-white rounded-lg shadow-xl overflow-hidden transition-transform transform hover:scale-105 hover:shadow-2xl hover:border-teal-600 hover:border-2">
                     @if (recipe.Images?.Any() == true)
                     {
-                        <img src="@recipe.Images.First().Path" alt="@recipe.Name" class="w-full h-72 object-cover rounded-t-lg" />
+                        <img src="/uploads/@recipe.Images.First().Path" alt="@recipe.Name" class="object-cover rounded-t-lg" style="width: 50px; height: auto;" />
                     }
                     else
                     {
@@ -79,7 +79,7 @@
                             @foreach (var image in SelectedRecipe.Images)
                             {
                                 <div class="card bg-gray-100 rounded-lg shadow-lg overflow-hidden">
-                                    <img src="@image.Path" alt="@SelectedRecipe.Name" class="w-full h-64 object-cover rounded-lg" />
+                                    <img src="/uploads/@image.Path" alt="@SelectedRecipe.Name" class="w-full h-64 object-cover rounded-lg" />
                                 </div>
                             }
                         </div>
@@ -147,4 +147,15 @@
     {
         SelectedRecipe = null;
     }
+    
 }
+
+<link  href="/lib/viewerjs/viewer.css" rel="stylesheet">
+<script src="/lib/viewerjs/viewer.js"></script>
+<script>
+        for(let element of document.querySelectorAll('img')){
+            new Viewer(element)
+            console.log('element',element);
+            //break;
+        }
+</script>
