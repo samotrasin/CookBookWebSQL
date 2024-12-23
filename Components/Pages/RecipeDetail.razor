@@ -41,7 +41,7 @@
                 <div class="card bg-white rounded-lg shadow-xl overflow-hidden transition-transform transform hover:scale-105 hover:shadow-2xl hover:border-teal-600 hover:border-2">
                     @if (recipe.Images?.Any() == true)
                     {
-                        <img src="@recipe.Images.First().Path" alt="@recipe.Name" class="w-full h-72 object-cover rounded-t-lg" />
+                        <img src="/uploads/@recipe.Images.First().Path" alt="@recipe.Name" class="w-full h-72 object-cover rounded-t-lg" />
                     }
                     else
                     {
