@@ -2,6 +2,7 @@
 @rendermode InteractiveServer
 @using Microsoft.EntityFrameworkCore
 @inject CookBookDBContext context
+
 @inject IJSRuntime JS
 
 <h3>Admin Dashboard</h3>
@@ -29,7 +30,7 @@
             </div>
         </div>
 
-<!-- Recipes -->
+<!-- Recipe -->
         <div class="col-md-3">
             <div class="card">
                 <div class="card-body bg-info">
@@ -38,31 +39,42 @@
                 </div>
             </div>
         </div>
+
+<!-- Ingredient -->
+        <div class="col-md-3">
+            <div class="card">
+                <div class="card-body bg-danger">
+                    <h5 class="text-white">Ingredient</h5>
+                    <p class="text-white">0</p>
+                </div>
+            </div>
+        </div>
     </div>
-    <!-- More dashboard content here -->
+
+    <!-- Visit -->
+
     <div class="row mt-4">
-        <div class="col-md-12">
-            <h2>Recent Activity</h2>
-            <table class="table table-bordered">
-                <thead>
+        <div class="col-md-12 ">
+            <h2>Visits</h2>
+            <table class="table table-striped table-dark">
+                <thead class="thead-dark">
                     <tr>
-                        <th>User</th>
-                        <th>Activity</th>
+                        <th>Visitor</th>
                         <th>Date</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
                         <td>John Doe</td>
-                        <td>Created a new post</td>
                         <td>2024-12-22</td>
                     </tr>
                     <tr>
                         <td>Jane Smith</td>
-                        <td>Updated profile</td>
                         <td>2024-12-21</td>
                     </tr>
-                    <!-- More rows can go here -->
+
+                    <!-- Rows -->
+
                 </tbody>
             </table>
         </div>
@@ -70,5 +82,6 @@
 </div>
 
 @code{
-
+    private List<CookBookWebSQL.Models.AdminDashboard> adminDashboards = new List<CookBookWebSQL.Models.AdminDashboard>();
+    
 }

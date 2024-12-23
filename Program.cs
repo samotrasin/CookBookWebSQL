@@ -25,6 +25,9 @@ builder.Services.AddScoped<UserService>();
 builder.Services.AddScoped<FeedbackService>();
 builder.Services.AddRazorPages(); builder.Services.AddServerSideBlazor(); builder.Services.AddScoped<RestaurantManagementWebSQL.Service.RestaurantService>();
 
+//Register the AdminDashboardService
+builder.Services.AddScoped<AdminDashboardService>();
+
 var app = builder.Build();
 
 // run every web app starts
