@@ -9,14 +9,14 @@ namespace CookBookWebSQL.Service{
         public async Task<Restaurant> GetRestaurantByIdAsync(int id)
         {
             var restaurant = await _context.Restaurants
-                                    .Include(r => r.Images) // Ensure images are included
+                                    //.Include(r => r.Images) // Ensure images are included
                                     .FirstOrDefaultAsync(r => r.Id == id);
             return restaurant;
         }
          public async Task<List<Restaurant>> GetRestaurantAsync(){
             return await _context.Restaurants
-                                    .Include(r => r.Images)
-                                    .Include(r => r.RestaurantMenus)
+                                    // .Include(r => r.Images)
+                                    //.Include(r => r.RestaurantMenus)
                                     .ToListAsync();
         }
         public async Task AddRestaurant(Restaurant restaurant){

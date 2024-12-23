@@ -57,41 +57,40 @@
         <DataAnnotationsValidator />
         <ValidationSummary />
 
-    <div class="form-group">
-        <label>Restaurant Name</label>
-        <InputSelect @bind-Value="menu.Id" class="form-control">
-            <option value="">Select a Restaurant</option>
-            @foreach (var restaurant in restaurants)
-            {
-                <option value="@restaurant.Id">@restaurant.Name</option>
-            }
-        </InputSelect>
-    </div>
-    <div class="form-group">
-        <label>Menu Name</label>
-        <InputText @bind-Value="menu.MenuName" class="form-control" />
-    </div>
-    <div class="form-group">
-        <label>Description</label>
-        <InputTextArea @bind-Value="menu.Recipe" class="form-control" rows="5"></InputTextArea>
-    </div>
-    <div class="form-group">
-        <label>Price</label>
-        <InputNumber @bind-Value="menu.Price" class="form-control" />
-    </div>
-    <div class="form-group">
-        <label>Image</label>
-        <InputFile OnChange="LoadFiles" class="form-control" />
-        <br />
-        @foreach (var img in menuImages)
-        {
-            <b>@img.MenuPath</b>
-            <br />
-        }
-    </div>
-    @* <button type="submit" class="btn btn-primary">Submit</button> *@
-    <button type="button" class="btn btn-primary" @onclick="AddNewMenu">Save</button>
-</EditForm>
+                <div class="form-group">
+                    <label>Restaurant Name</label>
+                    <InputSelect @bind-Value="menu.Id" class="form-control">
+                        <option value="">Select a Restaurant</option>
+                        @foreach (var restaurant in restaurants)
+                        {
+                            <option value="@restaurant.Id">@restaurant.Name</option>
+                        }
+                    </InputSelect>
+                </div>
+                <div class="form-group">
+                    <label>Menu Name</label>
+                    <InputText @bind-Value="menu.MenuName" class="form-control" />
+                </div>
+                <div class="form-group">
+                    <label>Description</label>
+                    <InputTextArea @bind-Value="menu.Recipe" class="form-control" rows="5"></InputTextArea>
+                </div>
+                <div class="form-group">
+                    <label>Price</label>
+                    <InputNumber @bind-Value="menu.Price" class="form-control" />
+                </div>
+                <div class="form-group">
+                    <label>Image</label>
+                    <InputFile OnChange="LoadFiles" class="form-control" />
+                    <br />
+                    @foreach (var img in menuImages)
+                    {
+                        <b>@img.MenuPath</b>
+                        <br />
+                    }
+                </div>
+                <button type="button" class="btn btn-primary" @onclick="AddNewMenu">Save</button>
+            </EditForm>
             </div>
         </div>
     </div>
@@ -110,7 +109,7 @@
     protected override async Task OnInitializedAsync()
     {
         // Load restaurants
-        restaurants = await restaurantService.GetRestaurantAsync();
+       restaurants = await restaurantService.GetRestaurantAsync();
     }
     string getDisplay()
     {
