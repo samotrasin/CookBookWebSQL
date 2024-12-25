@@ -1,4 +1,4 @@
-﻿@page "/ingredients"
+@page "/ingredients"
 @rendermode InteractiveServer
 @inject CookBookWebSQL.Service.IngredientService ingredientService
 @inject IWebHostEnvironment Environment
@@ -86,7 +86,8 @@
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title">Add New Ingredient</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" @onclick="()=>isAddModalShowing=false"
+                    aria-label="Close"></button>
             </div>
             <div class="modal-body">
                 <form method="post">
@@ -96,15 +97,15 @@
                     </div>
                     <div class="form-group">
                         <label class="form-label">Category </label>
-                        <input @bind="CategoryIngre" class="form-control" @ref="controlName">
+                        <input @bind="CategoryIngre" class="form-control" @ref="controlCat">
                     </div>
                     <div class="form-group">
                         <label class="form-label">Nutrition </label>
-                        <input @bind="Nutrioninfo" class="form-control" @ref="controlName">
+                        <input @bind="Nutrioninfo" class="form-control" @ref="controlNut">
                     </div>
                     <div class="form-group">
                         <label class="form-label">Descriptions</label>
-                        <textarea @bind="ingredientDesc" class="form-control" rows="10"></textarea>
+                        <textarea @bind="ingredientDesc" class="form-control" @ref="controlDesc" rows="10"></textarea>
                     </div>
                     <div class="form-group">
                         <label class="form-label">Images</label>
@@ -143,7 +144,9 @@
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title">Edit Current Ingredient</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" @onclick="()=>isEditModalShowing=false"
+                    aria-label="Close"></button>
+
             </div>
             <div class="modal-body">
                 <form method="post">
@@ -153,15 +156,16 @@
                     </div>
                     <div class="form-group">
                         <label class="form-label">Category</label>
-                        <input @bind="ingredientName" class="form-control" @ref="controlNameEdit">
+                        <input @bind="CategoryIngre" class="form-control">
                     </div>
                     <div class="form-group">
                         <label class="form-label">Nutrition</label>
-                        <input @bind="ingredientName" class="form-control" @ref="controlNameEdit">
+                        <input @bind="Nutrioninfo " class="form-control">
                     </div>
                     <div class="form-group">
                         <label class="form-label">Descriptions</label>
-                        <textarea @bind="ingredientDesc" class="form-control" rows="10"></textarea>
+                        <textarea @bind="ingredientDesc" class="form-control" @ref="controlDescEdit"
+                            rows="10"></textarea>
                     </div>
                     <div class="form-group">
                         <label class="form-label">Images</label>
@@ -242,16 +246,23 @@
     List<Ingredient> filteredIngredient = [];
 
     List<IngredientImage> ingredientImages = new List<IngredientImage>();
-    private List<IngredientImage> currentIngredientImages = new  List<IngredientImage>();
+    private List<IngredientImage> currentIngredientImages = new List<IngredientImage>();
     private Ingredient currentIngredient = new();
 
     private string ingredientName = "";
-    private string ingredientDesc= "";
+    private string ingredientDesc = "";
     private string CategoryIngre = "";
     private string Nutrioninfo = "";
     private ElementReference controlName;
-    bool isAddModalShowing = false;
+    private ElementReference controlCat;
+    private ElementReference controlNut;
+    private ElementReference controlDesc;
     private ElementReference controlNameEdit;
+    private ElementReference controlCatEdit;
+    private ElementReference controlNutEdit;
+    private ElementReference controlDescEdit;
+    bool isAddModalShowing = false;
+
     private bool isEditModalShowing = false;
     private bool isPictureModalShowing = false;
     private bool isInstructionsModalShowing = false;
@@ -273,7 +284,7 @@
     private bool isAscending = true;
     private bool isNameAscending = true;
     private bool isDateAscending = true;
-    private bool  isCategoryAscending = true;
+    private bool isCategoryAscending = true;
 
 
     public void HideInstructionsModal()
@@ -321,6 +332,11 @@
         await ingredientService.AddIngredient(currentIngredient);
         ingredients = await ingredientService.GetIngredientsAsync();
         ingredientImages = new List<IngredientImage>();
+
+        CategoryIngre = string.Empty;
+        Nutrioninfo = string.Empty;
+        ingredientDesc = string.Empty;
+
         isAddModalShowing = false;
         StateHasChanged();
     }
@@ -421,7 +437,7 @@
     {
         if (isDateAscending)
         {
-              ingredients =    ingredients.OrderBy(r => r.CreatedDate).ToList();
+            ingredients = ingredients.OrderBy(r => r.CreatedDate).ToList();
         }
         else
         {
@@ -448,6 +464,9 @@
     } *@
 
 
+        //add
+
+ 
+
 
 }
-
