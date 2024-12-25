@@ -1,0 +1,43 @@
+
+@page "/readrestaurant/{Id:int}"
+@inject CookBookWebSQL.Service.RestaurantService restaurantService
+
+<div>
+    <div class="card">
+        <div class="card-header fw-bold h5 text-light" style="background-color: rgb(0, 42, 81);">@restaurant?.Name</div>
+        <div class="card-body">
+            @if (restaurant?.Images != null && restaurant.Images.Count > 0)
+            {
+                @foreach (var image in restaurant.Images)
+                {
+                    <img class="rounded mx-auto d-block" src="/uploads/@image.ImagePath" width="500" height="300" alt="Restaurant Image" />
+                }
+            }
+            else
+            {
+                <p class="text-center">No image available</p>
+            }
+            <table class="table table-active">
+                <tbody>
+                    <tr>
+                        <td><b>Restaurant Information:</b></td>
+                        <td style="white-space: pre-wrap;">@restaurant?.Description</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+@code {
+    [Parameter] public int Id { get; set; }
+    public CookBookWebSQL.Models.Restaurant? restaurant { get; set; }
+
+    protected override async Task OnParametersSetAsync()
+    {
+        if (Id <= 0) return;
+
+        // Fetch the restaurant data by ID
+        restaurant = await restaurantService.GetRestaurantByIdAsync(Id);
+    }
+}

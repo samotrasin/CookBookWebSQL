@@ -52,4 +52,5 @@ public class CookBookDBContext : DbContext
 
         base.OnModelCreating(modelBuilder);
     }
+    
 }

@@ -15,6 +15,7 @@ string apiKey = Environment.GetEnvironmentVariable("googleMapApi");
 // Register the DbContext with the dependency injection container
 builder.Services.AddDbContext<CookBookDBContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+ 
 
 // Register application services
 builder.Services.AddScoped<CuisineService>();
@@ -23,11 +24,15 @@ builder.Services.AddScoped<CategoryService>();
 builder.Services.AddScoped<IngredientService>();
 builder.Services.AddScoped<UserService>();
 builder.Services.AddScoped<FeedbackService>();
+builder.Services.AddScoped<CookBookWebSQL.Service.RestaurantService>();
 builder.Services.AddScoped<RestaurantManagementWebSQL.Service.RestaurantService>();
 
 // Add Razor Pages and Server-Side Blazor
 builder.Services.AddRazorPages();
 builder.Services.AddServerSideBlazor();
+
+//Register the AdminDashboardService
+builder.Services.AddScoped<AdminDashboardService>();
 
 var app = builder.Build();
 

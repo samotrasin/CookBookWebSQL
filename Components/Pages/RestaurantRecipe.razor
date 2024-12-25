@@ -1,0 +1,175 @@
+@page "/restaurants-recipe"
+@using CookBookWebSQL.Models
+@inject CookBookWebSQL.Service.MenuService menuService
+@inject CookBookWebSQL.Service.RestaurantService restaurantService
+@inject ILogger<RecipePage> Logger
+@inject IJSRuntime JS
+
+<h3>Restaurant Recipe</h3>
+
+<div class="d-flex mb-2">
+    <button type="button" class="btn btn-success" @onclick="ShowAddModal">
+        <i class="bi bi-plus-circle"></i> Add Menu
+    </button>
+</div>
+<!-- Display Restaurant table -->
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Restaurant Name</th>
+            <th>Menu</th>
+            <th>Image</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+        <tbody>
+        @foreach (var menu in menus)
+        {
+            <tr>
+                <td>@menu.Id</td>
+                <td>@menu.Restaurants</td>
+                <td>@menu.MenuName</td>
+                <td>
+                    @if (menu.MenuImages != null && menu.MenuImages.Count > 0)
+                    {
+                        <img src="/uploads/@menu.MenuImages[0].MenuPath" width="100" height="100" alt="Menu Image" />
+                    }
+                </td>
+                <td>
+                    <!-- Add action buttons here if needed -->
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<!-- Add Menu Modal -->
+<div class="modal fade @(isAddModalVisible ? "show" : "")" style="display: @(isAddModalVisible ? "block" : "none");" tabindex="-1">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Add New Menu</h5>
+                <button type="button" class="btn-close" @onclick="HideAddModal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <EditForm Model="@menu" OnValidSubmit="@SubmitForm">
+        <DataAnnotationsValidator />
+        <ValidationSummary />
+
+                <div class="form-group">
+                    <label>Restaurant Name</label>
+                    <InputSelect @bind-Value="menu.Id" class="form-control">
+                        <option value="">Select a Restaurant</option>
+                        @foreach (var restaurant in restaurants)
+                        {
+                            <option value="@restaurant.Id">@restaurant.Name</option>
+                        }
+                    </InputSelect>
+                </div>
+                <div class="form-group">
+                    <label>Menu Name</label>
+                    <InputText @bind-Value="menu.MenuName" class="form-control" />
+                </div>
+                <div class="form-group">
+                    <label>Description</label>
+                    <InputTextArea @bind-Value="menu.Recipe" class="form-control" rows="5"></InputTextArea>
+                </div>
+                <div class="form-group">
+                    <label>Price</label>
+                    <InputNumber @bind-Value="menu.Price" class="form-control" />
+                </div>
+                <div class="form-group">
+                    <label>Image</label>
+                    <InputFile OnChange="LoadFiles" class="form-control" />
+                    <br />
+                    @foreach (var img in menuImages)
+                    {
+                        <b>@img.MenuPath</b>
+                        <br />
+                    }
+                </div>
+                <button type="button" class="btn btn-primary" @onclick="AddNewMenu">Save</button>
+            </EditForm>
+            </div>
+        </div>
+    </div>
+</div>
+
+@code {
+    private bool isAddModalVisible = false;
+    private RestaurantMenu menu = new RestaurantMenu();
+     List<RestaurantMenu> filteredMenu = [];
+    private RestaurantMenu currentMenu = new ();
+    private List<RestaurantMenu> menus = new List<RestaurantMenu>();
+    private List<RestaurantMenuImage> menuImages = new List<RestaurantMenuImage>();
+    private List<CookBookWebSQL.Models.Restaurant> restaurants = new List<CookBookWebSQL.Models.Restaurant>();
+    private string mName = "";
+    private string mRecipe = "";
+    protected override async Task OnInitializedAsync()
+    {
+        // Load restaurants
+       restaurants = await restaurantService.GetRestaurantAsync();
+    }
+    string getDisplay()
+    {
+        return isAddModalVisible ? "block" : "none";
+    }
+
+    private void ShowAddModal()
+    {
+        isAddModalVisible = true;
+    }
+
+    private void HideAddModal()
+    {
+        isAddModalVisible = false;
+    }
+
+    private async Task SubmitForm()
+    {
+        // Attach images to menu
+        menu.MenuImages = menuImages;
+
+        // Save menu asynchronously
+        var result = await menuService.AddMenuAsync(menu);
+
+        if (result != null)
+        {
+            menus = await menuService.GetMenuAsync();
+            // Handle successful save (e.g., show a success message, refresh the list, etc.)
+            HideAddModal();
+        }
+    }
+
+    private void LoadFiles(InputFileChangeEventArgs e)
+    {
+        // Handle file upload logic here
+        foreach (var file in e.GetMultipleFiles())
+        {
+            var imagePath = $"uploads/{file.Name}";
+            menuImages.Add(new RestaurantMenuImage { MenuPath = imagePath });
+        }
+    }
+    public async Task AddNewMenu()
+    {
+        try
+        {
+            currentMenu.MenuName = mName;
+            currentMenu.Recipe = mRecipe;
+            currentMenu.Created = DateTime.Now;
+            currentMenu.Updated = DateTime.Now;
+            currentMenu.MenuImages = menuImages;
+            await menuService.AddMenuAsync(currentMenu);
+            menus = await menuService.GetMenuAsync();
+            filteredMenu = menus;
+            menuImages = new List<RestaurantMenuImage>();
+            isAddModalVisible = false;
+            StateHasChanged();
+        }
+        catch (Exception e)
+        {
+            Logger.LogError(e, "Error adding new restaurant");
+        }
+    }
+}

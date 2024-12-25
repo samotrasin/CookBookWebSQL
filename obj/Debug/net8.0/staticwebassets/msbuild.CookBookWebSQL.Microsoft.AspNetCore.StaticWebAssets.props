@@ -37134,18 +37134,27 @@
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\afg-spaghetti-alla-assassina-1-19ef-threeByTwoMediumAt2X.webp'))</OriginalItemSpec>
     </StaticWebAsset>
+<<<<<<< HEAD
     <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\Alexander's Bridge.jpg'))">
+=======
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\AncleHai.jpeg'))">
+>>>>>>> d9e1c92 (Update)
       <SourceType>Package</SourceType>
       <SourceId>CookBookWebSQL</SourceId>
       <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
       <BasePath>_content/CookBookWebSQL</BasePath>
+<<<<<<< HEAD
       <RelativePath>uploads/Alexander's Bridge.jpg</RelativePath>
+=======
+      <RelativePath>uploads/AncleHai.jpeg</RelativePath>
+>>>>>>> d9e1c92 (Update)
       <AssetKind>All</AssetKind>
       <AssetMode>All</AssetMode>
       <AssetRole>Primary</AssetRole>
       <RelatedAsset></RelatedAsset>
       <AssetTraitName></AssetTraitName>
       <AssetTraitValue></AssetTraitValue>
+<<<<<<< HEAD
       <Fingerprint>sx55v1cwqe</Fingerprint>
       <Integrity>sG+ov+GBSPXYmR4F5FPrWztoAGhg8hXaZYAz2VqkCMI=</Integrity>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
@@ -37187,6 +37196,13 @@
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\chakdav.jpg'))</OriginalItemSpec>
+=======
+      <Fingerprint>p4iljym3h9</Fingerprint>
+      <Integrity>CSprGJ2xh55uD2VLt4exx04jZFVxUewA1oEub+Impvc=</Integrity>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\AncleHai.jpeg'))</OriginalItemSpec>
+>>>>>>> d9e1c92 (Update)
     </StaticWebAsset>
     <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\chicken-cacciatore.webp'))">
       <SourceType>Package</SourceType>
@@ -37206,6 +37222,7 @@
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\chicken-cacciatore.webp'))</OriginalItemSpec>
     </StaticWebAsset>
+<<<<<<< HEAD
     <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\download (1).jpg'))">
       <SourceType>Package</SourceType>
       <SourceId>CookBookWebSQL</SourceId>
@@ -37224,6 +37241,8 @@
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\download (1).jpg'))</OriginalItemSpec>
     </StaticWebAsset>
+=======
+>>>>>>> d9e1c92 (Update)
     <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\hibachi-style-fried-rice.webp'))">
       <SourceType>Package</SourceType>
       <SourceId>CookBookWebSQL</SourceId>
@@ -37260,6 +37279,27 @@
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\korean-beef-noodles-105-1.jpg'))</OriginalItemSpec>
     </StaticWebAsset>
+<<<<<<< HEAD
+=======
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\KungFu.png'))">
+      <SourceType>Package</SourceType>
+      <SourceId>CookBookWebSQL</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/CookBookWebSQL</BasePath>
+      <RelativePath>uploads/KungFu.png</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <Fingerprint>er8u8vdql5</Fingerprint>
+      <Integrity>2rv7aCZXgb4WjttyiVisQhX4d/Igg94FN9jybMDR7TM=</Integrity>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\KungFu.png'))</OriginalItemSpec>
+    </StaticWebAsset>
+>>>>>>> d9e1c92 (Update)
     <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\Logo Long Ge.png'))">
       <SourceType>Package</SourceType>
       <SourceId>CookBookWebSQL</SourceId>
@@ -37278,6 +37318,45 @@
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\Logo Long Ge.png'))</OriginalItemSpec>
     </StaticWebAsset>
+<<<<<<< HEAD
+=======
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\Lore.jpg'))">
+      <SourceType>Package</SourceType>
+      <SourceId>CookBookWebSQL</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/CookBookWebSQL</BasePath>
+      <RelativePath>uploads/Lore.jpg</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <Fingerprint>n7kt4ozswg</Fingerprint>
+      <Integrity>kx+ZcyDqTilTA2kr6kuchC3lo0edFrP7TnkW72KQ4lY=</Integrity>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\Lore.jpg'))</OriginalItemSpec>
+    </StaticWebAsset>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\Orange.png'))">
+      <SourceType>Package</SourceType>
+      <SourceId>CookBookWebSQL</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/CookBookWebSQL</BasePath>
+      <RelativePath>uploads/Orange.png</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <Fingerprint>6wnwgl65ld</Fingerprint>
+      <Integrity>9mR7JxHkbN0TJlIcvVHP1/Ocrjlt/mdF56cOtIid38g=</Integrity>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\Orange.png'))</OriginalItemSpec>
+    </StaticWebAsset>
+>>>>>>> d9e1c92 (Update)
     <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\Pan-Fried-Noodles-9.jpg'))">
       <SourceType>Package</SourceType>
       <SourceId>CookBookWebSQL</SourceId>
@@ -37314,6 +37393,7 @@
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\pizza.webp'))</OriginalItemSpec>
     </StaticWebAsset>
+<<<<<<< HEAD
     <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\RoastedDuck.jpg'))">
       <SourceType>Package</SourceType>
       <SourceId>CookBookWebSQL</SourceId>
@@ -37386,6 +37466,8 @@
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\Screenshot 2024-12-19 085018.png'))</OriginalItemSpec>
     </StaticWebAsset>
+=======
+>>>>>>> d9e1c92 (Update)
     <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\uploads\speghetti.webp'))">
       <SourceType>Package</SourceType>
       <SourceId>CookBookWebSQL</SourceId>
