@@ -4009,37 +4009,19 @@
     ]
   },
   "packageFolders": {
-<<<<<<< HEAD
-    "C:\\Users\\User\\.nuget\\packages\\": {},
-    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
-=======
-    "C:\\Users\\MSI\\.nuget\\packages\\": {}
->>>>>>> d9e1c92 (Update)
+    "C:\\Users\\85589\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-<<<<<<< HEAD
-      "projectUniqueName": "D:\\IT_Step\\ASPNET1\\CookBookWebSQL\\CookBookWebSQL.csproj",
+      "projectUniqueName": "C:\\Study\\STEP\\Session4\\Final\\CookBookWebSQL\\CookBookWebSQL.csproj",
       "projectName": "CookBookWebSQL",
-      "projectPath": "D:\\IT_Step\\ASPNET1\\CookBookWebSQL\\CookBookWebSQL.csproj",
-      "packagesPath": "C:\\Users\\User\\.nuget\\packages\\",
-      "outputPath": "D:\\IT_Step\\ASPNET1\\CookBookWebSQL\\obj\\",
-=======
-      "projectUniqueName": "C:\\VSCode\\ASP.net\\Project\\CookBookWebSQL\\CookBookWebSQL.csproj",
-      "projectName": "CookBookWebSQL",
-      "projectPath": "C:\\VSCode\\ASP.net\\Project\\CookBookWebSQL\\CookBookWebSQL.csproj",
-      "packagesPath": "C:\\Users\\MSI\\.nuget\\packages\\",
-      "outputPath": "C:\\VSCode\\ASP.net\\Project\\CookBookWebSQL\\obj\\",
->>>>>>> d9e1c92 (Update)
+      "projectPath": "C:\\Study\\STEP\\Session4\\Final\\CookBookWebSQL\\CookBookWebSQL.csproj",
+      "packagesPath": "C:\\Users\\85589\\.nuget\\packages\\",
+      "outputPath": "C:\\Study\\STEP\\Session4\\Final\\CookBookWebSQL\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-<<<<<<< HEAD
-        "C:\\Users\\User\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
-=======
-        "C:\\Users\\MSI\\AppData\\Roaming\\NuGet\\NuGet.Config",
->>>>>>> d9e1c92 (Update)
+        "C:\\Users\\85589\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -4047,10 +4029,6 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-<<<<<<< HEAD
-        "C:\\Program Files\\dotnet\\library-packs": {},
-=======
->>>>>>> d9e1c92 (Update)
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -4067,13 +4045,8 @@
       "restoreAuditProperties": {
         "enableAudit": "true",
         "auditLevel": "low",
-<<<<<<< HEAD
-        "auditMode": "all"
-=======
         "auditMode": "direct"
->>>>>>> d9e1c92 (Update)
-      },
-      "SdkAnalysisLevel": "9.0.100"
+      }
     },
     "frameworks": {
       "net8.0": {
@@ -4123,40 +4096,6 @@
         ],
         "assetTargetFallback": true,
         "warn": true,
-        "downloadDependencies": [
-          {
-            "name": "Microsoft.AspNetCore.App.Ref",
-<<<<<<< HEAD
-            "version": "[8.0.10, 8.0.10]"
-          },
-          {
-            "name": "Microsoft.NETCore.App.Host.win-x64",
-            "version": "[8.0.10, 8.0.10]"
-          },
-          {
-            "name": "Microsoft.NETCore.App.Ref",
-            "version": "[8.0.10, 8.0.10]"
-          },
-          {
-            "name": "Microsoft.WindowsDesktop.App.Ref",
-            "version": "[8.0.10, 8.0.10]"
-=======
-            "version": "[8.0.11, 8.0.11]"
-          },
-          {
-            "name": "Microsoft.NETCore.App.Host.win-x64",
-            "version": "[8.0.11, 8.0.11]"
-          },
-          {
-            "name": "Microsoft.NETCore.App.Ref",
-            "version": "[8.0.11, 8.0.11]"
-          },
-          {
-            "name": "Microsoft.WindowsDesktop.App.Ref",
-            "version": "[8.0.11, 8.0.11]"
->>>>>>> d9e1c92 (Update)
-          }
-        ],
         "frameworkReferences": {
           "Microsoft.AspNetCore.App": {
             "privateAssets": "none"
@@ -4165,40 +4104,8 @@
             "privateAssets": "all"
           }
         },
-<<<<<<< HEAD
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.100-rc.2.24474.11/PortableRuntimeIdentifierGraph.json"
-=======
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.101/PortableRuntimeIdentifierGraph.json"
->>>>>>> d9e1c92 (Update)
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.404/PortableRuntimeIdentifierGraph.json"
       }
     }
-  },
-  "logs": [
-    {
-      "code": "Undefined",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "Problem reading the cache file D:\\IT_Step\\ASPNET1\\CookBookWebSQL\\obj\\project.nuget.cache : Invalid property identifier character: <. Path 'version', line 3, position 0."
-    },
-    {
-      "code": "NU1603",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "CookBookWebSQL depends on System.Formats.Asn1 (>= 5.0.1) but System.Formats.Asn1 5.0.1 was not found. System.Formats.Asn1 6.0.0 was resolved instead.",
-      "libraryId": "System.Formats.Asn1",
-      "targetGraphs": [
-        "net8.0"
-      ]
-    },
-    {
-      "code": "NU1903",
-      "level": "Warning",
-      "warningLevel": 1,
-      "message": "Package 'System.Formats.Asn1' 6.0.0 has a known high severity vulnerability, https://github.com/advisories/GHSA-447r-wph3-92pm",
-      "libraryId": "System.Formats.Asn1",
-      "targetGraphs": [
-        "net8.0"
-      ]
-    }
-  ]
+  }
 }

@@ -224,9 +224,9 @@ namespace CookBookWebSQL.Migrations
                     b.ToTable("RecipeImages");
                 });
 
-<<<<<<< HEAD
-            modelBuilder.Entity("CookBookWebSQL.Models.User", b =>
-=======
+// <<<<<<< HEAD
+//             modelBuilder.Entity("CookBookWebSQL.Models.User", b =>
+// =======
             modelBuilder.Entity("CookBookWebSQL.Models.Restaurant", b =>
                 {
                     b.Property<int>("Id")
@@ -411,7 +411,6 @@ namespace CookBookWebSQL.Migrations
                 });
 
             modelBuilder.Entity("CategoryRecipe", b =>
->>>>>>> d9e1c92 (Update)
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -558,8 +557,6 @@ namespace CookBookWebSQL.Migrations
                         .HasForeignKey("RecipeId");
                 });
 
-<<<<<<< HEAD
-=======
             modelBuilder.Entity("CookBookWebSQL.Models.RestaurantImage", b =>
                 {
                     b.HasOne("CookBookWebSQL.Models.Restaurant", null)
@@ -574,7 +571,7 @@ namespace CookBookWebSQL.Migrations
                         .HasForeignKey("RestaurantMenuId");
                 });
 
->>>>>>> d9e1c92 (Update)
+
             modelBuilder.Entity("CookBookWebSQL.Models.UserImage", b =>
                 {
                     b.HasOne("CookBookWebSQL.Models.User", null)
@@ -592,11 +589,11 @@ namespace CookBookWebSQL.Migrations
                     b.Navigation("User");
                 });
 
-<<<<<<< HEAD
+
             modelBuilder.Entity("CookBookWebSQL.Models.Category", b =>
                 {
                     b.Navigation("CategoryRecipes");
-=======
+
             modelBuilder.Entity("RestaurantRestaurantMenu", b =>
                 {
                     b.HasOne("CookBookWebSQL.Models.RestaurantMenu", null)
@@ -610,7 +607,6 @@ namespace CookBookWebSQL.Migrations
                         .HasForeignKey("RestaurantsId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
->>>>>>> d9e1c92 (Update)
                 });
 
             modelBuilder.Entity("CookBookWebSQL.Models.Cuisine", b =>
@@ -650,6 +646,7 @@ namespace CookBookWebSQL.Migrations
                     b.Navigation("Images");
                 });
 #pragma warning restore 612, 618
+                });
         }
-    }
-}
+    }       
+};

@@ -15,26 +15,26 @@ namespace RestaurantManagementWebSQL.Service
             _context = context;
         }
 
-        public async Task<List<Restaurant>> GetRestaurantsAsync()
+        public async Task<List<RestaurantDetail>> GetRestaurantsAsync()
         {
-            return await _context.Restaurants.ToListAsync();
+            return await _context.RestaurantDetails.ToListAsync();
         }
 
-        public async Task AddRestaurant(Restaurant restaurant)
+        public async Task AddRestaurant(RestaurantDetail restaurantDetail)
         {
-            _context.Restaurants.Add(restaurant);
+            _context.RestaurantDetails.Add(restaurantDetail);
             await _context.SaveChangesAsync();
         }
 
-        public async Task UpdateRestaurant(Restaurant restaurant)
+        public async Task UpdateRestaurant(RestaurantDetail restaurantDetail)
         {
-            _context.Entry(restaurant).State = EntityState.Modified;
+            _context.Entry(restaurantDetail).State = EntityState.Modified;
             await _context.SaveChangesAsync();
         }
 
-        public async Task DeleteRestaurant(Restaurant restaurant)
+        public async Task DeleteRestaurant(RestaurantDetail restaurantDetail)
         {
-            _context.Restaurants.Remove(restaurant);
+            _context.RestaurantDetails.Remove(restaurantDetail);
             await _context.SaveChangesAsync();
         }
     }

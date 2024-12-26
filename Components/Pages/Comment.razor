@@ -1,4 +1,4 @@
-@page "/comments"
+@* @page "/comments"
 @inject CookBookWebSQL.Service.RecipeService RecipeService
 
 <h3>Comment</h3>
@@ -42,9 +42,9 @@
 @code {
     private List<Recipe> Recipes = new List<Recipe>();
     private int? SelectedRecipeId;
-    private string Name;
+    private string Name = "";
     private int Rating;
-    private string CommentText;
+    private string CommentText = "";
 
     protected override async Task OnInitializedAsync()
     {
@@ -62,4 +62,4 @@
 
         // Add code here to save the comment to the database
     }
-}
+} *@
