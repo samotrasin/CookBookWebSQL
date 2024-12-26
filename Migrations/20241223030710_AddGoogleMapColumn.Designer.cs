@@ -4,6 +4,7 @@ using CookBookWebSQL;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace CookBookWebSQL.Migrations
 {
     [DbContext(typeof(CookBookDBContext))]
-    partial class CookBookDBContextModelSnapshot : ModelSnapshot
+    [Migration("20241223030710_AddGoogleMapColumn")]
+    partial class AddGoogleMapColumn
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -371,20 +374,6 @@ namespace CookBookWebSQL.Migrations
                         .HasForeignKey("RecipeId");
                 });
 
-            modelBuilder.Entity("CookBookWebSQL.Models.RestaurantImage", b =>
-                {
-                    b.HasOne("CookBookWebSQL.Models.Restaurant", null)
-                        .WithMany("Images")
-                        .HasForeignKey("RestaurantId");
-                });
-
-            modelBuilder.Entity("CookBookWebSQL.Models.RestaurantMenuImage", b =>
-                {
-                    b.HasOne("CookBookWebSQL.Models.RestaurantMenu", null)
-                        .WithMany("MenuImages")
-                        .HasForeignKey("RestaurantMenuId");
-                });
-
             modelBuilder.Entity("CookBookWebSQL.Models.UserImage", b =>
                 {
                     b.HasOne("CookBookWebSQL.Models.User", null)
@@ -402,19 +391,9 @@ namespace CookBookWebSQL.Migrations
                     b.Navigation("User");
                 });
 
-            modelBuilder.Entity("RestaurantRestaurantMenu", b =>
+            modelBuilder.Entity("CookBookWebSQL.Models.Category", b =>
                 {
-                    b.HasOne("CookBookWebSQL.Models.RestaurantMenu", null)
-                        .WithMany()
-                        .HasForeignKey("RestaurantMenusId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("CookBookWebSQL.Models.Restaurant", null)
-                        .WithMany()
-                        .HasForeignKey("RestaurantsId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                    b.Navigation("CategoryRecipes");
                 });
 
             modelBuilder.Entity("CookBookWebSQL.Models.Cuisine", b =>
@@ -432,21 +411,6 @@ namespace CookBookWebSQL.Migrations
                     b.Navigation("CategoryRecipe");
 
                     b.Navigation("Images");
-                });
-
-            modelBuilder.Entity("CookBookWebSQL.Models.User", b =>
-                {
-                    b.Navigation("Images");
-                });
-
-            modelBuilder.Entity("CookBookWebSQL.Models.Restaurant", b =>
-                {
-                    b.Navigation("Images");
-                });
-
-            modelBuilder.Entity("CookBookWebSQL.Models.RestaurantMenu", b =>
-                {
-                    b.Navigation("MenuImages");
                 });
 
             modelBuilder.Entity("CookBookWebSQL.Models.User", b =>

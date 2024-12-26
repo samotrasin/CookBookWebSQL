@@ -3,26 +3,27 @@ using System.Threading.Tasks;
 using CookBookWebSQL;
 using CookBookWebSQL.Models;
 using Microsoft.EntityFrameworkCore;
+using RestaurantDetail=CookBookWebSQL.Models.Restaurant;
 
-namespace RestaurantManagementWebSQL.Service
+namespace CookBookWebSQL.Service
 {
-    public class RestaurantService
+    public class RestaurantDetailService
     {
         private readonly CookBookDBContext _context;
 
-        public RestaurantService(CookBookDBContext context)
+        public RestaurantDetailService(CookBookDBContext context)
         {
             _context = context;
         }
 
         public async Task<List<RestaurantDetail>> GetRestaurantsAsync()
         {
-            return await _context.RestaurantDetails.ToListAsync();
+            return await _context.Restaurants.ToListAsync();
         }
 
         public async Task AddRestaurant(RestaurantDetail restaurantDetail)
         {
-            _context.RestaurantDetails.Add(restaurantDetail);
+            _context.Restaurants.Add(restaurantDetail);
             await _context.SaveChangesAsync();
         }
 
@@ -34,7 +35,7 @@ namespace RestaurantManagementWebSQL.Service
 
         public async Task DeleteRestaurant(RestaurantDetail restaurantDetail)
         {
-            _context.RestaurantDetails.Remove(restaurantDetail);
+            _context.Restaurants.Remove(restaurantDetail);
             await _context.SaveChangesAsync();
         }
     }

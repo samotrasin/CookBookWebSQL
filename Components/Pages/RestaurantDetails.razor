@@ -1,7 +1,7 @@
 @page "/restaurantDetail"
 
 @rendermode InteractiveServer
-@inject RestaurantManagementWebSQL.Service.RestaurantService restaurantService
+@inject Service.RestaurantDetailService restaurantService
 @inject IWebHostEnvironment Environment
 @inject IJSRuntime JS
 
@@ -109,9 +109,9 @@
 </div>
 
 @code {
-    List<RestaurantDetail> restaurants = new();
-    List<RestaurantDetail> filteredRestaurants = new();
-    private RestaurantDetail currentRestaurant = new();
+    List<Restaurant> restaurants = new();
+    List<Restaurant> filteredRestaurants = new();
+    private Restaurant currentRestaurant = new();
     private string restaurantName = "";
     private string restaurantAddress = "";
     private double restaurantLatitude;
@@ -158,7 +158,7 @@
 
     public void ShowAddModal()
     {
-        currentRestaurant = new RestaurantDetail();
+        currentRestaurant = new Restaurant();
         restaurantName = "";
         restaurantAddress = "";
         restaurantLatitude = 0;
@@ -169,7 +169,7 @@
         isModalVisible = true;
     }
 
-    public void OpenEditModal(RestaurantDetail restaurant)
+    public void OpenEditModal(Restaurant restaurant)
     {
         currentRestaurant = restaurant;
         restaurantName = restaurant.RestaurantDetailName;
@@ -212,7 +212,7 @@
         }
     }
 
-    public async Task ConfirmDeleteRestaurant(RestaurantDetail restaurant)
+    public async Task ConfirmDeleteRestaurant(Restaurant restaurant)
     {
         var confirm = await JS.InvokeAsync<bool>("confirm", "Are you sure you want to delete this restaurant?");
         if (confirm)

@@ -26,7 +26,7 @@ builder.Services.AddScoped<CategoryService>();
 builder.Services.AddScoped<IngredientService>();
 builder.Services.AddScoped<UserService>();
 builder.Services.AddScoped<FeedbackService>();
-builder.Services.AddRazorPages(); builder.Services.AddServerSideBlazor(); builder.Services.AddScoped<RestaurantManagementWebSQL.Service.RestaurantService>();
+builder.Services.AddRazorPages(); builder.Services.AddServerSideBlazor(); builder.Services.AddScoped<CookBookWebSQL.Service.RestaurantService>();
 
 var app = builder.Build();
 

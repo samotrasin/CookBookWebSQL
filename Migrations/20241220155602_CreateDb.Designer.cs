@@ -4,6 +4,7 @@ using CookBookWebSQL;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace CookBookWebSQL.Migrations
 {
     [DbContext(typeof(CookBookDBContext))]
-    partial class CookBookDBContextModelSnapshot : ModelSnapshot
+    [Migration("20241220155602_CreateDb")]
+    partial class CreateDb
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -22,47 +25,19 @@ namespace CookBookWebSQL.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
-            modelBuilder.Entity("CookBookWebSQL.IngredientImage", b =>
+            modelBuilder.Entity("CategoryRecipe", b =>
                 {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
+                    b.Property<int>("CategoriesId")
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<int?>("IngredientId")
+                    b.Property<int>("RecipesId")
                         .HasColumnType("int");
 
-                    b.Property<string>("Path")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                    b.HasKey("CategoriesId", "RecipesId");
 
-                    b.HasKey("Id");
+                    b.HasIndex("RecipesId");
 
-                    b.HasIndex("IngredientId");
-
-                    b.ToTable("IngredientImages");
-                });
-
-            modelBuilder.Entity("CookBookWebSQL.Models.AdminDashboard", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<string>("Description")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("AdminDashboards");
+                    b.ToTable("CategoryRecipe");
                 });
 
             modelBuilder.Entity("CookBookWebSQL.Models.Category", b =>
@@ -82,21 +57,6 @@ namespace CookBookWebSQL.Migrations
                     b.ToTable("Categories");
                 });
 
-            modelBuilder.Entity("CookBookWebSQL.Models.CategoryRecipe", b =>
-                {
-                    b.Property<int>("RecipeId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("CategoryId")
-                        .HasColumnType("int");
-
-                    b.HasKey("RecipeId", "CategoryId");
-
-                    b.HasIndex("CategoryId");
-
-                    b.ToTable("CategoryRecipes");
-                });
-
             modelBuilder.Entity("CookBookWebSQL.Models.Cuisine", b =>
                 {
                     b.Property<int>("Id")
@@ -112,62 +72,6 @@ namespace CookBookWebSQL.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Cuisines");
-                });
-
-            modelBuilder.Entity("CookBookWebSQL.Models.Feedback", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<string>("Description")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Topic")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Feedbacks");
-                });
-
-            modelBuilder.Entity("CookBookWebSQL.Models.Ingredient", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<string>("CategoryIngredient")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<DateTime>("CreatedDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("Description")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Nutrition")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<DateTime>("UpdatedDate")
-                        .HasColumnType("datetime2");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Ingredients");
                 });
 
             modelBuilder.Entity("CookBookWebSQL.Models.Recipe", b =>
@@ -224,6 +128,107 @@ namespace CookBookWebSQL.Migrations
                     b.ToTable("RecipeImages");
                 });
 
+            modelBuilder.Entity("CookBookWebSQL.Models.Restaurant", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<DateTime>("CreatedDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Description")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("UpdatedDate")
+                        .HasColumnType("datetime2");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Restaurants");
+                });
+
+            modelBuilder.Entity("CookBookWebSQL.Models.RestaurantImage", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("ImagePath")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int?>("RestaurantId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("RestaurantId");
+
+                    b.ToTable("RestaurantImages");
+                });
+
+            modelBuilder.Entity("CookBookWebSQL.Models.RestaurantMenu", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<DateTime>("Created")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("MenuName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<decimal>("Price")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<string>("Recipe")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("Updated")
+                        .HasColumnType("datetime2");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("RestaurantMenus");
+                });
+
+            modelBuilder.Entity("CookBookWebSQL.Models.RestaurantMenuImage", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("MenuPath")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int?>("RestaurantMenuId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("RestaurantMenuId");
+
+                    b.ToTable("RestaurantMenuImages");
+                });
+
             modelBuilder.Entity("CookBookWebSQL.Models.User", b =>
                 {
                     b.Property<int>("Id")
@@ -277,10 +282,7 @@ namespace CookBookWebSQL.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<int>("UserId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("UserId1")
+                    b.Property<int?>("UserId")
                         .HasColumnType("int");
 
                     b.Property<string>("userImagePath")
@@ -291,70 +293,37 @@ namespace CookBookWebSQL.Migrations
 
                     b.HasIndex("UserId");
 
-                    b.HasIndex("UserId1");
-
                     b.ToTable("UserImages");
                 });
 
-            modelBuilder.Entity("Restaurant", b =>
+            modelBuilder.Entity("RestaurantRestaurantMenu", b =>
                 {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
+                    b.Property<int>("RestaurantMenusId")
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+                    b.Property<int>("RestaurantsId")
+                        .HasColumnType("int");
 
-                    b.Property<string>("Address")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                    b.HasKey("RestaurantMenusId", "RestaurantsId");
 
-                    b.Property<string>("Description")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                    b.HasIndex("RestaurantsId");
 
-                    b.Property<string>("GoogleMap")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<double>("Latitude")
-                        .HasColumnType("float");
-
-                    b.Property<double>("Longitude")
-                        .HasColumnType("float");
-
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Restaurants");
+                    b.ToTable("RestaurantRestaurantMenu");
                 });
 
-            modelBuilder.Entity("CookBookWebSQL.IngredientImage", b =>
+            modelBuilder.Entity("CategoryRecipe", b =>
                 {
-                    b.HasOne("CookBookWebSQL.Models.Ingredient", null)
-                        .WithMany("Images")
-                        .HasForeignKey("IngredientId");
-                });
-
-            modelBuilder.Entity("CookBookWebSQL.Models.CategoryRecipe", b =>
-                {
-                    b.HasOne("CookBookWebSQL.Models.Category", "Category")
-                        .WithMany("CategoryRecipes")
-                        .HasForeignKey("CategoryId")
+                    b.HasOne("CookBookWebSQL.Models.Category", null)
+                        .WithMany()
+                        .HasForeignKey("CategoriesId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("CookBookWebSQL.Models.Recipe", "Recipe")
-                        .WithMany("CategoryRecipe")
-                        .HasForeignKey("RecipeId")
+                    b.HasOne("CookBookWebSQL.Models.Recipe", null)
+                        .WithMany()
+                        .HasForeignKey("RecipesId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
-
-                    b.Navigation("Category");
-
-                    b.Navigation("Recipe");
                 });
 
             modelBuilder.Entity("CookBookWebSQL.Models.Recipe", b =>
@@ -390,16 +359,7 @@ namespace CookBookWebSQL.Migrations
                     b.HasOne("CookBookWebSQL.Models.User", null)
                         .WithMany("Images")
                         .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("CookBookWebSQL.Models.User", "User")
-                        .WithMany()
-                        .HasForeignKey("UserId1")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("User");
+                        .OnDelete(DeleteBehavior.Cascade);
                 });
 
             modelBuilder.Entity("RestaurantRestaurantMenu", b =>
@@ -422,19 +382,7 @@ namespace CookBookWebSQL.Migrations
                     b.Navigation("Recipes");
                 });
 
-            modelBuilder.Entity("CookBookWebSQL.Models.Ingredient", b =>
-                {
-                    b.Navigation("Images");
-                });
-
             modelBuilder.Entity("CookBookWebSQL.Models.Recipe", b =>
-                {
-                    b.Navigation("CategoryRecipe");
-
-                    b.Navigation("Images");
-                });
-
-            modelBuilder.Entity("CookBookWebSQL.Models.User", b =>
                 {
                     b.Navigation("Images");
                 });

@@ -15,13 +15,13 @@ namespace CookBookWebSQL.Service
 
         public async Task AddComment(Comment comment)
         {
-            _context.Comments.Add(comment);
+            //_context.Comments.Add(comment);
             await _context.SaveChangesAsync();
         }
 
         public async Task<List<Comment>> GetCommentsByRecipeId(int recipeId)
         {
-            return await _context.Comments.Where(c => c.RecipeId == recipeId).ToListAsync();
+            return [];//await _context.Comments.Where(c => c.RecipeId == recipeId).ToListAsync();
         }
     }
 }
