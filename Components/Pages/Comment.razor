@@ -1,5 +1,7 @@
 @page "/comments"
 @inject CookBookWebSQL.Service.RecipeService RecipeService
+@inject CookBookWebSQL.Service.CommentService CommentService
+@inject CookBookWebSQL.Models.Comment model
 
 <h3>Comment</h3>
 
@@ -46,6 +48,8 @@
     private int Rating;
     private string CommentText;
 
+    private List<Comment> newComment = new List<Comment>();
+
     protected override async Task OnInitializedAsync()
     {
         // Fetch recipes from the database
@@ -60,6 +64,20 @@
             return;
         }
 
-        // Add code here to save the comment to the database
+        var newComment = new Models.Comment
+    {
+        Name = Name,
+        RecipeId = SelectedRecipeId.Value,
+        Rating = Rating,
+        Text = CommentText
+    };
+
+    await CommentService.AddComment(newComment);
+
+    // Optionally clear the form
+    Name = string.Empty;
+    Rating = 0;
+    CommentText = string.Empty;
+    SelectedRecipeId = null;
     }
 }

@@ -1,14 +1,17 @@
-using Microsoft.EntityFrameworkCore;
+using Azure.Core.Pipeline;
 using CookBookWebSQL.Models;
+using Microsoft.EntityFrameworkCore;
 
-namespace CookBookWebSQL;
-
-public class CookBookDBContext : DbContext
+namespace CookBookWebSQL
 {
-    public CookBookDBContext(DbContextOptions<CookBookDBContext> options) : base(options)
+    public class CookBookDBContext : DbContext
     {
-        Database.EnsureCreated();
-    }
+        private readonly HttpPipeline _pipeline;
+
+        public CookBookDBContext(DbContextOptions<CookBookDBContext> options) : base(options)
+        {
+            Database.EnsureCreated();
+        }
 
     public DbSet<Cuisine> Cuisines { get; set; }
     public DbSet<Category> Categories { get; set; }
@@ -33,25 +36,19 @@ public class CookBookDBContext : DbContext
             .HasForeignKey("UserId")
             .OnDelete(DeleteBehavior.Cascade);
 
-        // Recipe - Category (Many-to-Many)
-        modelBuilder.Entity<CategoryRecipe>()
-            .HasKey(cr => new { cr.RecipeId, cr.CategoryId });
+            // Configure Recipe-Category many-to-many relationship
+            modelBuilder.Entity<CategoryRecipe>()
+                .HasKey(cr => new { cr.RecipeId, cr.CategoryId });
 
-        modelBuilder.Entity<CategoryRecipe>()
-            .HasOne(cr => cr.Recipe)
-            .WithMany(r => r.CategoryRecipe)
-            .HasForeignKey(cr => cr.RecipeId)
-            .OnDelete(DeleteBehavior.Cascade);
+            modelBuilder.Entity<CategoryRecipe>()
+                .HasOne(cr => cr.Recipe)
+                .WithMany(r => r.CategoryRecipe)
+                .HasForeignKey(cr => cr.RecipeId);
 
-        modelBuilder.Entity<CategoryRecipe>()
-            .HasOne(cr => cr.Category)
-            .WithMany(c => c.CategoryRecipes)
-            .HasForeignKey(cr => cr.CategoryId)
-            .OnDelete(DeleteBehavior.Cascade);
-
-        // Add additional model configurations below, if needed
-
-        base.OnModelCreating(modelBuilder);
+            modelBuilder.Entity<CategoryRecipe>()
+                .HasOne(cr => cr.Category)
+                .WithMany(c => c.CategoryRecipes)
+                .HasForeignKey(cr => cr.CategoryId);
+        }
     }
-    
 }

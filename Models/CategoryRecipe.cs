@@ -1,16 +1,15 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+using System.ComponentModel.DataAnnotations;
 
 namespace CookBookWebSQL.Models
 {
     public class CategoryRecipe
     {
+        [Key]
         public int RecipeId { get; set; }
-        public Recipe? Recipe { get; set; }
-
+        [Key]
         public int CategoryId { get; set; }
+
+        public Recipe? Recipe { get; set; } 
         public Category? Category { get; set; }
     }
 }

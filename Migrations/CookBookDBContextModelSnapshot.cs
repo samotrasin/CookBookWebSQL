@@ -454,6 +454,7 @@ namespace CookBookWebSQL.Migrations
                     b.Navigation("Images");
                 });
 #pragma warning restore 612, 618
+                });
         }
-    }
-}
+    }       
+};

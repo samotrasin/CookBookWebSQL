@@ -64,7 +64,7 @@
                 <td>
                     @foreach(var categoryRecipe in rec.CategoryRecipe)
                     {
-                        @categoryRecipe.Category.Name
+                        //@categoryRecipe.Category.Name
                     }
                 </td>
                 <td>@rec.CreatedDate</td>
@@ -340,11 +340,11 @@
     {
         if (isCategoryAscending)
         {
-            filteredRecipes = filteredRecipes.OrderBy(r => r.CategoryRecipe.FirstOrDefault()?.Category.Name).ToList();
+            //filteredRecipes = filteredRecipes.OrderBy(r => r.CategoryRecipe.FirstOrDefault()?.Category.Name).ToList();
         }
         else
         {
-            filteredRecipes = filteredRecipes.OrderByDescending(r => r.CategoryRecipe.FirstOrDefault()?.Category.Name).ToList();
+            //filteredRecipes = filteredRecipes.OrderByDescending(r => r.CategoryRecipe.FirstOrDefault()?.Category.Name).ToList();
         }
         isCategoryAscending = !isCategoryAscending;
         }
