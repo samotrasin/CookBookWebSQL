@@ -14,7 +14,7 @@ builder.Services.AddRazorComponents()
 
 // Register the DbContext with the dependency injection container
 builder.Services.AddDbContext<CookBookDBContext>(options =>
-    options.UseSqlServer(builder.Configuration.GetConnectionString("CookBookDb")));
+    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
 //Register the CuisineService
 builder.Services.AddScoped<CuisineService>();
@@ -26,16 +26,17 @@ builder.Services.AddScoped<CategoryService>();
 builder.Services.AddScoped<IngredientService>();
 builder.Services.AddScoped<UserService>();
 builder.Services.AddScoped<FeedbackService>();
-builder.Services.AddRazorPages(); builder.Services.AddServerSideBlazor(); builder.Services.AddScoped<CookBookWebSQL.Service.RestaurantService>();
+builder.Services.AddScoped<RestaurantService>();
+builder.Services.AddRazorPages(); builder.Services.AddServerSideBlazor(); 
 
 var app = builder.Build();
 
-// run every web app starts
-using (var scope = app.Services.CreateScope()){
-    var services = scope.ServiceProvider;
-    var db = services.GetRequiredService<CookBookDBContext>();
-    //db.Database.Migrate();
-}
+//run every web app starts
+// using (var scope = app.Services.CreateScope()){
+//     var services = scope.ServiceProvider;
+//     var db = services.GetRequiredService<CookBookDBContext>();
+//     db.Database.Migrate();
+// }
 
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())
