@@ -22,6 +22,7 @@ public class CookBookDBContext : DbContext
     public DbSet<Feedback> Feedbacks { get; set; }
     public DbSet<AdminDashboard> AdminDashboards { get; set; }
     public DbSet<Restaurant> Restaurants { get; set; }
+    public DbSet<RestaurantMenu> RestaurantMenus { get; set; }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
