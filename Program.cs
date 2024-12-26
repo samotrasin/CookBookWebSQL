@@ -19,6 +19,7 @@ builder.Services.AddDbContext<CookBookDBContext>(options =>
 //Register the CuisineService
 builder.Services.AddScoped<CuisineService>();
 //Register the RecipeService
+builder.Services.AddScoped<CommentService>();
 builder.Services.AddScoped<RecipeService>();
 //Register the CategoryService
 builder.Services.AddScoped<CategoryService>();
